@@ -13219,16 +13219,16 @@ const BRANDS_DEEP_DATA = [
       "handle": "saddlebackbags",
       "verified": true,
       "url": "https://www.instagram.com/saddlebackbags/",
-      "publicacoes": "3.080",
-      "seguidores": "190 K",
+      "publicacoes": "2.104",
+      "seguidores": "96 K",
       "seguidoresNum": 190000,
-      "seguindo": "450",
+      "seguindo": "1.077",
       "categoriaIg": "Leather Goods Manufacturer",
       "bio": [
-        "They'll fight over it when you're dead.™",
+        "“They'll Fight Over It When You're Dead.”",
         "🛡 100-Year Warranty on all leather gear",
-        "🚫 No zippers. No snaps. No cheap shortcuts.",
-        "🤠 Handcrafted by master craftsmen since 2003"
+        "💼 Full-Grain Leather Goods & Briefcases",
+        "📍 EUA (Texas)"
       ],
       "linkBio": "saddlebackleather.com",
       "destaques": [
@@ -13261,18 +13261,58 @@ const BRANDS_DEEP_DATA = [
       ],
       "postsGrid": [
         {
-          "tipo": "reel",
-          "pin": true,
-          "overlay": "Why zippers suck: Buckles will outlive your grandchildren",
-          "views": "620K",
-          "thumb": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80"
+          "id": "saddleback_1",
+          "tipo": "Reels",
+          "isPinned": true,
+          "curtidas": "4.5K",
+          "comentarios": "48",
+          "tag": "Destaque",
+          "img": "assets/instagram/saddleback/post_1.jpg"
         },
         {
-          "tipo": "carrossel",
-          "pin": false,
-          "overlay": "Father passing 20-year-old briefcase to son at graduation",
-          "views": "310K",
-          "thumb": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80"
+          "id": "saddleback_2",
+          "tipo": "Carrossel",
+          "isPinned": true,
+          "curtidas": "6.3K",
+          "comentarios": "62",
+          "tag": "Destaque",
+          "img": "assets/instagram/saddleback/post_2.jpg"
+        },
+        {
+          "id": "saddleback_3",
+          "tipo": "Foto",
+          "isPinned": true,
+          "curtidas": "8.1K",
+          "comentarios": "76",
+          "tag": "Pele",
+          "img": "assets/instagram/saddleback/post_3.jpg"
+        },
+        {
+          "id": "saddleback_4",
+          "tipo": "Reels",
+          "isPinned": false,
+          "curtidas": "9.9K",
+          "comentarios": "90",
+          "tag": "Reels",
+          "img": "assets/instagram/saddleback/post_4.jpg"
+        },
+        {
+          "id": "saddleback_5",
+          "tipo": "Carrossel",
+          "isPinned": false,
+          "curtidas": "11.7K",
+          "comentarios": "104",
+          "tag": "Pele",
+          "img": "assets/instagram/saddleback/post_5.jpg"
+        },
+        {
+          "id": "saddleback_6",
+          "tipo": "Reels",
+          "isPinned": false,
+          "curtidas": "13.5K",
+          "comentarios": "118",
+          "tag": "Reels",
+          "img": "assets/instagram/saddleback/post_6.jpg"
         }
       ]
     },
