@@ -1,0 +1,39 @@
+{
+  "desktop": {
+    "viewport": "1440x900",
+    "screenshots": [
+      "desktop_01_lockscreen.png",
+      "desktop_02_header_overview.png",
+      "desktop_03_brand_cards.png",
+      "desktop_05_matriz_comparativa.png",
+      "desktop_06_matriz_malas.png",
+      "desktop_07_matriz_sorted_price_desc.png"
+    ],
+    "metrics": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "hasOverflow": false,
+      "consoleErrors": []
+    },
+    "evaluations": {}
+  },
+  "mobile": {
+    "viewport": "390x844 (iPhone 13/14)",
+    "screenshots": [
+      "mobile_01_lockscreen.png",
+      "mobile_02_header_nav.png",
+      "mobile_03_category_pills.png",
+      "mobile_04_brand_feed_card.png",
+      "mobile_06_matriz_overview.png",
+      "mobile_07_matriz_table_scrolled.png"
+    ],
+    "metrics": {
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "hasOverflow": false,
+      "consoleErrors": []
+    },
+    "evaluations": {}
+  }
+}
