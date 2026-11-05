@@ -9,7 +9,7 @@ Inteligência competitiva, benchmarking e monitorização de 91 marcas internaci
 
 ## 🔒 Segurança & Privacidade
 - **Acesso com Palavra-passe:** O dashboard está protegido por uma tela de login de luxo.
-  - Palavra-passe predefinida: `concorrencia2026`
+  - Palavra-passe predefinida: `CHAZE`
   - Para alterar, edite a constante `DASHBOARD_PASSWORD` ou o hash SHA-256 no início do script em `index.html`.
 - **Anti-Indexação Google:**
   - `robots.txt` com `Disallow: /`

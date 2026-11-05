@@ -519,9 +519,9 @@
   </div>
 
   <!-- DATA & APP SCRIPT -->
-  <script src="data/sync_status.js?v=20261105_2225"></script>
-  <script src="data/real_ig_posts.js?v=20261105_2225"></script>
-  <script src="data/brands_deep_data.js?v=20261105_2225"></script>
+  <script src="data/sync_status.js?v=20261105_2230"></script>
+  <script src="data/real_ig_posts.js?v=20261105_2230"></script>
+  <script src="data/brands_deep_data.js?v=20261105_2230"></script>
   <script>
     // Flag Mapping: Real Country Flags saved locally in assets/flags/
     const BRAND_COUNTRY_MAP = {
@@ -569,8 +569,8 @@
     // ==========================================
     // Palavra-passe predefinida: 'concorrencia2026'
     // Para alterar a palavra-passe, altere o DASHBOARD_PASSWORD ou o hash SHA-256 correspondente
-    const DASHBOARD_PASSWORD = 'concorrencia2026';
-    const DASHBOARD_AUTH_HASH = '5b2a2786af8b9b4328a55eeb4c68d4111f87a3fd8cafa9d8ff83fe1bd18da054';
+    const DASHBOARD_PASSWORD = 'CHAZE';
+    const DASHBOARD_AUTH_HASH = 'fa4f6a2f731c8cd840dbf30ccfd600f158ddcb41897a6ce42cec652ae58b9903';
     const AUTH_STORAGE_KEY = 'concorrencia_auth_session';
 
     async function sha256(str) {
@@ -630,7 +630,7 @@
       const entered = pwdInput ? pwdInput.value : '';
       const hash = await sha256(entered);
 
-      if (hash === DASHBOARD_AUTH_HASH || entered === DASHBOARD_PASSWORD) {
+      if (hash === DASHBOARD_AUTH_HASH || entered.toUpperCase() === 'CHAZE') {
         if (remember) {
           localStorage.setItem(AUTH_STORAGE_KEY, DASHBOARD_AUTH_HASH);
         } else {
