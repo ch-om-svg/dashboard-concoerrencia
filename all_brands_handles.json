@@ -1,0 +1,632 @@
+[
+  {
+    "idx": 1,
+    "id": "redwing",
+    "name": "Red Wing Shoes / Red Wing Heritage",
+    "cat": "botas",
+    "handle": "redwingheritage"
+  },
+  {
+    "idx": 2,
+    "id": "thursday",
+    "name": "Thursday Boot Company",
+    "cat": "botas",
+    "handle": "thursdayboots"
+  },
+  {
+    "idx": 3,
+    "id": "truman",
+    "name": "Truman Boot Company",
+    "cat": "botas",
+    "handle": "trumanbootcompany"
+  },
+  {
+    "idx": 4,
+    "id": "nicksboots",
+    "name": "Nick's Handmade Boots",
+    "cat": "botas",
+    "handle": "nickshandmadeboots"
+  },
+  {
+    "idx": 5,
+    "id": "whitesboots",
+    "name": "White's Boots",
+    "cat": "botas",
+    "handle": "whitesboots"
+  },
+  {
+    "idx": 6,
+    "id": "wescoboots",
+    "name": "Wesco",
+    "cat": "botas",
+    "handle": "wescoboots"
+  },
+  {
+    "idx": 7,
+    "id": "franksboots",
+    "name": "Frank's Boots",
+    "cat": "botas",
+    "handle": "franksbootcompany"
+  },
+  {
+    "idx": 8,
+    "id": "jkboots",
+    "name": "JK Boots",
+    "cat": "botas",
+    "handle": "jkboots"
+  },
+  {
+    "idx": 9,
+    "id": "drewsboots",
+    "name": "Drew's Boots",
+    "cat": "botas",
+    "handle": "drewsboots"
+  },
+  {
+    "idx": 10,
+    "id": "viberg",
+    "name": "Viberg",
+    "cat": "botas",
+    "handle": "vibergboot"
+  },
+  {
+    "idx": 11,
+    "id": "grantstone_boots",
+    "name": "Grant Stone",
+    "cat": "botas",
+    "handle": "grantstone"
+  },
+  {
+    "idx": 12,
+    "id": "parkhurst",
+    "name": "Parkhurst",
+    "cat": "botas",
+    "handle": "wearparkhurst"
+  },
+  {
+    "idx": 13,
+    "id": "oakstreet_boots",
+    "name": "Oak Street Bootmakers",
+    "cat": "botas",
+    "handle": "oakstreetbootmakers"
+  },
+  {
+    "idx": 14,
+    "id": "rancourt_boots",
+    "name": "Rancourt & Co.",
+    "cat": "botas",
+    "handle": "rancourtco"
+  },
+  {
+    "idx": 15,
+    "id": "russell_boots",
+    "name": "Russell Moccasin",
+    "cat": "botas",
+    "handle": "russellmoccasin"
+  },
+  {
+    "idx": 16,
+    "id": "wolverine1000",
+    "name": "Wolverine 1000 Mile",
+    "cat": "botas",
+    "handle": "wolverineboots"
+  },
+  {
+    "idx": 17,
+    "id": "thorogood_boots",
+    "name": "Thorogood",
+    "cat": "botas",
+    "handle": "thorogood_usa"
+  },
+  {
+    "idx": 18,
+    "id": "chippewa",
+    "name": "Chippewa",
+    "cat": "botas",
+    "handle": "chippewaboots"
+  },
+  {
+    "idx": 19,
+    "id": "canadawest",
+    "name": "Canada West Boots",
+    "cat": "botas",
+    "handle": "canadawestboots"
+  },
+  {
+    "idx": 20,
+    "id": "daytonboots",
+    "name": "Dayton Boots",
+    "cat": "botas",
+    "handle": "wohlford1946"
+  },
+  {
+    "idx": 21,
+    "id": "williamlennon_boots",
+    "name": "William Lennon & Co.",
+    "cat": "botas",
+    "handle": "williamlennonboots"
+  },
+  {
+    "idx": 22,
+    "id": "trickers",
+    "name": "Tricker's",
+    "cat": "botas",
+    "handle": "trickers_shoes"
+  },
+  {
+    "idx": 23,
+    "id": "cheaney_boots",
+    "name": "Joseph Cheaney & Sons",
+    "cat": "botas",
+    "handle": "josephcheaney"
+  },
+  {
+    "idx": 24,
+    "id": "grenson_boots",
+    "name": "Grenson",
+    "cat": "botas",
+    "handle": "grensonshoes"
+  },
+  {
+    "idx": 25,
+    "id": "crockett_boots",
+    "name": "Crockett & Jones",
+    "cat": "botas",
+    "handle": "crockettandjones_official"
+  },
+  {
+    "idx": 26,
+    "id": "sanders_boots",
+    "name": "Sanders & Sanders",
+    "cat": "botas",
+    "handle": "sandersshoes"
+  },
+  {
+    "idx": 27,
+    "id": "loake_boots",
+    "name": "Loake Shoemakers",
+    "cat": "botas",
+    "handle": "loakeshoemakers"
+  },
+  {
+    "idx": 28,
+    "id": "rmwilliams_boots",
+    "name": "R.M. Williams",
+    "cat": "botas",
+    "handle": "rmwilliams"
+  },
+  {
+    "idx": 29,
+    "id": "solovair",
+    "name": "Solovair",
+    "cat": "botas",
+    "handle": "solovairuk"
+  },
+  {
+    "idx": 30,
+    "id": "johnlofgren",
+    "name": "John Lofgren Bootmaker",
+    "cat": "botas",
+    "handle": "johnlofgrenbootmaker"
+  },
+  {
+    "idx": 31,
+    "id": "alden",
+    "name": "Alden Shoe Company",
+    "cat": "sapatos",
+    "handle": "aldenshoeco"
+  },
+  {
+    "idx": 32,
+    "id": "paraboot",
+    "name": "Paraboot",
+    "cat": "sapatos",
+    "handle": "paraboot_official"
+  },
+  {
+    "idx": 33,
+    "id": "trickers_shoes",
+    "name": "Tricker's",
+    "cat": "sapatos",
+    "handle": "trickers_shoes"
+  },
+  {
+    "idx": 34,
+    "id": "cheaney_shoes",
+    "name": "Joseph Cheaney & Sons",
+    "cat": "sapatos",
+    "handle": "josephcheaney"
+  },
+  {
+    "idx": 35,
+    "id": "grantstone_shoes",
+    "name": "Grant Stone",
+    "cat": "sapatos",
+    "handle": "grantstone"
+  },
+  {
+    "idx": 36,
+    "id": "oakstreet_shoes",
+    "name": "Oak Street Bootmakers",
+    "cat": "sapatos",
+    "handle": "oakstreetbootmakers"
+  },
+  {
+    "idx": 37,
+    "id": "rancourt_shoes",
+    "name": "Rancourt & Co.",
+    "cat": "sapatos",
+    "handle": "rancourtco"
+  },
+  {
+    "idx": 38,
+    "id": "quoddy",
+    "name": "Quoddy",
+    "cat": "sapatos",
+    "handle": "quoddymaine"
+  },
+  {
+    "idx": 39,
+    "id": "redwing_shoes",
+    "name": "Red Wing Heritage",
+    "cat": "sapatos",
+    "handle": "redwingheritage"
+  },
+  {
+    "idx": 40,
+    "id": "thorogood_shoes",
+    "name": "Thorogood",
+    "cat": "sapatos",
+    "handle": "thorogood_usa"
+  },
+  {
+    "idx": 41,
+    "id": "russell_shoes",
+    "name": "Russell Moccasin",
+    "cat": "sapatos",
+    "handle": "russellmoccasin"
+  },
+  {
+    "idx": 42,
+    "id": "heschung",
+    "name": "Heschung",
+    "cat": "sapatos",
+    "handle": "heschungofficial"
+  },
+  {
+    "idx": 43,
+    "id": "viberg_shoes",
+    "name": "Viberg",
+    "cat": "sapatos",
+    "handle": "vibergboot"
+  },
+  {
+    "idx": 44,
+    "id": "solovair_shoes",
+    "name": "Solovair",
+    "cat": "sapatos",
+    "handle": "solovairuk"
+  },
+  {
+    "idx": 45,
+    "id": "sanders_shoes",
+    "name": "Sanders & Sanders",
+    "cat": "sapatos",
+    "handle": "sandersshoes"
+  },
+  {
+    "idx": 46,
+    "id": "loake_shoes",
+    "name": "Loake Shoemakers",
+    "cat": "sapatos",
+    "handle": "loakeshoemakers"
+  },
+  {
+    "idx": 47,
+    "id": "grenson_shoes",
+    "name": "Grenson",
+    "cat": "sapatos",
+    "handle": "grensonshoes"
+  },
+  {
+    "idx": 48,
+    "id": "carlossantos",
+    "name": "Carlos Santos Shoes",
+    "cat": "sapatos",
+    "handle": "carlossantosshoes"
+  },
+  {
+    "idx": 49,
+    "id": "berwick1707",
+    "name": "Berwick 1707",
+    "cat": "sapatos",
+    "handle": "berwick1707_official"
+  },
+  {
+    "idx": 50,
+    "id": "meermin",
+    "name": "Meermin Mallorca",
+    "cat": "sapatos",
+    "handle": "meerminmallorca"
+  },
+  {
+    "idx": 51,
+    "id": "carmina",
+    "name": "Carmina Shoemaker",
+    "cat": "sapatos",
+    "handle": "carminashoemaker"
+  },
+  {
+    "idx": 52,
+    "id": "yuketen",
+    "name": "Yuketen",
+    "cat": "sapatos",
+    "handle": "yuketenbymegco"
+  },
+  {
+    "idx": 53,
+    "id": "astorflex",
+    "name": "Astorflex",
+    "cat": "sapatos",
+    "handle": "astorflex_official"
+  },
+  {
+    "idx": 54,
+    "id": "padmore_barnes",
+    "name": "Padmore & Barnes",
+    "cat": "sapatos",
+    "handle": "padmorebarnes"
+  },
+  {
+    "idx": 55,
+    "id": "williamlennon_shoes",
+    "name": "William Lennon & Co.",
+    "cat": "sapatos",
+    "handle": "williamlennonboots"
+  },
+  {
+    "idx": 56,
+    "id": "danner",
+    "name": "Danner",
+    "cat": "sapatos",
+    "handle": "dannerboots"
+  },
+  {
+    "idx": 57,
+    "id": "crockett_shoes",
+    "name": "Crockett & Jones",
+    "cat": "sapatos",
+    "handle": "crockettandjones_official"
+  },
+  {
+    "idx": 58,
+    "id": "tlbmallorca",
+    "name": "TLB Mallorca",
+    "cat": "sapatos",
+    "handle": "tlbmallorca.official"
+  },
+  {
+    "idx": 59,
+    "id": "yanko",
+    "name": "Yanko",
+    "cat": "sapatos",
+    "handle": "yanko_shoes"
+  },
+  {
+    "idx": 60,
+    "id": "rmwilliams_shoes",
+    "name": "R.M. Williams",
+    "cat": "sapatos",
+    "handle": "rmwilliams"
+  },
+  {
+    "idx": 61,
+    "id": "filson",
+    "name": "Filson",
+    "cat": "malas",
+    "handle": "filson1897"
+  },
+  {
+    "idx": 62,
+    "id": "saddleback",
+    "name": "Saddleback Leather",
+    "cat": "malas",
+    "handle": "saddlebackbags"
+  },
+  {
+    "idx": 63,
+    "id": "satchelpage",
+    "name": "Satchel & Page",
+    "cat": "malas",
+    "handle": "satchelandpage"
+  },
+  {
+    "idx": 64,
+    "id": "bleudechauffe",
+    "name": "Bleu de Chauffe",
+    "cat": "malas",
+    "handle": "bleudechauffe"
+  },
+  {
+    "idx": 65,
+    "id": "frankclegg",
+    "name": "Frank Clegg Leatherworks",
+    "cat": "malas",
+    "handle": "frankclegg"
+  },
+  {
+    "idx": 66,
+    "id": "tannergoods",
+    "name": "Tanner Goods",
+    "cat": "malas",
+    "handle": "tannergoods"
+  },
+  {
+    "idx": 67,
+    "id": "chapman",
+    "name": "Chapman Made",
+    "cat": "malas",
+    "handle": "chapmanbags"
+  },
+  {
+    "idx": 68,
+    "id": "billingham",
+    "name": "Billingham",
+    "cat": "malas",
+    "handle": "billinghambags"
+  },
+  {
+    "idx": 69,
+    "id": "bradybags",
+    "name": "Brady Bags",
+    "cat": "malas",
+    "handle": "brady_bags"
+  },
+  {
+    "idx": 70,
+    "id": "croots",
+    "name": "Croots England",
+    "cat": "malas",
+    "handle": "crootsengland"
+  },
+  {
+    "idx": 71,
+    "id": "tusting",
+    "name": "Tusting",
+    "cat": "malas",
+    "handle": "tusting"
+  },
+  {
+    "idx": 72,
+    "id": "jwhulme",
+    "name": "J.W. Hulme",
+    "cat": "malas",
+    "handle": "jwhulmeco"
+  },
+  {
+    "idx": 73,
+    "id": "lotuff",
+    "name": "Lotuff Leather",
+    "cat": "malas",
+    "handle": "lotuffleather"
+  },
+  {
+    "idx": 74,
+    "id": "swaine",
+    "name": "Swaine",
+    "cat": "malas",
+    "handle": "swaineofficial"
+  },
+  {
+    "idx": 75,
+    "id": "bennettwinch",
+    "name": "Bennett Winch",
+    "cat": "malas",
+    "handle": "bennett_winch"
+  },
+  {
+    "idx": 76,
+    "id": "maxwellscott",
+    "name": "Maxwell-Scott",
+    "cat": "malas",
+    "handle": "maxwellscottuk"
+  },
+  {
+    "idx": 77,
+    "id": "carlfriedrik",
+    "name": "Carl Friedrik",
+    "cat": "malas",
+    "handle": "carlfriedrik"
+  },
+  {
+    "idx": 78,
+    "id": "harberlondon",
+    "name": "Harber London",
+    "cat": "malas",
+    "handle": "harberlondon"
+  },
+  {
+    "idx": 79,
+    "id": "ghurka",
+    "name": "Ghurka",
+    "cat": "malas",
+    "handle": "ghurka"
+  },
+  {
+    "idx": 80,
+    "id": "ilbisonte",
+    "name": "Il Bisonte",
+    "cat": "malas",
+    "handle": "ilbisonteofficial"
+  },
+  {
+    "idx": 81,
+    "id": "thebridge",
+    "name": "The Bridge",
+    "cat": "malas",
+    "handle": "thebridgeitaly"
+  },
+  {
+    "idx": 82,
+    "id": "ettinger",
+    "name": "Ettinger London",
+    "cat": "malas",
+    "handle": "ettinger.london"
+  },
+  {
+    "idx": 83,
+    "id": "bradleymountain",
+    "name": "Bradley Mountain",
+    "cat": "malas",
+    "handle": "bradleymountain"
+  },
+  {
+    "idx": 84,
+    "id": "frostriver",
+    "name": "Frost River",
+    "cat": "malas",
+    "handle": "frostriver1910"
+  },
+  {
+    "idx": 85,
+    "id": "vermilyeapelle",
+    "name": "Vermilyea Pelle",
+    "cat": "malas",
+    "handle": "vermilyeapelle"
+  },
+  {
+    "idx": 86,
+    "id": "ironheart",
+    "name": "Iron Heart",
+    "cat": "malas",
+    "handle": "ironheartdenim"
+  },
+  {
+    "idx": 87,
+    "id": "redwing_acc",
+    "name": "Red Wing Accessories",
+    "cat": "malas",
+    "handle": "redwingheritage"
+  },
+  {
+    "idx": 88,
+    "id": "nicks_leather",
+    "name": "Nicks Leather Goods",
+    "cat": "malas",
+    "handle": "nickshandmadeboots"
+  },
+  {
+    "idx": 89,
+    "id": "loyalstricklin",
+    "name": "Loyal Stricklin",
+    "cat": "malas",
+    "handle": "loyalstricklin"
+  },
+  {
+    "idx": 90,
+    "id": "troubadour",
+    "name": "Troubadour",
+    "cat": "malas",
+    "handle": "troubadourgoods"
+  }
+]

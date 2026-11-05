@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Python cache & temp
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and sensitive keys
+.env
+.env.local
+
+# Logs
+*.log

@@ -1,0 +1,1080 @@
+// Dados detalhados dos 15 Concorrentes (5 Botas, 5 Sapatos, 5 Malas)
+// Analisados a partir das Lojas Online e Perfis de Instagram
+
+const BRANDS_DATA = [
+  // ==========================================
+  // BOTAS (5 MARCAS)
+  // ==========================================
+  {
+    id: "thursday",
+    name: "Thursday Boot Company",
+    categoria: "botas",
+    categoriaLabel: "Botas Heritage & Urban",
+    pais: "EUA (Nova Iorque)",
+    bandeira: "🇺🇸",
+    ano: 2014,
+    precoMedio: 220,
+    faixaPreco: "199€ - 280€",
+    posicionamento: "Direct-to-Consumer acessível com construção Goodyear welted e design clássico.",
+    website: {
+      url: "https://thursdayboots.com/",
+      plataforma: "Shopify Plus",
+      screenshot: "assets/screenshots/thursday.jpg",
+      headline: "Highest Quality. Honest Pricing.",
+      subheadline: "Handcrafted with premium materials and sold directly to you without traditional retail markups.",
+      cta: "Shop Men / Shop Women",
+      pontosFortes: [
+        "Transparência radical nos preços vs retalho de luxo tradicional",
+        "Prova social massiva com mais de 100.000 avaliações verificadas",
+        "Fotografia macro rica com foco na textura dos couros (Horween, Rugged & Resilient)",
+        "Checkout ultra-otimizado com conversão de moeda e envio internacional"
+      ],
+      politicaEnvio: "Envio gratuito nos EUA; envio internacional c/ cálculo de taxas no checkout",
+      promocoes: "Sem saldos sazonais ('Honest Pricing'); 10$ off na subscrição de newsletter"
+    },
+    instagram: {
+      handle: "@thursdayboots",
+      url: "https://www.instagram.com/thursdayboots/",
+      seguidores: "585K",
+      seguidoresNum: 585000,
+      postsCount: "3.2K",
+      ritmo: "1 a 2 posts/dia",
+      engagement: "1.8%",
+      estetica: "Estilo urbano novaiorquino, luz quente de outono, tons conhaque e café",
+      pilares: ["Lifestyle & Outfits diários", "Cortes transversais e durabilidade", "UGC de clientes", "Lançamentos de coleções"],
+      posts: [
+        {
+          id: "tb-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80",
+          tema: "Construção & Durabilidade",
+          data: "Há 1 dia",
+          likes: "18.4K",
+          comentarios: "389",
+          legenda: "5 years of relentless wear on our Captain boot in Arizona Adobe. Resoled once, conditioned twice. Built to outlive trends.",
+          url: "https://www.instagram.com/thursdayboots/"
+        },
+        {
+          id: "tb-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=600&auto=format&fit=crop&q=80",
+          tema: "Guia de Estilo / Outfits",
+          data: "Há 3 dias",
+          likes: "12.1K",
+          comentarios: "194",
+          legenda: "How to style the Cavalier Chelsea boot: 3 clean minimalist looks from raw denim to tailored wool trousers.",
+          url: "https://www.instagram.com/thursdayboots/"
+        },
+        {
+          id: "tb-3",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&auto=format&fit=crop&q=80",
+          tema: "Produto & Couro",
+          data: "Há 5 dias",
+          likes: "9.8K",
+          comentarios: "145",
+          legenda: "Rich pull-up leather that only gets better with age. The Explorer boot ready for unpredictable autumn weather.",
+          url: "https://www.instagram.com/thursdayboots/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Pioneiro D2C com volume imbatível e branding jovem extremamente aspiracional.",
+      desafio: "Puristas de botas preferem marcas com sola costurada à mão como White's ou Nick's."
+    }
+  },
+  {
+    id: "redwing",
+    name: "Red Wing Heritage",
+    categoria: "botas",
+    categoriaLabel: "Workwear Heritage Tradicional",
+    pais: "EUA (Minnesota)",
+    bandeira: "🇺🇸",
+    ano: 1905,
+    precoMedio: 370,
+    faixaPreco: "349€ - 440€",
+    posicionamento: "O grande ícone mundial de botas de trabalho e herança industrial americana.",
+    website: {
+      url: "https://eu.redwingshoes.com/",
+      plataforma: "Salesforce Commerce Cloud",
+      screenshot: "assets/screenshots/redwing.jpg",
+      headline: "Built for Life. Made in USA.",
+      subheadline: "Crafted with leather from our own S.B. Foot Tanning Co. and Goodyear welted in Red Wing, Minnesota.",
+      cta: "Explore Heritage Boots",
+      pontosFortes: [
+        "Herança e legitimidade de mais de um século (1905)",
+        "Secção dedicada de 'Shoe Care' e serviço oficial de reparação/resoling",
+        "Foco absoluto nos modelos icónicos: Iron Ranger 8111 e Classic Moc 875",
+        "Loja europeia localizada com preços em euros e stock centralizado na UE"
+      ],
+      politicaEnvio: "Envio standard gratuito acima de 150€; devoluções até 30 dias",
+      promocoes: "Raramente faz saldos; valor preservado no mercado secundário"
+    },
+    instagram: {
+      handle: "@redwingheritage",
+      url: "https://www.instagram.com/redwingheritage/",
+      seguidores: "720K",
+      seguidoresNum: 720000,
+      postsCount: "2.8K",
+      ritmo: "4 a 5 posts/semana",
+      engagement: "2.1%",
+      estetica: "Crua, oficina histórica, pó de madeira, ganga pesada e pátina profunda",
+      pilares: ["Oficina & Fabrico em Minnesota", "Pátina histórica e comunidade de utilizadores", "Workwear autêntico", "Cuidados com o couro"],
+      posts: [
+        {
+          id: "rw-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
+          tema: "Oficina & Artesanato",
+          data: "Há 1 dia",
+          likes: "24.6K",
+          comentarios: "410",
+          legenda: "Inside Plant 2 in Red Wing, MN. Triple stitching the Puritan stitch on Amber Harness leather since 1905.",
+          url: "https://www.instagram.com/redwingheritage/"
+        },
+        {
+          id: "rw-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=600&auto=format&fit=crop&q=80",
+          tema: "Pátina / Evolução de Uso",
+          data: "Há 4 dias",
+          likes: "19.3K",
+          comentarios: "285",
+          legenda: "Brand new vs. 8 years on the job. The Iron Ranger doesn’t wear out; it develops a story.",
+          url: "https://www.instagram.com/redwingheritage/"
+        },
+        {
+          id: "rw-3",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&auto=format&fit=crop&q=80",
+          tema: "Lifestyle Workwear",
+          data: "Há 6 dias",
+          likes: "15.1K",
+          comentarios: "172",
+          legenda: "Classic Moc 875 paired with Japanese selvedge denim. The original silhouette that defined a century.",
+          url: "https://www.instagram.com/redwingheritage/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Reconhecimento de marca incomparável e curtume próprio (S.B. Foot).",
+      desafio: "Período de 'break-in' inicial doloroso para alguns novos clientes; pouca diversificação de design."
+    }
+  },
+  {
+    id: "viberg",
+    name: "Viberg Boot",
+    categoria: "botas",
+    categoriaLabel: "High-End Luxury Workwear",
+    pais: "Canadá (Victoria, BC)",
+    bandeira: "🇨🇦",
+    ano: 1931,
+    precoMedio: 850,
+    faixaPreco: "780€ - 1.100€",
+    posicionamento: "O pináculo da bota de serviço e luxo artesanal norte-americano.",
+    website: {
+      url: "https://viberg.com/",
+      plataforma: "Shopify Plus (Headless)",
+      screenshot: "assets/screenshots/viberg.jpg",
+      headline: "Form Following Function. Since 1931.",
+      subheadline: "Handcrafted in Victoria, British Columbia utilizing time-honored methods and the world's finest tanneries.",
+      cta: "Explore The Service Boot",
+      pontosFortes: [
+        "Design visual ultra-editorial e minimalista de luxo",
+        "Especificações técnicas exaustivas: Forma (2030, 2040), Couros Horween Shell Cordovan e Maryam",
+        "Lançamentos em 'Drops' limitados que geram urgência e desejo",
+        "Storytelling de três gerações da família Viberg"
+      ],
+      politicaEnvio: "Envio expresso internacional via DHL; devoluções com taxa de restocking",
+      promocoes: "Sem saldos públicos; vendas de amostras ('Sample Sale') anuais com fila virtual"
+    },
+    instagram: {
+      handle: "@vibergboot",
+      url: "https://www.instagram.com/vibergboot/",
+      seguidores: "195K",
+      seguidoresNum: 195000,
+      postsCount: "1.9K",
+      ritmo: "3 posts/semana",
+      engagement: "2.4%",
+      estetica: "Fotografia macro limpa, foco escultural nas formas e no brilho natural do couro",
+      pilares: ["Drops de tiragem limitada", "Curadoria de curtumes internacionais", "Construção Stitchdown", "Estética escultural"],
+      posts: [
+        {
+          id: "vib-1",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
+          tema: "Drop de Edição Limitada",
+          data: "Há 2 dias",
+          likes: "8.9K",
+          comentarios: "162",
+          legenda: "Drop 04: The Service Boot in Color 8 Shell Cordovan on our 2030 Last. Stitchdown construction with Dainite sole.",
+          url: "https://www.instagram.com/vibergboot/"
+        },
+        {
+          id: "vib-2",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=600&auto=format&fit=crop&q=80",
+          tema: "Detalhe de Construção",
+          data: "Há 4 dias",
+          likes: "7.4K",
+          comentarios: "115",
+          legenda: "218 individual steps. Hand-trimmed welt and channeled insoles crafted in our Canadian facility.",
+          url: "https://www.instagram.com/vibergboot/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Estatuto de culto global entre colecionadores de calçado e entusiastas de 'denimheads'.",
+      desafio: "Preço muito elevado (>800€) restringe a base de clientes a nicho abastado."
+    }
+  },
+  {
+    id: "solovair",
+    name: "Solovair (NPS Shoes)",
+    categoria: "botas",
+    categoriaLabel: "British Heritage & Subcultura",
+    pais: "Reino Unido (Northamptonshire)",
+    bandeira: "🇬🇧",
+    ano: 1881,
+    precoMedio: 235,
+    faixaPreco: "210€ - 270€",
+    posicionamento: "A autêntica bota de sola de ar 'Made in England', alternativa artesanal à Dr. Martens.",
+    website: {
+      url: "https://uk.nps-solovair.com/",
+      plataforma: "Shopify Plus",
+      screenshot: "assets/screenshots/solovair.jpg",
+      headline: "Handcrafted in Northamptonshire Since 1881.",
+      subheadline: "Original Solovair sole technology combined with traditional British Goodyear welted footwear.",
+      cta: "Shop Boots Collection",
+      pontosFortes: [
+        "Autenticidade 'Made in England' explicitada em todos os pontos de contacto",
+        "Comparador implícito muito forte contra a produção asiática das marcas rivais",
+        "Guia completo de medidas e ajuste de formas (lasts)",
+        "Avaliações transparentes com fotos de compradores"
+      ],
+      politicaEnvio: "Envio gratuito para UK acima de 100£; portes fixos e claros para a União Europeia",
+      promocoes: "Secção de outlet/factory seconds periódica; 10% na 1ª encomenda"
+    },
+    instagram: {
+      handle: "@solovairuk",
+      url: "https://www.instagram.com/solovairuk/",
+      seguidores: "220K",
+      seguidoresNum: 220000,
+      postsCount: "1.6K",
+      ritmo: "1 post/dia",
+      engagement: "2.0%",
+      estetica: "Subcultura britânica, música, pós-punk, contrastes urbanos e solas icónicas",
+      pilares: ["Tradição de Northamptonshire", "Subcultura musical britânica", "Guia de reparação e cuidados", "Estilo urbano unissexo"],
+      posts: [
+        {
+          id: "sol-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80",
+          tema: "Fabrico em Inglaterra",
+          data: "Há 1 dia",
+          likes: "11.7K",
+          comentarios: "215",
+          legenda: "Heat-sealing the signature air-cushioned sole in our Wollaston factory. 100% made in England.",
+          url: "https://www.instagram.com/solovairuk/"
+        },
+        {
+          id: "sol-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&auto=format&fit=crop&q=80",
+          tema: "Street Style",
+          data: "Há 3 dias",
+          likes: "8.3K",
+          comentarios: "98",
+          legenda: "The 8-Eye Derby Boot in Hi-Shine Black. Classic British attitude on the streets of London.",
+          url: "https://www.instagram.com/solovairuk/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Grande benefício da migração de fãs de Dr. Martens insatisfeitos com a deslocalização da produção.",
+      desafio: "Acabamento 'Hi-Shine' (pele retificada) gera debate entre puristas que preferem couro 'full-grain'."
+    }
+  },
+  {
+    id: "trickers",
+    name: "Tricker's",
+    categoria: "botas",
+    categoriaLabel: "Aristocracia Britânica & Country Boots",
+    pais: "Reino Unido (Northampton)",
+    bandeira: "🇬🇧",
+    ano: 1829,
+    precoMedio: 680,
+    faixaPreco: "620€ - 790€",
+    posicionamento: "A mais antiga fábrica de calçado de Northampton com Royal Warrant (Sua Majestade Rei Carlos III).",
+    website: {
+      url: "https://trickers.com/",
+      plataforma: "Shopify Plus",
+      screenshot: "assets/screenshots/trickers.jpg",
+      headline: "The Original Heavy Duty Country Boot. Since 1829.",
+      subheadline: "Makers of the finest handcrafted English shoes and boots, granted the Royal Warrant.",
+      cta: "Discover The Stow Boot",
+      pontosFortes: [
+        "Selo Royal Warrant com enorme prestígio internacional (especialmente no Japão)",
+        "Serviço oficial de restauro onde a bota regressa à fábrica original",
+        "Linhas intemporais 'Stow' e 'Bourton' com perfurações brogue inconfundíveis",
+        "Narrativa de durabilidade de 30+ anos de vida útil"
+      ],
+      politicaEnvio: "Envio expresso internacional com todos os impostos pré-pagos (DDP)",
+      promocoes: "Saldos sazonais de inverno/verão até 30% em modelos selecionados"
+    },
+    instagram: {
+      handle: "@trickers_shoes",
+      url: "https://www.instagram.com/trickers_shoes/",
+      seguidores: "148K",
+      seguidoresNum: 148000,
+      postsCount: "2.1K",
+      ritmo: "4 posts/semana",
+      engagement: "1.7%",
+      estetica: "Campestre britânico (tweed, carvalho, caça, campos ingleses), nobreza e tradição",
+      pilares: ["Herança Royal Warrant", "Country Boots Stow & Bourton", "Artesãos de Northampton", "Estilo Gentleman Tradicional"],
+      posts: [
+        {
+          id: "tri-1",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
+          tema: "Royal Warrant & Tradição",
+          data: "Há 2 dias",
+          likes: "6.2K",
+          comentarios: "89",
+          legenda: "The iconic Stow Country Boot in Acorn Antique. Built to endure British weather and walk the countryside since 1829.",
+          url: "https://www.instagram.com/trickers_shoes/"
+        },
+        {
+          id: "tri-2",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=600&auto=format&fit=crop&q=80",
+          tema: "Restauração de Botas",
+          data: "Há 5 dias",
+          likes: "9.5K",
+          comentarios: "140",
+          legenda: "A 25-year-old pair of Bourton shoes returned to our Northampton factory for a complete resole. Good for another 25.",
+          url: "https://www.instagram.com/trickers_shoes/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Prestígio histórico imbatível e estética 'English Country' reconhecida em todo o mundo.",
+      desafio: "Forma pesada (heavy last 4497S) pode parecer excessivamente robusta para ambiente corporativo moderno."
+    }
+  },
+
+  // ==========================================
+  // SAPATOS (5 MARCAS)
+  // ==========================================
+  {
+    id: "carlossantos",
+    name: "Carlos Santos Shoes",
+    categoria: "sapatos",
+    categoriaLabel: "Alta Sapataria Goodyear Welted Portuguesa",
+    pais: "Portugal (S. João da Madeira)",
+    bandeira: "🇵🇹",
+    ano: 1942,
+    precoMedio: 380,
+    faixaPreco: "340€ - 490€",
+    posicionamento: "O expoente máximo da manufatura de calçado de luxo e pátina artesanal em Portugal.",
+    website: {
+      url: "https://www.santosshoes.com/",
+      plataforma: "WooCommerce / Custom",
+      screenshot: "assets/screenshots/carlossantos.jpg",
+      headline: "Steeped in Tradition. Crafted for the Modern Gentleman.",
+      subheadline: "Handcrafted Goodyear Welted luxury shoes made in Portugal with bespoke patinas.",
+      cta: "Explore Collection",
+      pontosFortes: [
+        "Foco excecional nas pátinas manuais aplicadas por mestres artesãos",
+        "Valor 'Made in Portugal' associado à mais fina tradição europeia",
+        "Diversidade de modelos: Derbies, Monkstraps, Loafers e Oxfords clássicos",
+        "Customização e personalização de cores para clientes exigentes"
+      ],
+      politicaEnvio: "Envio gratuito para a União Europeia; devoluções descomplicadas",
+      promocoes: "Privilege club com acesso antecipado; promoções sazonais comedidas"
+    },
+    instagram: {
+      handle: "@carlossantosshoes",
+      url: "https://www.instagram.com/carlossantosshoes/",
+      seguidores: "115K",
+      seguidoresNum: 115000,
+      postsCount: "1.7K",
+      ritmo: "3 a 4 posts/semana",
+      engagement: "1.9%",
+      estetica: "Elegância alfaiataria, pátinas em degradé artístico, luz suave e requinte clássico",
+      pilares: ["Processo de Pátina Manual", "Sartorial Lifestyle (fatos e alfaiataria)", "Produção em S. João da Madeira", "Detalhe de acabamento Goodyear"],
+      posts: [
+        {
+          id: "cs-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=600&auto=format&fit=crop&q=80",
+          tema: "Pátina Manual em Vídeo",
+          data: "Há 1 dia",
+          likes: "8.6K",
+          comentarios: "142",
+          legenda: "The delicate brush strokes behind our Braga Patina. Transforming crust calf leather into wearable art in Portugal.",
+          url: "https://www.instagram.com/carlossantosshoes/"
+        },
+        {
+          id: "cs-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&auto=format&fit=crop&q=80",
+          tema: "Sartorial Lookbook",
+          data: "Há 4 dias",
+          likes: "5.7K",
+          comentarios: "86",
+          legenda: "The Double Monkstrap in Alentejo Brown. Effortless sophistication paired with flannel tailoring.",
+          url: "https://www.instagram.com/carlossantosshoes/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Excelente relação qualidade/preço europeia com acabamento de pátina comparável a marcas de 800€+.",
+      desafio: "Presença digital em e-commerce menos agressiva que concorrentes D2C internacionais."
+    }
+  },
+  {
+    id: "paraboot",
+    name: "Paraboot",
+    categoria: "sapatos",
+    categoriaLabel: "French Icon & Costura Norueguesa",
+    pais: "França (Izeaux)",
+    bandeira: "🇫🇷",
+    ano: 1908,
+    precoMedio: 460,
+    faixaPreco: "420€ - 520€",
+    posicionamento: "Calçado icónico francês com solas de borracha vulcanizada e costura norueguesa impermeável.",
+    website: {
+      url: "https://www.paraboot.com/",
+      plataforma: "PrestaShop / Custom",
+      screenshot: "assets/screenshots/paraboot.jpg",
+      headline: "Authenticité, Qualité et Savoir-Faire Français.",
+      subheadline: "Fabriqué en France avec semelles en gomme naturelle et cousu norvégien depuis 1908.",
+      cta: "Découvrir la Collection Michael",
+      pontosFortes: [
+        "Modelos que se tornaram símbolos mundiais de moda ('Michael' e 'Chambord')",
+        "Solas de borracha natural proprietárias produzidas na própria fábrica em França",
+        "Costura norueguesa (Norwegian welt) que garante impermeabilidade lendária",
+        "Poderosa penetração no mercado japonês e europeu de alta moda casual"
+      ],
+      politicaEnvio: "Envio gratuito em França e Europa acima de 250€",
+      promocoes: "Política rígida sem promoções públicas para preservar valor do ícone"
+    },
+    instagram: {
+      handle: "@paraboot_official",
+      url: "https://www.instagram.com/paraboot_official/",
+      seguidores: "260K",
+      seguidoresNum: 260000,
+      postsCount: "1.4K",
+      ritmo: "3 posts/semana",
+      engagement: "2.3%",
+      estetica: "Chic francês despretensioso, editorial parisiense, styling Tokyo-Paris",
+      pilares: ["O Ícone Michael no quotidiano", "Fabrico nos Alpes Franceses", "Estilo Unisexo / Contemporary Ivy", "Colaborações com criadores"],
+      posts: [
+        {
+          id: "pb-1",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
+          tema: "Ícone Michael",
+          data: "Há 2 dias",
+          likes: "14.1K",
+          comentarios: "198",
+          legenda: "The legendary Michael in Marron Lis Écorce. Born in 1945, continually redefining timeless footwear.",
+          url: "https://www.instagram.com/paraboot_official/"
+        },
+        {
+          id: "pb-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=600&auto=format&fit=crop&q=80",
+          tema: "Streetstyle Tóquio / Paris",
+          data: "Há 4 dias",
+          likes: "11.5K",
+          comentarios: "123",
+          legenda: "Spotted in Daikanyama: Chambord derbies with wide-leg trousers and heavy knitwear.",
+          url: "https://www.instagram.com/paraboot_official/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Estatuto de objeto de culto global com procura quase imune a flutuações sazonais.",
+      desafio: "Design polarizador da biqueira 'tyrolean' não agrada a consumidores formais convencionais."
+    }
+  },
+  {
+    id: "carmina",
+    name: "Carmina Shoemaker",
+    categoria: "sapatos",
+    categoriaLabel: "Sapataria Clássica Maiorquina & Cordovan",
+    pais: "Espanha (Maiorca)",
+    bandeira: "🇪🇸",
+    ano: 1866,
+    precoMedio: 490,
+    faixaPreco: "420€ - 850€",
+    posicionamento: "Sapataria requintada de Maiorca, líder mundial em modelos sob encomenda e Shell Cordovan.",
+    website: {
+      url: "https://www.carminashoemaker.com/",
+      plataforma: "Magento Commerce",
+      screenshot: "assets/screenshots/carmina.jpg",
+      headline: "The Finest Goodyear Welted Shoes.",
+      subheadline: "Handcrafted in Mallorca since 1866. Specialists in Genuine Horween Shell Cordovan.",
+      cta: "Explore Customizer & MTO",
+      pontosFortes: [
+        "Configurador 3D / MTO (Made-to-Order) líder no setor de calçado clássico",
+        "Maior stock de cores de Horween Shell Cordovan do mercado europeu",
+        "Formas (lasts) perfeitamente documentadas com recomendações por tipo de peito do pé",
+        "Experiência omnichannel com lojas próprias em Madrid, Paris e Nova Iorque"
+      ],
+      politicaEnvio: "Envio gratuito mundial para encomendas acima de 300€",
+      promocoes: "Semanas MTO sem taxa adicional ('Waived Fee Weekend'); outlet regular"
+    },
+    instagram: {
+      handle: "@carminashoemaker",
+      url: "https://www.instagram.com/carminashoemaker/",
+      seguidores: "295K",
+      seguidoresNum: 295000,
+      postsCount: "3.4K",
+      ritmo: "1 post/dia",
+      engagement: "1.6%",
+      estetica: "Refinamento mediterrânico luxuoso, luz quente de Maiorca, alfaiataria impecável",
+      pilares: ["Configurações Custom / MTO de clientes", "Horween Shell Cordovan", "Formas Rain, Simpson e Inca", "Tradição familiar da família Albaladejo"],
+      posts: [
+        {
+          id: "cm-1",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=600&auto=format&fit=crop&q=80",
+          tema: "Shell Cordovan MTO",
+          data: "Há 1 dia",
+          likes: "9.2K",
+          comentarios: "167",
+          legenda: "Custom Wingtip Derbies in Bourbon Shell Cordovan with storm welt and double leather sole. Crafted in Inca, Mallorca.",
+          url: "https://www.instagram.com/carminashoemaker/"
+        },
+        {
+          id: "cm-2",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&auto=format&fit=crop&q=80",
+          tema: "Forma & Calce",
+          data: "Há 3 dias",
+          likes: "7.8K",
+          comentarios: "105",
+          legenda: "Understanding our Rain last: an almond toe shape with generous instep suited for all-day comfort.",
+          url: "https://www.instagram.com/carminashoemaker/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "O configurador digital 3D e variedade de couros exóticos são a referência absoluta da indústria.",
+      desafio: "Complexidade de inventário e prazos mais longos para encomendas personalizadas."
+    }
+  },
+  {
+    id: "meermin",
+    name: "Meermin Mallorca",
+    categoria: "sapatos",
+    categoriaLabel: "Value King D2C Goodyear Welted",
+    pais: "Espanha (Maiorca / Fabrico próprio)",
+    bandeira: "🇪🇸",
+    ano: 2001,
+    precoMedio: 210,
+    faixaPreco: "195€ - 260€",
+    posicionamento: "O rei do custo-benefício em calçado clássico Goodyear welted com modelo D2C sem margens de retalho.",
+    website: {
+      url: "https://meermin.com/",
+      plataforma: "Shopify Plus",
+      screenshot: "assets/screenshots/meermin.jpg",
+      headline: "High-End Goodyear Welted Shoes at Honest Prices.",
+      subheadline: "Direct from our workshops to you. Traditional construction using European full-grain leathers.",
+      cta: "Shop Classic Shoes",
+      pontosFortes: [
+        "Preço imbatível (~195€) para construção Goodyear welted genuína",
+        "Secção inovadora de 'Custom Groups' (financiamento coletivo de modelos raros)",
+        "Design clean com fotos de estúdio minimalistas e especificações claras",
+        "Coleção 'Ultraflex' com palmilha acolchoada para eliminar o break-in duro"
+      ],
+      politicaEnvio: "Envio da UE via DPD; portes calculados de forma transparente",
+      promocoes: "Secção permanente de 'Seconds & Samples' no eBay e loja online periódica"
+    },
+    instagram: {
+      handle: "@meerminmallorca",
+      url: "https://www.instagram.com/meerminmallorca/",
+      seguidores: "245K",
+      seguidoresNum: 245000,
+      postsCount: "2.5K",
+      ritmo: "4 a 5 posts/semana",
+      engagement: "1.7%",
+      estetica: "Minimalista, estúdio moderno, iluminação neutra com destaque na silhueta do sapato",
+      pilares: ["Campanhas MTO Crowdfunded", "Linha Ultraflex", "Guia de Couros (French Calf, Suede)", "Preço Justo Transparente"],
+      posts: [
+        {
+          id: "mm-1",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
+          tema: "Grupo MTO Ativo",
+          data: "Há 2 dias",
+          likes: "6.8K",
+          comentarios: "112",
+          legenda: "Now funding: Longwing Bluchers in Dark Brown Waxy Commander leather. Limited batch closing Sunday.",
+          url: "https://www.instagram.com/meerminmallorca/"
+        },
+        {
+          id: "mm-2",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=600&auto=format&fit=crop&q=80",
+          tema: "Linha Ultraflex",
+          data: "Há 5 dias",
+          likes: "5.4K",
+          comentarios: "79",
+          legenda: "Zero break-in period. Our Ultraflex Chelsea boots feature flexible insoles and supple French boxcalf.",
+          url: "https://www.instagram.com/meerminmallorca/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Porta de entrada predileta para quem quer entrar no mundo do calçado Goodyear welted gastando ~200€.",
+      desafio: "Histórico de break-in rígido nas linhas tradicionais que exigiu o desenvolvimento da linha Ultraflex."
+    }
+  },
+  {
+    id: "alden",
+    name: "Alden Shoe Company",
+    categoria: "sapatos",
+    categoriaLabel: "Lenda Americana & Pure Heritage",
+    pais: "EUA (Massachusetts)",
+    bandeira: "🇺🇸",
+    ano: 1884,
+    precoMedio: 740,
+    faixaPreco: "650€ - 920€",
+    posicionamento: "A lenda viva do calçado tradicional americano, famoso mundialmente pela forma Barrie e Cordovan.",
+    website: {
+      url: "https://www.aldenshoe.com/",
+      plataforma: "Custom Tradicional",
+      screenshot: "assets/screenshots/alden.jpg",
+      headline: "The Pure Tradition of American Shoemaking.",
+      subheadline: "Handcrafted in Middleborough, Massachusetts since 1884. Orthopedically correct, timeless design.",
+      cta: "Find An Authorized Retailer",
+      pontosFortes: [
+        "Aura de exclusividade quase intocável mantida há mais de 140 anos",
+        "Relação histórica exclusiva com a lendária curtidoria Horween de Chicago",
+        "Formas ortopédicas lendárias (Barrie, Modified, Trubalance)",
+        "Distribuição seletiva através de retalhistas de culto mundiais"
+      ],
+      politicaEnvio: "Venda primariamente através de stockists autorizados e lojas parceiras oficiais",
+      promocoes: "Totalmente inexistentes; a marca nunca faz descontos"
+    },
+    instagram: {
+      handle: "@aldenshoeco",
+      url: "https://www.instagram.com/aldenshoeco/",
+      seguidores: "175K",
+      seguidoresNum: 175000,
+      postsCount: "1.2K",
+      ritmo: "2 a 3 posts/semana",
+      engagement: "2.8%",
+      estetica: "Sóbria, conservadora, vintage puro, luz natural em ambiente tradicional de loja clássica",
+      pilares: ["Color 8 e Black Shell Cordovan", "Formas Tradicionais Barrie", "Herança de New England", "Comunidade de colecionadores fervorosos"],
+      posts: [
+        {
+          id: "ald-1",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80",
+          tema: "O Lendário 990 Blucher",
+          data: "Há 3 dias",
+          likes: "12.3K",
+          comentarios: "245",
+          legenda: "Model 990: Plain Toe Blucher in Genuine Color 8 Horween Shell Cordovan. Barrie last with double oak leather soles.",
+          url: "https://www.instagram.com/aldenshoeco/"
+        },
+        {
+          id: "ald-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=600&auto=format&fit=crop&q=80",
+          tema: "Detalhes de Costura Manual",
+          data: "Há 6 dias",
+          likes: "9.7K",
+          comentarios: "160",
+          legenda: "Handsewn apron on the Norwegian Front Blucher. True New England craftsmanship that cannot be automated.",
+          url: "https://www.instagram.com/aldenshoeco/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Lealdade e procura quase fanática entre aficionados de calçado masculino clássico.",
+      desafio: "Site institucional antiquado e presença de e-commerce direto propositadamente mínima."
+    }
+  },
+
+  // ==========================================
+  // MALAS & MARROQUINARIA (5 MARCAS)
+  // ==========================================
+  {
+    id: "filson",
+    name: "Filson",
+    categoria: "malas",
+    categoriaLabel: "Rugged Outdoor & Rugged Twill",
+    pais: "EUA (Seattle)",
+    bandeira: "🇺🇸",
+    ano: 1897,
+    precoMedio: 450,
+    faixaPreco: "295€ - 680€",
+    posicionamento: "O padrão de ouro em malas de expedição, sarja encerada pesada e bridle leather indestrutível.",
+    website: {
+      url: "https://www.filson.com/",
+      plataforma: "Salesforce Commerce Cloud",
+      screenshot: "assets/screenshots/filson.jpg",
+      headline: "Unfailing Goods Since 1897.",
+      subheadline: "Tough, comfortable outdoor gear and indestructible bags made for pioneers and adventurers.",
+      cta: "Shop Rugged Twill Bags",
+      pontosFortes: [
+        "Lendária 'Rugged Twill Original Briefcase' reconhecida globalmente",
+        "Garantia vitalícia com reputação inabalável de atendimento ao cliente",
+        "Storytelling de aventura genuína do Noroeste Pacífico (Seattle)",
+        "Loja online extremamente rica com guias de produtos, vídeos de resistência e reviews"
+      ],
+      politicaEnvio: "Envio gratuito acima de 100$ nos EUA; centro de distribuição dedicado na Europa",
+      promocoes: "Saldos semestrais limitados em cores sazonais; cores clássicas (Otter Green, Tan) nunca descem"
+    },
+    instagram: {
+      handle: "@filson1897",
+      url: "https://www.instagram.com/filson1897/",
+      seguidores: "615K",
+      seguidoresNum: 615000,
+      postsCount: "4.1K",
+      ritmo: "1 a 2 posts/dia",
+      engagement: "2.2%",
+      estetica: "Florestas chuvosas do Pacífico, cabanas de madeira, pesca, caça e equipamento surrado pelo tempo",
+      pilares: ["Expedição & Natureza Selvagem", "Rugged Twill & Bridle Leather", "Restauro e Longevidade (Filson Workshop)", "Comunidade de exploradores"],
+      posts: [
+        {
+          id: "fil-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+          tema: "Garantia Vitalícia & Resistência",
+          data: "Há 1 dia",
+          likes: "21.5K",
+          comentarios: "360",
+          legenda: "Carried across 40 countries over 18 years. The Original Briefcase in Tan Rugged Twill comes back to Seattle for a handle refresh.",
+          url: "https://www.instagram.com/filson1897/"
+        },
+        {
+          id: "fil-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80",
+          tema: "Field Testing",
+          data: "Há 3 dias",
+          likes: "16.8K",
+          comentarios: "189",
+          legenda: "Duffle Bags loaded on the floatplane into the Alaskan backcountry. Weatherproof, stormproof, unfailing.",
+          url: "https://www.instagram.com/filson1897/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "A marca definitiva de 'outdoor heritage' americano com fidelidade de clientes intergeracional.",
+      desafio: "Malas em Rugged Twill e Bridle Leather são bastante pesadas quando vazias (1.8kg+)."
+    }
+  },
+  {
+    id: "bleudechauffe",
+    name: "Bleu de Chauffe",
+    categoria: "malas",
+    categoriaLabel: "Artisan Workwear & Couro Vegetal Francês",
+    pais: "França (Aveyron)",
+    bandeira: "🇫🇷",
+    ano: 2009,
+    precoMedio: 490,
+    faixaPreco: "380€ - 680€",
+    posicionamento: "Pastas e sacos utilitários inspirados no universo fabril do séc. XX, 100% manufaturados em França.",
+    website: {
+      url: "https://www.bleu-de-chauffe.com/",
+      plataforma: "PrestaShop",
+      screenshot: "assets/screenshots/bleudechauffe.jpg",
+      headline: "Savoir-Faire Artisanal & Cuir Tanné Végétal.",
+      subheadline: "Chaque sac est fabriqué à la main en France, daté et signé par l'artisan qui l'a confectionné.",
+      cta: "Découvrir les Sacs Postier",
+      pontosFortes: [
+        "Etiqueta interna assinada e datada à mão pelo artesão responsável",
+        "Curtume 100% vegetal com extratos de mimosa, acácia e castanheiro (ecológico)",
+        "Design utilitário ergonómico desenhado para profissionais criativos e executivos modernos",
+        "Vídeos de manufatura detalhados na oficina de Aveyron"
+      ],
+      politicaEnvio: "Envio gratuito na Europa acima de 150€; devoluções até 30 dias",
+      promocoes: "Desconto de boas-vindas na newsletter (10€); promoções pontuais em arquivos de coleções"
+    },
+    instagram: {
+      handle: "@bleudechauffe",
+      url: "https://www.instagram.com/bleudechauffe/",
+      seguidores: "135K",
+      seguidoresNum: 135000,
+      postsCount: "1.8K",
+      ritmo: "3 a 4 posts/semana",
+      engagement: "2.1%",
+      estetica: "Oficina luminosa francesa, ferramentas manuais, couro conhaque aveludado e estética neo-retro",
+      pilares: ["Artesãos e Assinatura das Peças", "Pastas Postier Eclair", "Couro Curtido a Vegetal", "Estilo Francês Contemporâneo"],
+      posts: [
+        {
+          id: "bdc-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80",
+          tema: "Assinatura do Artesão",
+          data: "Há 2 dias",
+          likes: "10.4K",
+          comentarios: "180",
+          legenda: "Mathilde completing the Postman Bag Eclair. Stamping the date and signing her name inside before it leaves our Aveyron workshop.",
+          url: "https://www.instagram.com/bleudechauffe/"
+        },
+        {
+          id: "bdc-2",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+          tema: "Pátina Vegetal",
+          data: "Há 4 dias",
+          likes: "7.1K",
+          comentarios: "92",
+          legenda: "Vegetable-tanned leather living with you. From warm honey to deep amber over years of urban commuting.",
+          url: "https://www.instagram.com/bleudechauffe/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "O toque humano de cada peça ser datada e assinada pelo próprio artesão cria uma ligação emocional profunda.",
+      desafio: "Produção limitada pela capacidade manual dos artesãos em Aveyron."
+    }
+  },
+  {
+    id: "saddleback",
+    name: "Saddleback Leather",
+    categoria: "malas",
+    categoriaLabel: "Ultra-Robusto Full Grain & 100-Year Warranty",
+    pais: "EUA (Texas)",
+    bandeira: "🇺🇸",
+    ano: 2003,
+    precoMedio: 620,
+    faixaPreco: "420€ - 890€",
+    posicionamento: "As malas de couro mais resistentes do mundo: sem fechos éclair, sem peças plásticas e com garantia de 100 anos.",
+    website: {
+      url: "https://saddlebackleather.com/",
+      plataforma: "BigCommerce / Custom",
+      screenshot: "assets/screenshots/saddleback.jpg",
+      headline: "They'll Fight Over It When You're Dead.™",
+      subheadline: "100-Year Warranty. 100% Full-grain leather, zero breakable zippers, lined with pigskin stronger than cowhide.",
+      cta: "Shop The Classic Briefcase",
+      pontosFortes: [
+        "Slogan e proposta mais ousada do mercado ('They'll Fight Over It When You're Dead')",
+        "Garantia lendária de 100 anos transferível entre gerações",
+        "Construção com fio de poliéster de vela marítima e fivelas de aço inoxidável 316",
+        "Vídeos virais do fundador Dave Munson a explicar como 'falsificar uma mala barata' para provar a superioridade da sua"
+      ],
+      politicaEnvio: "Envio internacional c/ DHL; armazém nos EUA com suporte dedicado",
+      promocoes: "Descontos no 'Dave's Deals' para peças com marcas naturais de gado ('scar leather')"
+    },
+    instagram: {
+      handle: "@saddlebackleather",
+      url: "https://www.instagram.com/saddlebackleather/",
+      seguidores: "188K",
+      seguidoresNum: 188000,
+      postsCount: "3.0K",
+      ritmo: "4 a 5 posts/semana",
+      engagement: "2.5%",
+      estetica: "Rústico texano, fogueira, montanhas, caminhonetes vintage, robustez pura",
+      pilares: ["Testes extremos de durabilidade", "Garantia de 100 Anos & Herança Familiar", "Filosofia No Zippers (sem fechos)", "Humor do fundador Dave"],
+      posts: [
+        {
+          id: "sbl-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+          tema: "100-Year Warranty Test",
+          data: "Há 1 dia",
+          likes: "15.8K",
+          comentarios: "320",
+          legenda: "Why we never use zippers: A zipper will fail in 5 years. Our stainless steel buckles and continuous leather straps will last 100.",
+          url: "https://www.instagram.com/saddlebackleather/"
+        },
+        {
+          id: "sbl-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80",
+          tema: "Passagem de Testemunho",
+          data: "Há 4 dias",
+          likes: "11.2K",
+          comentarios: "148",
+          legenda: "Handing down my 20-year-old Classic Briefcase to my son on his graduation day. The leather looks better than the day I bought it.",
+          url: "https://www.instagram.com/saddlebackleather/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Posicionamento único e inimitável no nicho de robustez absoluta e humor texano autêntico.",
+      desafio: "Malas extremamente pesadas (3kg a 4kg vazias), o que afasta quem procura malas leves para voos."
+    }
+  },
+  {
+    id: "carlfriedrik",
+    name: "Carl Friedrik",
+    categoria: "malas",
+    categoriaLabel: "Modern Executive & Minimalist Luxury",
+    pais: "Reino Unido / Produção em Itália",
+    bandeira: "🇬🇧 🇮🇹",
+    ano: 2012,
+    precoMedio: 580,
+    faixaPreco: "495€ - 850€",
+    posicionamento: "Marroquinaria executiva contemporânea em couro Vachetta italiano e design minimalista escandinavo.",
+    website: {
+      url: "https://carlfriedrik.com/",
+      plataforma: "Shopify Plus",
+      screenshot: "assets/screenshots/carlfriedrik.jpg",
+      headline: "Intelligent Design. Italian Craftsmanship.",
+      subheadline: "Minimalist leather briefcases and luggage crafted in Tuscany using vegetable-tanned Vachetta leather.",
+      cta: "Shop The Palissy Briefcase",
+      pontosFortes: [
+        "Posicionamento moderno de luxo silencioso (Silent Luxury)",
+        "Destaque em grandes produções (marca oficial na série da HBO 'Succession')",
+        "Integração perfeita entre pastas de couro e malas de viagem em policarbonato com detalhes em couro",
+        "Personalização com monograma dourado/prateado na hora da compra"
+      ],
+      politicaEnvio: "Envio expresso internacional gratuito acima de 250€; devoluções até 100 dias",
+      promocoes: "Raramente desconta; 10% off na 1ª encomenda com subscrição de newsletter"
+    },
+    instagram: {
+      handle: "@carlfriedrik",
+      url: "https://www.instagram.com/carlfriedrik/",
+      seguidores: "142K",
+      seguidoresNum: 142000,
+      postsCount: "1.5K",
+      ritmo: "4 posts/semana",
+      engagement: "1.9%",
+      estetica: "Arquitetura modernista, aeroportos de primeira classe, tons neutros cinza e couro cognac",
+      pilares: ["Quiet Luxury & Succession TV Placement", "Italian Vachetta Leather", "Business Travel Inteligente", "Monogramming & Detalhe"],
+      posts: [
+        {
+          id: "cf-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80",
+          tema: "Quiet Luxury & Negócios",
+          data: "Há 2 dias",
+          likes: "13.6K",
+          comentarios: "210",
+          legenda: "As seen on HBO's Succession: The Palissy Briefcase in Cognac. Precision engineered in Tuscany for modern executives.",
+          url: "https://www.instagram.com/carlfriedrik/"
+        },
+        {
+          id: "cf-2",
+          tipo: "Carrossel",
+          formato: "Carrossel",
+          thumbnail: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+          tema: "Travel Set Elegante",
+          data: "Há 5 dias",
+          likes: "8.9K",
+          comentarios: "104",
+          legenda: "The seamless travel duo: The Hybrid Carry-On locked with The Bowen Weekender. Ready for 48 hours in Milan.",
+          url: "https://www.instagram.com/carlfriedrik/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Aproveitamento exemplar do fenómeno 'Quiet Luxury' e marketing cinematográfico de alto impacto.",
+      desafio: "Preços mais elevados e concorrência direta com marcas globais como Rimowa e Tumi."
+    }
+  },
+  {
+    id: "frankclegg",
+    name: "Frank Clegg Leatherworks",
+    categoria: "malas",
+    categoriaLabel: "Bespoke American Luxury & Presidencial",
+    pais: "EUA (Massachusetts)",
+    bandeira: "🇺🇸",
+    ano: 1970,
+    precoMedio: 1250,
+    faixaPreco: "950€ - 1.850€",
+    posicionamento: "O auge da marroquinaria artesanal americana com acabamento manual de nível de alta costura.",
+    website: {
+      url: "https://frankcleggleatherworks.com/",
+      plataforma: "Shopify Plus",
+      screenshot: "assets/screenshots/frankclegg.jpg",
+      headline: "Handcrafted Luxury Leather Goods Made in USA.",
+      subheadline: "Makers of the finest handcrafted briefcases, duffles, and totes in Fall River, Massachusetts since 1970.",
+      cta: "Explore Handcrafted Bags",
+      pontosFortes: [
+        "Reputação ao mais alto nível diplomático e presidencial (usado por presidentes dos EUA)",
+        "Todos os artigos são produzidos na própria oficina familiar em Fall River, MA",
+        "Arestas pintadas e polidas à mão várias vezes para um acabamento sedoso",
+        "Couros raros: Belgian Shrunken Calf, English Bridle e American Alligator"
+      ],
+      politicaEnvio: "Envio seguro com seguro total; peças frequentemente produzidas sob encomenda (Made to Order)",
+      promocoes: "Sem saldos; produção por encomenda valoriza o artigo e o tempo de espera"
+    },
+    instagram: {
+      handle: "@frankcleggleatherworks",
+      url: "https://www.instagram.com/frankcleggleatherworks/",
+      seguidores: "98K",
+      seguidoresNum: 98000,
+      postsCount: "1.8K",
+      ritmo: "3 posts/semana",
+      engagement: "2.6%",
+      estetica: "Atelier clássico americano, ferramentas de precisão, couros nobres e acabamentos manuais perfeitos",
+      pilares: ["Oficina Familiar Clegg", "Pintura Manual de Arestas", "Shrunken Grain Calf", "Peças Icónicas (Commuter Briefcase)"],
+      posts: [
+        {
+          id: "fc-1",
+          tipo: "Reel",
+          formato: "Vídeo",
+          thumbnail: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80",
+          tema: "Pintura Manual de Arestas",
+          data: "Há 2 dias",
+          likes: "7.9K",
+          comentarios: "135",
+          legenda: "Four layers of edge paint, hand-sanded between each coat. Frank Clegg inspecting the Commuter Briefcase in Chestnut.",
+          url: "https://www.instagram.com/frankcleggleatherworks/"
+        },
+        {
+          id: "fc-2",
+          tipo: "Foto",
+          formato: "Foto",
+          thumbnail: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+          tema: "The Signature Duffle",
+          data: "Há 5 dias",
+          likes: "6.1K",
+          comentarios: "88",
+          legenda: "The Signature Travel Duffle in Sunburst Cognac. A companion crafted to be cherished across a lifetime.",
+          url: "https://www.instagram.com/frankcleggleatherworks/"
+        }
+      ]
+    },
+    swot: {
+      vantagem: "Qualidade construtiva sem paralelo e autenticidade artesanal de luxo discreto.",
+      desafio: "Prazos de produção sob encomenda (4 a 8 semanas) exigem paciência do comprador."
+    }
+  }
+];
+
+// Exporta para uso modular ou em scripts
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { BRANDS_DATA };
+}

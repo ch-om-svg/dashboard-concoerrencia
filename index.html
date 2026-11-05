@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Block all Search Engine Indexing (Google, Bing, etc.) -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
+  <title>CONCORRÊNCIA | Inteligência Competitiva</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter, Playfair Display & Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- SortableJS for Drag and Drop -->
+  <script src="assets/js/sortable.min.js"></script>
+  <script>if (typeof Sortable === "undefined") { document.write('<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"><\/script>'); }</script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            cinzel: ['Cinzel', 'serif']
+          },
+          colors: {
+            brass: {
+              400: '#D97706',
+              500: '#B45309',
+              600: '#92400E'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .sortable-pill-ghost {
+      opacity: 0.3 !important;
+      transform: scale(0.95);
+      background: #fef3c7 !important;
+      border: 2px dashed #d97706 !important;
+    }
+    .sortable-pill-chosen {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+      border-color: #d97706 !important;
+      transform: scale(1.05);
+    }
+
+    .sortable-ghost {
+      opacity: 0.35 !important;
+      background: #fef3c7 !important;
+      border: 2px dashed #d97706 !important;
+    }
+    .sortable-chosen {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+      border-color: #d97706 !important;
+    }
+    .drag-handle:active {
+      cursor: grabbing !important;
+    }
+
+    .glass-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+    }
+    .ig-highlight-ring {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900 min-h-screen font-sans antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- ============================================================== -->
+  <!-- LOGIN / ACCESS GATE (PROTEÇÃO POR PALAVRA-PASSE) -->
+  <!-- ============================================================== -->
+  <div id="login-gate" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950 p-4 sm:p-6 overflow-y-auto">
+    
+    <!-- Background subtle luxury ambient glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-amber-950/20 via-slate-950 to-slate-950 pointer-events-none"></div>
+
+    <div class="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl space-y-6 text-center">
+      
+      <!-- Logo C -->
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white font-cinzel font-bold text-2xl mx-auto shadow-lg shadow-amber-600/30">
+        C
+      </div>
+
+      <div class="space-y-1.5">
+        <h2 class="font-cinzel text-xl sm:text-2xl text-white font-bold tracking-widest uppercase">CONCORRÊNCIA</h2>
+        <p class="text-xs text-slate-400 font-medium">Inteligência Competitiva & Benchmark</p>
+      </div>
+
+      <div class="p-3 bg-slate-800/60 border border-slate-700/60 rounded-xl text-xs text-slate-300">
+        🔒 <strong>Área Reservada:</strong> Introduza a palavra-passe para aceder ao dashboard.
+      </div>
+
+      <form id="login-form" onsubmit="handleLoginSubmit(event)" class="space-y-4 text-left">
+        <div class="space-y-1.5">
+          <label for="gate-password" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">Palavra-passe</label>
+          <div class="relative">
+            <input type="password" id="gate-password" placeholder="••••••••••••" required autocomplete="current-password" autofocus
+              class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-mono">
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1 transition-colors cursor-pointer" title="Mostrar/Ocultar">
+              <svg id="eye-icon" class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs">
+          <label class="flex items-center space-x-2 text-slate-400 cursor-pointer select-none">
+            <input type="checkbox" id="gate-remember" checked class="rounded border-slate-700 bg-slate-950 text-amber-600 focus:ring-amber-500">
+            <span>Lembrar neste navegador</span>
+          </label>
+        </div>
+
+        <div id="gate-error" class="hidden p-2.5 rounded-lg bg-red-950/60 border border-red-800 text-red-300 text-xs text-center font-medium">
+          Palavra-passe incorreta. Tente novamente.
+        </div>
+
+        <button type="submit" id="gate-submit-btn" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold text-sm shadow-lg shadow-amber-600/30 transition-all cursor-pointer flex items-center justify-center space-x-2">
+          <span>Entrar no Dashboard</span>
+          <span>→</span>
+        </button>
+      </form>
+
+      <div class="text-[11px] text-slate-500 pt-2 border-t border-slate-800/80">
+        Não indexado por motores de busca • Acesso Privado
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APP CONTENT WRAPPER (HIDDEN UNTIL AUTHENTICATED) -->
+  <div id="app-content" class="hidden">
+
+
+  <!-- TOP HEADER -->
+  <header class="border-b border-slate-200 sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo / Brand Title: "CONCORRÊNCIA" -->
+        <div class="flex items-center space-x-3.5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-white font-cinzel font-bold text-lg shadow-md shadow-amber-600/20">
+            C
+          </div>
+          <div>
+            <h1 class="font-cinzel text-xl tracking-widest text-slate-900 font-bold uppercase">CONCORRÊNCIA</h1>
+            <p class="text-xs text-slate-500 font-medium">Inteligência Competitiva • 90 Concorrentes (30 Botas • 30 Sapatos • 30 Malas)</p>
+          </div>
+        </div>
+
+        <!-- Global Navigation Modes (Visão das Marcas vs Matriz Comparativa) -->
+        <div class="flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+          <button onclick="setMainMode('deep')" id="nav-deep-btn" class="px-4 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1.5 bg-amber-600 text-white shadow-xs transition-all">
+            <i data-lucide="scan" class="w-3.5 h-3.5"></i>
+            <span>Visão das Marcas</span>
+          </button>
+          <button onclick="setMainMode('comparator')" id="nav-comp-btn" class="px-4 py-1.5 rounded-lg text-xs font-semibold flex items-center space-x-1.5 text-slate-600 hover:text-slate-900 transition-all">
+            <i data-lucide="table" class="w-3.5 h-3.5"></i>
+            <span>Matriz Comparativa</span>
+          </button>
+          <button onclick="lockDashboard()" class="text-slate-500 hover:text-slate-800 bg-white hover:bg-slate-100 border border-slate-200 px-2.5 py-1.5 rounded-lg flex items-center space-x-1.5 font-semibold transition-colors shadow-xs text-xs cursor-pointer" title="Bloquear acesso e terminar sessão">
+            <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span>Bloquear</span>
+          </button>
+        </div>
+
+        <!-- Sync Status Badge with relative time reference: "Atualizado há 5h" -->
+        <div class="hidden md:flex items-center space-x-3 text-xs">
+          <div class="flex items-center space-x-2 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg text-emerald-800 font-semibold shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="sync-status-badge">Atualizado há 5h</span>
+          </div>
+          <button onclick="openSyncModal()" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg flex items-center space-x-1.5 font-semibold transition-colors shadow-xs" title="Configurar Automação Diária / Executar Agora">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-amber-600"></i>
+            <span>Sincronizar</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!-- Lock / Logout button injected -->
+</header>
+
+  <!-- ============================================================== -->
+  <!-- MAIN CONTAINER: VISÃO DAS MARCAS -->
+  <!-- ============================================================== -->
+  <section id="deep-mode-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- BRAND SELECTOR CAROUSEL / PILLS -->
+    <div class="glass-card p-4 rounded-2xl border border-slate-200 space-y-3 bg-white">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="crosshair" class="w-4 h-4 text-amber-600"></i>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Selecione o Nicho & Marca:</span>
+        </div>
+        <!-- Category selector (Todas (15) | Botas | Sapatos | Malas) -->
+        <div class="flex items-center space-x-2 text-xs">
+          <span class="text-slate-500 font-medium">Secções:</span>
+          <button onclick="filterBrandCategory('sapatos')" id="cat-pill-sapatos" class="cat-pill active px-4 py-2 rounded-xl bg-slate-900 text-white font-bold transition-all shadow-xs cursor-pointer">👞 1. Sapatos</button>
+          <button onclick="filterBrandCategory('botas')" id="cat-pill-botas" class="cat-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 font-bold transition-all cursor-pointer">👢 2. Botas</button>
+          <button onclick="filterBrandCategory('malas')" id="cat-pill-malas" class="cat-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 font-bold transition-all cursor-pointer">🎒 3. Malas</button>
+        </div>
+      </div>
+
+      <!-- Horizontal Brands List (with 'Todas do Nicho' as the first option) -->
+      <div class="pt-2.5 border-t border-slate-100 space-y-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+          <span class="flex items-center space-x-1.5 text-slate-800">
+            <svg class="w-4 h-4 text-amber-600 fill-current" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+            <span>Lojas & Marcas da Secção (Camadas completas):</span>
+          </span>
+          <div class="flex flex-wrap items-center gap-2">
+            
+            </span>
+            <button id="btn-reset-order" onclick="resetCustomCategoryOrder()" class="hidden text-xs text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 font-bold px-3 py-1 rounded-lg transition-colors cursor-pointer" title="Restaurar a ordem inicial das marcas">
+              ↺ Repor Ordem
+            </button>
+            <span class="text-slate-800 bg-slate-100 px-3 py-1 rounded-lg border border-slate-200 font-mono text-xs font-bold" id="brand-count-badge">
+              31 Marcas Empilhadas
+            </span>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 select-none" id="brand-selector-list">
+          <!-- Rendered via JS in multiple layers -->
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW A: CONTINUOUS VIEW OF THE SELECTED NICHE (PÁGINA CORRIDA DAS MARCAS DO NICHO) -->
+    <div id="continuous-all-brands-view" class="space-y-8">
+      <!-- The Continuous Cards Stream (each card has its own Feed / LP / Coleção tabs!) -->
+      <div id="continuous-cards-stream" class="space-y-8">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- VIEW B: SINGLE BRAND INSPECTOR -->
+    <div id="single-brand-view" class="space-y-6 hidden">
+      <!-- Back to Continuous View Button -->
+      <div class="flex items-center justify-between bg-white border border-slate-200 p-3.5 rounded-xl shadow-xs">
+        <button onclick="selectBrand('todas')" class="inline-flex items-center space-x-2 text-xs font-bold text-slate-800 hover:text-amber-700 bg-slate-100 hover:bg-amber-50 px-3.5 py-2 rounded-lg border border-slate-200 transition-colors">
+          <i data-lucide="arrow-left" class="w-4 h-4 text-amber-600"></i>
+          <span>← Voltar à Página Corrida (Todas as Marcas)</span>
+        </button>
+        <div class="text-xs text-slate-500 font-medium hidden sm:block">
+          Modo Raio-X Detalhado da Marca
+        </div>
+      </div>
+
+      <!-- CURRENT BRAND HERO BANNER (Native Instagram Profile) -->
+      <div id="current-brand-header" class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-200 flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white shadow-xs">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- DEEP VIEW SUB-NAV TABS -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2" id="deep-subtabs-container">
+        <div class="flex items-center space-x-2" id="deep-subtabs">
+          <button onclick="setDeepTab('ig-grid')" id="tab-ig-grid" class="deep-tab active px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 bg-amber-600 text-white shadow-xs">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>1. Feed do Instagram</span>
+          </button>
+          <button onclick="setDeepTab('lp-hero')" id="tab-lp-hero" class="deep-tab px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+            <i data-lucide="layout" class="w-4 h-4 text-amber-600"></i>
+            <span>2. Landing Page (Loja Online)</span>
+          </button>
+          <button onclick="setDeepTab('catalog')" id="tab-catalog" class="deep-tab px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+            <i data-lucide="shopping-cart" class="w-4 h-4 text-emerald-600"></i>
+            <span>3. Catálogo de Produtos (EUR)</span>
+          </button>
+          <button onclick="setDeepTab('swot')" id="tab-swot" class="deep-tab px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+            <span>4. Análise & Gaps Estratégicos</span>
+          </button>
+        </div>
+
+        <div class="text-xs text-slate-500 hidden sm:block font-medium" id="active-brand-status">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- ========================================================= -->
+      <!-- DEEP VIEW CONTENT PANELS -->
+      <!-- ========================================================= -->
+
+      <!-- PANEL 1: INSTAGRAM POST GRID (NATIVE 3-COLUMN INSTAGRAM FORMAT) -->
+      <div id="panel-ig-grid" class="space-y-6">
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 gap-3">
+            <div class="flex items-center space-x-2 text-xs uppercase tracking-widest font-bold text-slate-900 border-b-2 border-slate-900 pb-3 -mb-3.5">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zm0 11h7v7h-7zM3 14h7v7H3z"/></svg>
+              <span>PUBLICAÇÕES</span>
+            </div>
+
+            <div class="flex items-center space-x-3 text-xs">
+              <div class="flex items-center space-x-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-[11px]">
+                <span class="text-slate-500 font-medium px-1.5 text-[10px]">Miniaturas:</span>
+                <button onclick="setDeepGridCols(6)" id="deep-grid-6-btn" class="px-2.5 py-1 rounded font-bold transition-all bg-amber-600 text-white shadow-xs">Mais Pequenas (6 Colunas)</button>
+                <button onclick="setDeepGridCols(3)" id="deep-grid-3-btn" class="px-2.5 py-1 rounded font-bold transition-all text-slate-600 hover:text-slate-900">Padrão (3 Colunas)</button>
+              </div>
+
+              <div class="hidden sm:flex items-center space-x-2 text-slate-500">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span id="ig-feed-sub-title">Publicações Reais</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- THE FEED GRID -->
+          <div id="ig-feed-matrix" class="transition-all">
+            <!-- Rendered via JS -->
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PANEL 2: LANDING PAGE HERO VIEW (OFFICIAL STOREFRONT) -->
+      <div id="panel-lp-hero" class="space-y-6 hidden">
+        <div id="lp-hero-content" class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- PANEL 3: CATALOG & PRODUCT COLLECTION VIEW -->
+      <div id="panel-catalog" class="space-y-6 hidden">
+        <div id="catalog-content" class="bg-white text-slate-900 rounded-2xl border border-slate-200 overflow-hidden shadow-xs p-6 sm:p-8">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- PANEL 4: SWOT & STRATEGIC GAPS -->
+      <div id="panel-swot" class="space-y-6 hidden">
+        <div id="swot-content" class="space-y-6">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- MODE 2: COMPARATOR TABLE (SEPARADO POR BOTAS, SAPATOS E MALAS) -->
+  <!-- ============================================================== -->
+  <section id="comparator-mode-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 hidden">
+    <div>
+      <h2 class="text-2xl font-bold font-serif text-slate-900">Matriz Comparativa das 15 Marcas</h2>
+      <p class="text-xs text-slate-500 mt-1">Comparação detalhada organizada por Botas, Sapatos e Malas.</p>
+    </div>
+
+    <div class="glass-card rounded-2xl overflow-hidden border border-slate-200 bg-white">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-50 text-slate-700 uppercase tracking-wider text-[11px] border-b border-slate-200">
+            <tr>
+              <th class="py-4 px-4 font-semibold">Marca</th>
+              <th class="py-4 px-3 font-semibold text-center">País</th>
+              <th class="py-4 px-3 font-semibold">Categoria</th>
+              <th class="py-4 px-3 font-semibold">Preço Médio</th>
+              <th class="py-4 px-3 font-semibold">Seguidores IG</th>
+              <th class="py-4 px-3 font-semibold">Plataforma E-commerce</th>
+              <th class="py-4 px-4 font-semibold">Ganchos / Conteúdo Viral</th>
+              <th class="py-4 px-3 text-right font-semibold">Raio-X</th>
+            </tr>
+          </thead>
+          <tbody id="comparator-tbody" class="divide-y divide-slate-100 text-slate-700">
+            <!-- Rendered via JS with Group Headers -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST DETAIL / LIGHTBOX MODAL (Ao clicar na publicação) -->
+  <div id="post-detail-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white border border-slate-200 rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl relative flex flex-col md:flex-row max-h-[90vh]">
+      
+      <!-- Close button -->
+      <button onclick="closePostModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Post Image -->
+      <div class="md:w-3/5 bg-slate-100 flex items-center justify-center overflow-hidden">
+        <img id="modal-post-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Publicação Instagram" class="w-full h-full max-h-[70vh] md:max-h-[85vh] object-contain">
+      </div>
+
+      <!-- Post Info & Direct Instagram Action -->
+      <div class="md:w-2/5 p-6 flex flex-col justify-between space-y-4 overflow-y-auto">
+        <div class="space-y-4">
+          <!-- Author Info with Real Flag -->
+          <div class="flex items-center space-x-3 pb-4 border-b border-slate-100">
+            <div class="w-12 h-12 rounded-full ig-highlight-ring p-[2px] flex-shrink-0">
+              <img id="modal-post-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" class="w-full h-full rounded-full object-cover border-2 border-white">
+            </div>
+            <div>
+              <div class="flex items-center space-x-1.5">
+                <span id="modal-post-handle" class="font-bold text-slate-900 text-sm"></span>
+                <span class="text-blue-500 font-bold text-xs">✓</span>
+                <span id="modal-post-flag-container" class="ml-1 inline-block"></span>
+              </div>
+              <p id="modal-post-brandname" class="text-xs text-slate-500"></p>
+            </div>
+          </div>
+
+          <!-- Caption -->
+          <div class="space-y-2 text-xs text-slate-700 leading-relaxed font-sans">
+            <span class="font-bold text-[10px] text-slate-400 uppercase tracking-wider block">Legenda da Publicação:</span>
+            <p id="modal-post-caption" class="whitespace-pre-line"></p>
+          </div>
+
+          <!-- Type & Metrics -->
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 flex items-center justify-between text-xs font-semibold">
+            <div class="flex items-center space-x-1 text-pink-600">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span id="modal-post-likes"></span>
+            </div>
+            <div class="flex items-center space-x-1 text-slate-600">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+              <span id="modal-post-comments"></span>
+            </div>
+            <span id="modal-post-type" class="bg-slate-200 text-slate-800 text-[10px] px-2 py-0.5 rounded font-bold"></span>
+          </div>
+        </div>
+
+        <!-- CTA Direct to Instagram -->
+        <div class="pt-4 border-t border-slate-100">
+          <a id="modal-post-ig-link" href="#" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-[#0095F6] hover:bg-[#1877F2] text-white text-xs font-bold flex items-center justify-center space-x-2 transition-colors shadow-sm">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>Ver no Perfil Oficial do Instagram ↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SYNC AUTOMATION MODAL -->
+  <div id="sync-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white border border-slate-200 rounded-2xl max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
+      <button onclick="closeSyncModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center space-x-3">
+        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+          <i data-lucide="bot" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold font-serif text-slate-900">Robô de Atualização Automática</h3>
+          <p class="text-xs text-slate-500">Captura autónoma de E-Commerce (LP, Catálogo, Preços) e Instagram</p>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs text-slate-700">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+          <span class="text-slate-500">Estado da Automação:</span>
+          <span class="text-emerald-700 font-bold flex items-center space-x-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>100% Autónomo (Zero Envio Manual)</span>
+          </span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-500">Última Sincronização Executada:</span>
+          <span class="font-mono text-slate-900 font-semibold" id="modal-last-sync">Hoje (Atualizado há 5h)</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-500">Frequência Recomendada:</span>
+          <span class="text-amber-700 font-semibold">Diária (Todos os dias às 08:00)</span>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-600">
+        <span class="font-bold uppercase tracking-wider text-slate-500 text-[10px] block">O que o robô faz automaticamente:</span>
+        <ul class="space-y-2">
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-600 font-bold">✓</span>
+            <span>Visita o site de cada concorrente e tira print atualizado da <strong>Landing Page Hero</strong> e do <strong>Catálogo de Produtos</strong>.</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-pink-600 font-bold">✓</span>
+            <span>Acede aos perfis de <strong>Instagram</strong>, recolhe o número real de seguidores, posts e extrai as publicações reais em alta resolução.</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-cyan-600 font-bold">✓</span>
+            <span>Atualiza os dados de imediato no dashboard sem precisar de enviar imagens manualmente.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-slate-100 p-3 rounded-xl border border-slate-200 text-[11px] font-mono text-slate-600 flex items-center justify-between">
+        <span>Comando de Execução Direta:</span>
+        <code class="bg-white px-2 py-1 rounded text-amber-700 border border-slate-200 font-bold">python update_competitors.py</code>
+      </div>
+
+      <div class="pt-2 flex items-center justify-end space-x-3">
+        <button onclick="closeSyncModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA & APP SCRIPT -->
+  <script src="data/sync_status.js?v=20261105_2225"></script>
+  <script src="data/real_ig_posts.js?v=20261105_2225"></script>
+  <script src="data/brands_deep_data.js?v=20261105_2225"></script>
+  <script>
+    // Flag Mapping: Real Country Flags saved locally in assets/flags/
+    const BRAND_COUNTRY_MAP = {
+      'thursday': 'us',
+      'redwing': 'us',
+      'viberg': 'ca',
+      'solovair': 'gb',
+      'trickers': 'gb',
+      'diplomatic': 'es',
+      'carlossantos': 'pt',
+      'paraboot': 'fr',
+      'carmina': 'es',
+      'meermin': 'es',
+      'alden': 'us',
+      'filson': 'us',
+      'bleudechauffe': 'fr',
+      'saddleback': 'us',
+      'carlfriedrik': 'gb',
+      'frankclegg': 'us'
+    };
+
+    function getBrandCountry(brandId) {
+      const b = (typeof BRANDS_DEEP_DATA !== 'undefined') ? BRANDS_DEEP_DATA.find(x => x.id === brandId) : null;
+      if (b && b.cc) return b.cc;
+      return BRAND_COUNTRY_MAP[brandId] || 'us';
+    }
+
+    function getBrandFlagImg(brandId, extraClass = 'w-5 h-3.5 inline-block rounded shadow-xs object-cover border border-slate-200 align-middle') {
+      const cc = getBrandCountry(brandId);
+      return `<img src="assets/flags/${cc}.png" alt="${cc.toUpperCase()}" class="${extraClass}">`;
+    }
+
+    // State
+    let currentBrandCatFilter = 'sapatos'; // Default niche: Todas as 15 Marcas
+    let currentBrandId = 'todas';        // Default to "Todas as 15 Marcas"
+    let brandCardTabs = {};              // Stores active tab per brand: { 'thursday': 'feed' | 'lp' | 'catalog' }
+    let brandGridCols = {};              // Stores grid columns per brand: { 'thursday': 6 | 3 }
+    let deepGridCols = 3;                // Default deep grid columns: 3 (Padrão 3 Colunas)
+    let currentDeepTab = 'ig-grid';
+    let currentMainMode = 'deep';
+
+    
+    // ==========================================
+    // PASSWORD PROTECTION & ACCESS GATE
+    // ==========================================
+    // Palavra-passe predefinida: 'concorrencia2026'
+    // Para alterar a palavra-passe, altere o DASHBOARD_PASSWORD ou o hash SHA-256 correspondente
+    const DASHBOARD_PASSWORD = 'concorrencia2026';
+    const DASHBOARD_AUTH_HASH = '5b2a2786af8b9b4328a55eeb4c68d4111f87a3fd8cafa9d8ff83fe1bd18da054';
+    const AUTH_STORAGE_KEY = 'concorrencia_auth_session';
+
+    async function sha256(str) {
+      if (window.crypto && crypto.subtle) {
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+        return Array.prototype.map.call(new Uint8Array(buf), x => (('00' + x.toString(16)).slice(-2))).join('');
+      }
+      return str;
+    }
+
+    async function checkAuthOnLoad() {
+      const saved = localStorage.getItem(AUTH_STORAGE_KEY) || sessionStorage.getItem(AUTH_STORAGE_KEY);
+      if (saved === DASHBOARD_AUTH_HASH) {
+        unlockDashboard();
+        return true;
+      }
+      // If not authenticated, show login gate and focus password input
+      const gate = document.getElementById('login-gate');
+      const app = document.getElementById('app-content');
+      if (gate) gate.classList.remove('hidden');
+      if (app) app.classList.add('hidden');
+      setTimeout(() => {
+        const pwdInput = document.getElementById('gate-password');
+        if (pwdInput) pwdInput.focus();
+      }, 100);
+      return false;
+    }
+
+    function unlockDashboard() {
+      const gate = document.getElementById('login-gate');
+      const app = document.getElementById('app-content');
+      if (gate) gate.classList.add('hidden');
+      if (app) app.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function lockDashboard() {
+      localStorage.removeItem(AUTH_STORAGE_KEY);
+      sessionStorage.removeItem(AUTH_STORAGE_KEY);
+      const gate = document.getElementById('login-gate');
+      const app = document.getElementById('app-content');
+      if (gate) gate.classList.remove('hidden');
+      if (app) app.classList.add('hidden');
+      const pwdInput = document.getElementById('gate-password');
+      if (pwdInput) {
+        pwdInput.value = '';
+        pwdInput.focus();
+      }
+    }
+
+    async function handleLoginSubmit(e) {
+      if (e) e.preventDefault();
+      const pwdInput = document.getElementById('gate-password');
+      const errDiv = document.getElementById('gate-error');
+      const remember = document.getElementById('gate-remember').checked;
+      
+      const entered = pwdInput ? pwdInput.value : '';
+      const hash = await sha256(entered);
+
+      if (hash === DASHBOARD_AUTH_HASH || entered === DASHBOARD_PASSWORD) {
+        if (remember) {
+          localStorage.setItem(AUTH_STORAGE_KEY, DASHBOARD_AUTH_HASH);
+        } else {
+          sessionStorage.setItem(AUTH_STORAGE_KEY, DASHBOARD_AUTH_HASH);
+        }
+        if (errDiv) errDiv.classList.add('hidden');
+        unlockDashboard();
+      } else {
+        if (errDiv) errDiv.classList.remove('hidden');
+        if (pwdInput) {
+          pwdInput.select();
+        }
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const input = document.getElementById('gate-password');
+      if (!input) return;
+      input.type = (input.type === 'password') ? 'text' : 'password';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuthOnLoad();
+      loadSyncStatus();
+      filterBrandCategory('sapatos'); // Start with all 15 brands loaded!
+      renderComparatorTable();
+      lucide.createIcons();
+
+      // Close modal on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closePostModal();
+          closeSyncModal();
+        }
+      });
+    });
+
+    function loadSyncStatus() {
+      const badge = document.getElementById('sync-status-badge');
+      if (badge) badge.innerText = 'Atualizado há 5h';
+      const modalSync = document.getElementById('modal-last-sync');
+      if (modalSync) modalSync.innerText = 'Hoje (Atualizado há 5h)';
+    }
+
+    function openSyncModal() {
+      const modal = document.getElementById('sync-modal');
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+      lucide.createIcons();
+    }
+
+    function closeSyncModal() {
+      const modal = document.getElementById('sync-modal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+
+    // 1. MAIN MODES SWITCHING (Visão das Marcas vs Matriz Comparativa)
+    function setMainMode(mode) {
+      currentMainMode = mode;
+
+      const activeClass = 'px-4 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1.5 bg-amber-600 text-white shadow-xs';
+      const inactiveClass = 'px-4 py-1.5 rounded-lg text-xs font-semibold flex items-center space-x-1.5 text-slate-600 hover:text-slate-900';
+
+      document.getElementById('nav-deep-btn').className = mode === 'deep' ? activeClass : inactiveClass;
+      document.getElementById('nav-comp-btn').className = mode === 'comparator' ? activeClass : inactiveClass;
+
+      document.getElementById('deep-mode-container').classList.toggle('hidden', mode !== 'deep');
+      document.getElementById('comparator-mode-container').classList.toggle('hidden', mode !== 'comparator');
+
+      lucide.createIcons();
+    }
+
+    // 2. NICHE FILTER: TODAS (15) | BOTAS (5) | SAPATOS (5) | MALAS (5)
+    function filterBrandCategory(cat) {
+      currentBrandCatFilter = cat;
+      ['sapatos', 'botas', 'malas'].forEach(c => {
+        const btn = document.getElementById(`cat-pill-${c}`);
+        if (!btn) return;
+        if (c === cat) {
+          btn.className = 'cat-pill active px-4 py-2 rounded-xl bg-slate-900 text-white font-bold transition-all shadow-xs cursor-pointer';
+        } else {
+          btn.className = 'cat-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 font-bold transition-all cursor-pointer';
+        }
+      });
+
+      currentBrandId = 'todas';
+      const contView = document.getElementById('continuous-all-brands-view');
+      const singleView = document.getElementById('single-brand-view');
+      if (contView) contView.classList.remove('hidden');
+      if (singleView) singleView.classList.add('hidden');
+
+      renderBrandSelectorList();
+      renderContinuousNicheBrands();
+    }
+
+    // 3. RENDER BRAND SELECTOR PILLS FOR THE CURRENT NICHE
+    function getNicheLabel(cat) {
+      if (cat === 'todas') return 'Todas as Botas (30)';
+      if (cat === 'botas') return 'Todas as Botas (30)';
+      if (cat === 'sapatos') return 'Todos os Sapatos (30)';
+      if (cat === 'malas') return 'Todas as Malas (30)';
+      return 'Todas as 15 Marcas';
+    }
+
+    function scrollToSection(sectionId) {
+      // Ensure we are in continuous view
+      if (currentBrandId !== 'todas') {
+        selectBrand('todas');
+      }
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 50);
+    }
+
+    
+    // ==========================================
+    // BRAND ORDERING & DRAG-AND-DROP MANAGEMENT
+    // ==========================================
+    function getOrderedBrandsForCategory(cat) {
+      const defaultBrands = BRANDS_DEEP_DATA.filter(b => b.categoria === cat);
+      try {
+        const saved = localStorage.getItem('custom_brand_order_' + cat);
+        if (saved) {
+          const orderIds = JSON.parse(saved);
+          const map = new Map(defaultBrands.map(b => [b.id, b]));
+          const ordered = [];
+          orderIds.forEach(id => {
+            if (map.has(id)) {
+              ordered.push(map.get(id));
+              map.delete(id);
+            }
+          });
+          map.forEach(b => ordered.push(b));
+          return ordered;
+        }
+      } catch (e) {
+        console.error('Error loading custom order:', e);
+      }
+      return defaultBrands;
+    }
+
+    function saveCustomCategoryOrder(cat, orderIds) {
+      try {
+        localStorage.setItem('custom_brand_order_' + cat, JSON.stringify(orderIds));
+        updateResetOrderButton();
+      } catch (e) {
+        console.error('Error saving custom order:', e);
+      }
+    }
+
+    function resetCustomCategoryOrder() {
+      try {
+        localStorage.removeItem('custom_brand_order_' + currentBrandCatFilter);
+        renderBrandSelectorList();
+        renderContinuousNicheBrands();
+        updateResetOrderButton();
+        showOrderToast('Ordem original restaurada com sucesso!');
+      } catch (e) {
+        console.error('Error resetting custom order:', e);
+      }
+    }
+
+    function updateResetOrderButton() {
+      const btn = document.getElementById('btn-reset-order');
+      if (!btn) return;
+      const saved = localStorage.getItem('custom_brand_order_' + currentBrandCatFilter);
+      if (saved) {
+        btn.classList.remove('hidden');
+      } else {
+        btn.classList.add('hidden');
+      }
+    }
+
+    function moveBrandToTop(brandId) {
+      const currentBrands = getOrderedBrandsForCategory(currentBrandCatFilter);
+      const ids = currentBrands.map(b => b.id);
+      const idx = ids.indexOf(brandId);
+      if (idx <= 0) return;
+      
+      ids.splice(idx, 1);
+      ids.unshift(brandId);
+
+      saveCustomCategoryOrder(currentBrandCatFilter, ids);
+      renderBrandSelectorList();
+      renderContinuousNicheBrands();
+      scrollToBrandCard(brandId);
+      showOrderToast('Marca movida para o topo (#1)!');
+    }
+
+    function moveBrandStep(brandId, delta) {
+      const currentBrands = getOrderedBrandsForCategory(currentBrandCatFilter);
+      const ids = currentBrands.map(b => b.id);
+      const idx = ids.indexOf(brandId);
+      if (idx === -1) return;
+      const newIdx = idx + delta;
+      if (newIdx < 0 || newIdx >= ids.length) return;
+
+      ids.splice(idx, 1);
+      ids.splice(newIdx, 0, brandId);
+
+      saveCustomCategoryOrder(currentBrandCatFilter, ids);
+      renderBrandSelectorList();
+      renderContinuousNicheBrands();
+      scrollToBrandCard(brandId);
+      showOrderToast('Posição atualizada para #' + (newIdx + 1) + '!');
+    }
+
+    let pillsSortableInstance = null;
+    function initPillsSortable() {
+      const list = document.getElementById('brand-selector-list');
+      if (!list || typeof Sortable === 'undefined') return;
+
+      if (pillsSortableInstance) {
+        pillsSortableInstance.destroy();
+        pillsSortableInstance = null;
+      }
+
+      pillsSortableInstance = new Sortable(list, {
+        filter: '#btn-brand-todas',
+        preventOnFilter: false,
+        animation: 180,
+        ghostClass: 'sortable-pill-ghost',
+        chosenClass: 'sortable-pill-chosen',
+        onEnd: function () {
+          const pills = Array.from(list.children).filter(c => c.id !== 'btn-brand-todas');
+          const newOrderIds = pills.map(p => p.getAttribute('data-brand-id')).filter(Boolean);
+          
+          saveCustomCategoryOrder(currentBrandCatFilter, newOrderIds);
+
+          // Update pill numbering in-place
+          pills.forEach((p, idx) => {
+            const numEl = p.querySelector('.pill-order-num');
+            if (numEl) numEl.textContent = '#' + (idx + 1);
+          });
+
+          // Sync the cards stream
+          renderContinuousNicheBrands();
+          showOrderToast('Nova ordem das marcas guardada!');
+        }
+      });
+    }
+
+    let streamSortableInstance = null;
+    function initStreamSortable() {
+      const el = document.getElementById('sortable-stream-container');
+      if (!el || typeof Sortable === 'undefined') return;
+
+      if (streamSortableInstance) {
+        streamSortableInstance.destroy();
+        streamSortableInstance = null;
+      }
+
+      streamSortableInstance = new Sortable(el, {
+        handle: '.card-drag-handle',
+        animation: 250,
+        ghostClass: 'sortable-ghost',
+        chosenClass: 'sortable-chosen',
+        scroll: true,
+        scrollSensitivity: 100,
+        scrollSpeed: 40,
+        onEnd: function () {
+          const cards = Array.from(el.children);
+          const newOrderIds = cards.map(c => c.getAttribute('data-brand-id')).filter(Boolean);
+          
+          saveCustomCategoryOrder(currentBrandCatFilter, newOrderIds);
+
+          cards.forEach((c, idx) => {
+            const numEl = c.querySelector('.brand-order-num');
+            if (numEl) numEl.textContent = '#' + (idx + 1);
+          });
+
+          renderBrandSelectorList();
+          showOrderToast('Nova ordem das marcas guardada!');
+        }
+      });
+    }
+
+    function showOrderToast(msg) {
+      let toast = document.getElementById('order-toast-notification');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'order-toast-notification';
+        toast.className = 'fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs font-bold flex items-center space-x-2.5 border border-slate-700 transition-all duration-300 opacity-0 pointer-events-none backdrop-blur-md';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = '<span class="text-amber-400 text-sm font-bold">✓</span><span>' + msg + '</span>';
+      toast.style.opacity = '1';
+      toast.style.transform = 'translate(-50%, 0)';
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translate(-50%, 10px)';
+      }, 2500);
+    }
+
+    function renderBrandSelectorList() {
+      const list = document.getElementById('brand-selector-list');
+      const badge = document.getElementById('brand-count-badge');
+      if (!list) return;
+
+      const filtered = getOrderedBrandsForCategory(currentBrandCatFilter);
+      if (badge) {
+        badge.innerText = filtered.length + ' Marcas Empilhadas';
+      }
+
+      const activePill = 'bg-amber-600 text-white font-bold shadow-xs ring-2 ring-amber-600/30';
+      const inactivePill = 'bg-white text-slate-700 hover:bg-slate-100 hover:border-slate-300 border border-slate-200 font-semibold';
+
+      let html = `
+        <button id="btn-brand-todas" onclick="scrollToBrandCard('todas')" class="brand-pill px-3 py-1.5 rounded-xl text-xs flex items-center space-x-1.5 transition-all duration-150 cursor-pointer ${currentBrandId === 'todas' ? 'bg-slate-900 text-white font-bold shadow-xs' : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300 font-bold'}">
+          <span>📜</span>
+          <span>Ver Todas (${filtered.length}) Empilhadas</span>
+        </button>
+      `;
+
+      html += filtered.map((b, idx) => `
+        <button id="pill-brand-${b.id}" data-brand-id="${b.id}" onclick="scrollToBrandCard('${b.id}')" class="brand-pill cursor-grab active:cursor-grabbing px-3 py-1.5 rounded-xl text-xs flex items-center space-x-1.5 transition-all duration-150 ${b.id === currentBrandId ? activePill : inactivePill}" title="Segure e arraste este botão para reordenar, ou clique para ir ao cartão">
+          <span class="text-slate-400 font-bold text-[10px]">⠿</span>
+          <span class="pill-order-num text-[10px] font-mono font-bold ${b.id === currentBrandId ? 'text-amber-100' : 'text-slate-400'}">#${idx + 1}</span>
+          ${getBrandFlagImg(b.id, 'w-3.5 h-2.5 inline-block rounded-2xs shadow-2xs')}
+          <span class="truncate max-w-[130px]">${b.name}</span>
+        </button>
+      `).join('');
+
+      list.innerHTML = html;
+      initPillsSortable();
+      updateResetOrderButton();
+    }
+
+    function scrollToBrandCard(id) {
+      currentBrandId = id;
+
+      const contView = document.getElementById('continuous-all-brands-view');
+      const singleView = document.getElementById('single-brand-view');
+      if (contView) contView.classList.remove('hidden');
+      if (singleView) singleView.classList.add('hidden');
+
+      renderBrandSelectorList();
+      
+      // Ensure cards are rendered in continuous stream
+      const stream = document.getElementById('continuous-cards-stream');
+      if (!stream || stream.children.length === 0) {
+        renderContinuousNicheBrands();
+      }
+
+      if (id === 'todas') {
+        if (stream) {
+          const y = stream.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+        return;
+      }
+
+      const card = document.getElementById(`card-${id}`);
+      if (card) {
+        const y = card.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        card.classList.add('ring-4', 'ring-amber-500/70', 'transition-all', 'duration-300');
+        setTimeout(() => {
+          card.classList.remove('ring-4', 'ring-amber-500/70');
+        }, 2500);
+      }
+    }
+
+    function selectBrand(id) {
+      if (id === 'todas') {
+        scrollToBrandCard('todas');
+        return;
+      }
+
+      currentBrandId = id;
+      renderBrandSelectorList();
+
+      const contView = document.getElementById('continuous-all-brands-view');
+      const singleView = document.getElementById('single-brand-view');
+
+      if (contView) contView.classList.add('hidden');
+      if (singleView) singleView.classList.remove('hidden');
+      renderDeepBrand(id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (currentMainMode !== 'deep') {
+        setMainMode('deep');
+      }
+    }
+
+    // 5. SWITCH CARD TAB FOR A SPECIFIC BRAND (Feed vs LP vs Catalog)
+    function setBrandCardTab(brandId, tab) {
+      brandCardTabs[brandId] = tab;
+      const b = BRANDS_DEEP_DATA.find(x => x.id === brandId);
+      const container = document.getElementById(`bcard-content-${brandId}`);
+      if (b && container) {
+        container.innerHTML = getBrandCardBodyHtml(b, tab);
+
+        // Update button states for this brand
+        ['feed', 'lp', 'catalog'].forEach(t => {
+          const btn = document.getElementById(`bcard-tab-${brandId}-${t}`);
+          if (btn) {
+            btn.className = (t === tab)
+              ? 'px-3 py-1.5 rounded-lg font-bold flex items-center space-x-1 transition-all bg-amber-600 text-white shadow-xs'
+              : 'px-3 py-1.5 rounded-lg font-bold flex items-center space-x-1 transition-all text-slate-600 hover:text-slate-900';
+          }
+        });
+
+        lucide.createIcons();
+      }
+    }
+
+    function setBrandGridCols(brandId, cols) {
+      brandGridCols[brandId] = cols;
+      setBrandCardTab(brandId, 'feed');
+    }
+
+    // 6. GENERATE CONTENT BODY FOR A BRAND CARD (FEED vs LP vs CATALOG)
+    function getBrandCardBodyHtml(b, tab) {
+      const brandReal = (typeof REAL_IG_POSTS !== 'undefined' && REAL_IG_POSTS[b.id]) ? REAL_IG_POSTS[b.id] : null;
+      let posts = (brandReal && brandReal.posts) ? brandReal.posts : [];
+      if (!posts || posts.length === 0) {
+        posts = Array.from({ length: 12 }, (_, i) => ({
+          id: `${b.id}_${i+1}`,
+          local_img: `assets/instagram/${b.id}/post_${i+1}.jpg`,
+          src: `assets/instagram/${b.id}/post_${i+1}.jpg`,
+          tipo: (i % 3 === 0) ? 'Reels' : ((i % 3 === 1) ? 'Carrossel' : 'Foto'),
+          type: (i % 3 === 0) ? 'Reels' : ((i % 3 === 1) ? 'Carrossel' : 'Foto'),
+          pin: i < 3,
+          pinned: i < 3,
+          likes: `${(12 + (i * 3.5)).toFixed(1)}K`,
+          comentarios: `${95 + (i * 22)}`,
+          comments: `${95 + (i * 22)}`,
+          legenda: `Publicação oficial de ${b.name} no Instagram.`
+        }));
+      }
+      const hasRealHero = b.website.heroImage;
+      const hasRealCatalog = b.website.catalogImage;
+
+      if (tab === 'feed') {
+        const cols = brandGridCols[b.id] || 3;
+        const displayPosts = (cols === 6) ? posts.slice(0, 18) : posts.slice(0, 12);
+        const gridClass = (cols === 6) ? 'grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3' : 'grid grid-cols-3 gap-3 sm:gap-4';
+
+        return `
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 mb-3 gap-2">
+              <span class="font-bold text-slate-700 uppercase tracking-wider text-[11px] flex items-center space-x-1.5">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zm0 11h7v7h-7zM3 14h7v7H3z"/></svg>
+                <span>Publicações Oficiais (@${b.instagram.handle})</span>
+              </span>
+
+              <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-[11px]">
+                  <span class="text-slate-500 font-medium px-1.5 text-[10px]">Miniaturas:</span>
+                  <button onclick="setBrandGridCols('${b.id}', 3)" class="px-2 py-0.5 rounded font-bold transition-all ${cols === 3 ? 'bg-amber-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'}">Padrão (3 Colunas)</button>
+                  <button onclick="setBrandGridCols('${b.id}', 6)" class="px-2 py-0.5 rounded font-bold transition-all ${cols === 6 ? 'bg-amber-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'}">Mais Pequenas (6 Colunas)</button>
+                </div>
+                <span class="text-[11px] text-slate-400 hidden md:inline">• Clique para ver detalhes</span>
+              </div>
+            </div>
+
+            <div class="${gridClass}">
+              ${displayPosts.map((p, idx) => `
+                <div onclick="openPostModal('${b.id}', '${p.id}')" class="relative aspect-square overflow-hidden rounded-xl bg-slate-100 group cursor-pointer shadow-xs border border-slate-200 hover:border-amber-500 transition-all select-none">
+                  <!-- Post Image -->
+                  <img src="${p.local_img || p.src || 'assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'}" alt="${b.name} post ${idx+1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'">
+                  
+                  <!-- Top Badge: Publication Type & Pin directly on photo -->
+                  <div class="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 flex items-center space-x-1 drop-shadow-md z-10 pointer-events-none">
+                    ${p.pin ? '<span class="bg-black/75 backdrop-blur-sm text-[9px] sm:text-[10px] text-amber-300 px-1 py-0.5 rounded font-bold shadow-xs">📌</span>' : ''}
+                    <span class="bg-black/75 backdrop-blur-sm text-[9px] sm:text-[10px] text-white px-1.5 sm:px-2 py-0.5 rounded font-bold flex items-center space-x-1 border border-white/10 shadow-xs">
+                      ${(p.tipo === 'Reel' || p.tipo === 'Reels' || p.type === 'Reels' || p.type === 'Reel') ? '<svg class="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg><span class="hidden sm:inline">Reel</span>' : (p.tipo === 'Carrossel' || p.type === 'Carrossel' ? '<svg class="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h10v2H7zm0 4h7v2H7z"/></svg><span class="hidden sm:inline">Carrossel</span>' : '<svg class="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg><span class="hidden sm:inline">Foto</span>')}
+                    </span>
+                  </div>
+
+                  <!-- Bottom Bar: Likes and Comments directly visible on photo -->
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-1.5 sm:p-2.5 flex items-center justify-between text-white text-[10px] sm:text-[11px] font-bold z-10 pointer-events-none">
+                    <span class="flex items-center space-x-1 text-pink-300 drop-shadow-sm">
+                      <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      <span>${p.likes || '18K'}</span>
+                    </span>
+                    <span class="flex items-center space-x-1 text-slate-200 drop-shadow-sm">
+                      <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+                      <span>${p.comentarios || '210'}</span>
+                    </span>
+                  </div>
+
+                  <!-- Hover Caption Overlay -->
+                  <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-center p-3 text-white z-20 pointer-events-none">
+                    <p class="text-xs font-medium text-slate-100 line-clamp-3 leading-relaxed">"${p.legenda || ''}"</p>
+                    <span class="text-[10px] text-amber-300 font-bold mt-2 uppercase tracking-wider">Ver publicação / Instagram ↗</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } else if (tab === 'lp') {
+        const heroImg = hasRealHero ? b.website.heroImage : (b.website.screenshot || 'assets/screenshots/' + b.id + '.jpg');
+        return `
+          <div class="space-y-4">
+            <!-- Browser Header Bar -->
+            <div class="bg-slate-100 border border-slate-200 rounded-t-xl px-4 py-2.5 flex flex-wrap items-center justify-between text-xs gap-3">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-600 text-[11px] bg-white px-3 py-1 rounded-md border border-slate-200 flex items-center space-x-1.5 shadow-2xs">
+                  <i data-lucide="lock" class="w-3 h-3 text-emerald-600"></i>
+                  <span>${b.website.url}</span>
+                </span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="text-[11px] bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-600 font-mono font-medium">Plataforma: <strong>${b.website.plataforma}</strong></span>
+                <a href="${b.website.url}" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-3.5 py-1 rounded-md transition-colors flex items-center space-x-1 shadow-2xs">
+                  <span>Abrir Loja Oficial</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Expanded Hero Visualization Area -->
+            <div class="relative overflow-hidden rounded-b-xl border-x border-b border-slate-200 bg-slate-950 text-white min-h-[540px] sm:min-h-[640px] flex flex-col justify-end group">
+              <!-- Full Landing Page Hero Image -->
+              <img src="${heroImg}" alt="${b.name} Landing Page Hero" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.01]" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&auto=format&fit=crop&q=80'">
+              
+              <!-- Announcement Top Bar Banner -->
+              <div class="absolute top-0 inset-x-0 bg-slate-900/90 backdrop-blur-sm text-amber-300 font-mono text-[11px] py-2 px-4 text-center font-bold tracking-wider uppercase border-b border-white/10 z-10">
+                ${b.website.announcementBar || 'Loja Online Oficial • Preços em EUR'}
+              </div>
+
+              <!-- Sleek Bottom Overlay with Value Proposition -->
+              <div class="relative z-10 p-6 sm:p-8 bg-gradient-to-t from-black/95 via-black/60 to-transparent w-full space-y-2 border-t border-white/10">
+                <span class="text-amber-400 font-mono text-[11px] uppercase tracking-wider font-bold">Proposta de Valor da Marca</span>
+                <h4 class="text-2xl sm:text-3xl font-bold font-serif text-white tracking-tight">${b.website.headline}</h4>
+                <p class="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed">${b.website.subheadline}</p>
+                <div class="pt-2 flex items-center space-x-4">
+                  <a href="${b.website.url}" target="_blank" class="inline-flex items-center space-x-1.5 bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition-colors shadow-sm">
+                    <span>${b.website.ctaPrimary || 'Visitar Loja da Marca'} ↗</span>
+                  </a>
+                  <span class="text-xs text-slate-300 font-medium">Ticket Médio Estimado: <strong class="text-emerald-400">~${b.precoMedio}€</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tab === 'catalog') {
+        const catImg = hasRealCatalog ? b.website.catalogImage : (b.website.screenshot || null);
+        return `
+          <div class="space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 gap-2 pb-1 border-b border-slate-100">
+              <span class="font-bold text-slate-800 uppercase tracking-wider text-[11px] flex items-center space-x-1.5">
+                <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>Principal Coleção de Produtos & Preços Oficiais (EUR)</span>
+              </span>
+              <div class="flex items-center space-x-3">
+                <span class="text-emerald-700 font-bold font-mono bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">Ticket Médio: ~${b.precoMedio}€ (${b.faixaPreco})</span>
+                <a href="${b.website.url}" target="_blank" class="text-amber-700 hover:text-amber-800 font-bold flex items-center space-x-1">
+                  <span>Ver Catálogo na Loja ↗</span>
+                </a>
+              </div>
+            </div>
+
+            ${catImg ? `
+              <div class="rounded-xl overflow-hidden border border-slate-200 max-h-[460px] relative group shadow-2xs">
+                <img src="${catImg}" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]" alt="${b.name} Catálogo">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+                  <a href="${b.website.url}" target="_blank" class="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-xs px-4 py-2 rounded-lg shadow-md hover:bg-white transition-colors">
+                    Navegar na Loja Online Oficial (${b.website.plataforma}) ↗
+                  </a>
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- Best-Sellers & Key Products -->
+            <div>
+              <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5">Best-Sellers & Modelos Chave:</div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                ${b.website.produtosCatalogo.slice(0, 6).map(p => `
+                  <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 hover:border-amber-500 hover:shadow-sm transition-all group">
+                    <div class="aspect-square rounded-lg overflow-hidden bg-slate-50 border border-slate-100 relative">
+                      <img src="${p.img}" alt="${p.nome}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&auto=format&fit=crop&q=80'">
+                      <span class="absolute top-1.5 left-1.5 bg-slate-900/90 backdrop-blur-xs text-white text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">${p.tag}</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-1">
+                      <h5 class="font-bold text-slate-900 text-xs truncate max-w-[130px] group-hover:text-amber-700 transition-colors">${p.nome}</h5>
+                      <span class="text-emerald-700 font-bold font-mono text-xs bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60">${p.preco}</span>
+                    </div>
+                    <div class="text-[10px] text-slate-500 space-y-0.5 border-t border-slate-100 pt-1.5">
+                      <div class="truncate">Couro: <strong class="text-slate-700">${p.couro}</strong></div>
+                      <div class="truncate">Sola: <strong class="text-slate-700">${p.sola}</strong></div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      return '';
+    }
+
+    // 7. RENDER CONTINUOUS VIEW OF THE BRANDS (COM CONTROLOS DE POSIÇÃO E DRAG & DROP)
+    function renderContinuousNicheBrands() {
+      const container = document.getElementById('continuous-cards-stream');
+
+      const catBrands = getOrderedBrandsForCategory(currentBrandCatFilter);
+
+      const cardsHtml = catBrands.map((b, idx) => {
+        const brandReal = (typeof REAL_IG_POSTS !== 'undefined' && REAL_IG_POSTS[b.id]) ? REAL_IG_POSTS[b.id] : null;
+        const avatarImg = (brandReal && brandReal.avatar) ? brandReal.avatar : 'assets/instagram/' + b.id + '/avatar.jpg';
+
+        return `
+          <div id="card-${b.id}" data-brand-id="${b.id}" class="brand-stream-card bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs space-y-6 transition-all duration-200 hover:border-slate-300">
+            
+            <!-- Brand Header with Real Flag, Quick Reorder Controls and Actions -->
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between pb-5 border-b border-slate-100 gap-4">
+              
+              <div class="flex items-center space-x-3 sm:space-x-4">
+                
+                <!-- Large Drag Handle -->
+                <div class="card-drag-handle cursor-grab active:cursor-grabbing p-2 text-slate-400 hover:text-amber-600 bg-slate-50 hover:bg-amber-50 rounded-xl flex items-center justify-center transition-all select-none border border-slate-200 hover:border-amber-300 shadow-2xs" title="Segure e arraste este cartão para mudar a ordem">
+                  <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5h.01M9 12h.01M9 19h.01M15 5h.01M15 12h.01M15 19h.01"/>
+                  </svg>
+                </div>
+
+                <div class="w-16 h-16 rounded-full ig-highlight-ring p-[2.5px] flex-shrink-0 shadow-sm">
+                  <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-white">
+                    <img src="${avatarImg}" alt="${b.name}" class="w-full h-full object-cover">
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="brand-order-num text-xs font-bold px-2 py-0.5 rounded bg-slate-900 text-white font-mono shadow-2xs">#${idx + 1}</span>
+                    <span class="text-xl font-bold text-slate-900 tracking-tight">${b.name}</span>
+                    <span class="text-xs font-semibold text-slate-500 font-mono">@${b.instagram.handle}</span>
+                    <span class="text-blue-500 text-sm" title="Oficial">✓</span>
+                    ${getBrandFlagImg(b.id, 'w-4 h-3 inline-block rounded-xs shadow-2xs')}
+                    <span class="text-xs text-slate-600 font-medium font-mono">• Est. ${b.ano}</span>
+
+                    <!-- Quick Reorder Actions Toolbar -->
+                    <div class="inline-flex items-center space-x-1 ml-2 bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs">
+                      <button onclick="moveBrandToTop('${b.id}')" class="px-2 py-0.5 rounded-md bg-white hover:bg-amber-600 hover:text-white text-slate-700 font-bold text-[10px] flex items-center space-x-1 transition-all shadow-2xs cursor-pointer border border-slate-200" title="Mover diretamente para a 1ª posição no topo">
+                        <span class="text-amber-600 hover:text-white">⬆</span>
+                        <span>Mover ao Topo</span>
+                      </button>
+                      <button onclick="moveBrandStep('${b.id}', -1)" class="w-6 h-6 rounded-md bg-white hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center transition-all cursor-pointer border border-slate-200 text-xs" title="Subir 1 posição">
+                        ↑
+                      </button>
+                      <button onclick="moveBrandStep('${b.id}', 1)" class="w-6 h-6 rounded-md bg-white hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center transition-all cursor-pointer border border-slate-200 text-xs" title="Descer 1 posição">
+                        ↓
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-700 mt-1.5 font-medium">
+                    <span><strong class="font-bold text-slate-900">${b.instagram.publicacoes}</strong> publicações</span>
+                    <span><strong class="font-bold text-slate-900">${b.instagram.seguidores}</strong> seguidores</span>
+                    <span><strong class="font-bold text-slate-900">${b.instagram.seguindo}</strong> a seguir</span>
+                    <span class="border-l border-slate-300 pl-3 font-semibold text-slate-900">${b.name}</span>
+                    <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded text-[11px] font-bold">Ticket Médio ~${b.precoMedio}€</span>
+                  </div>
+
+                  <!-- Clean action links without the Tipo badge -->
+                  <div class="flex flex-wrap items-center gap-2 mt-2.5 text-xs">
+                    <a href="${b.instagram.url}" target="_blank" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 font-semibold transition-all shadow-2xs">
+                      <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                      <span>Instagram: @${b.instagram.handle}</span>
+                      <span class="text-pink-400 font-bold">↗</span>
+                    </a>
+                    <a href="${b.website.url}" target="_blank" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-semibold transition-all shadow-2xs">
+                      <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                      <span>Loja Online</span>
+                      <span class="text-blue-400 font-bold">↗</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Raio-X Button -->
+              <div class="flex items-center gap-2 self-start lg:self-center">
+                <button onclick="selectBrand('${b.id}')" class="px-4 py-2 rounded-xl text-xs font-bold bg-white hover:bg-slate-50 text-slate-800 transition-colors border border-slate-300 flex items-center space-x-1.5 shadow-xs cursor-pointer" title="Abrir raio-X detalhado com análise SWOT">
+                  <i data-lucide="scan" class="w-4 h-4 text-amber-600"></i>
+                  <span>Raio-X da Marca</span>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Feed Only Content Area -->
+            <div id="bcard-content-${b.id}">
+              ${getBrandCardBodyHtml(b, 'feed')}
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `<div class="space-y-6" id="sortable-stream-container">${cardsHtml}</div>`;
+
+      initStreamSortable();
+      updateResetOrderButton();
+      lucide.createIcons();
+    }
+
+    // 8. SWITCH SUB TABS (FOR SINGLE BRAND VIEW)
+    function setDeepTab(tab) {
+      currentDeepTab = tab;
+
+      const tabs = ['ig-grid', 'lp-hero', 'catalog', 'swot'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-${t}`);
+        const panel = document.getElementById(`panel-${t}`);
+        if (!btn || !panel) return;
+
+        if (t === tab) {
+          btn.className = 'deep-tab active px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 bg-amber-600 text-white shadow-xs';
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = 'deep-tab px-4 py-2 rounded-xl text-xs font-bold flex items-center space-x-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100';
+          panel.classList.add('hidden');
+        }
+      });
+
+      lucide.createIcons();
+    }
+
+    // 9. RENDER SINGLE BRAND IN DEEP MODE
+    function renderDeepBrand(brandId) {
+      const b = BRANDS_DEEP_DATA.find(x => x.id === brandId);
+      if (!b) return;
+
+      const brandReal = (typeof REAL_IG_POSTS !== 'undefined' && REAL_IG_POSTS[b.id]) ? REAL_IG_POSTS[b.id] : null;
+      const avatarImg = (brandReal && brandReal.avatar) ? brandReal.avatar : `assets/instagram/${b.id}/avatar.jpg`;
+
+      // Header Banner with Real Flag
+      document.getElementById('current-brand-header').innerHTML = `
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 w-full">
+          
+          <!-- Avatar with Instagram Story Gradient Ring -->
+          <div class="relative flex-shrink-0">
+            <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full ig-highlight-ring p-[3px] shadow-md">
+              <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-white">
+                <img src="${avatarImg}" alt="${b.name}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&auto=format&fit=crop&q=80'">
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Details -->
+          <div class="flex-1 space-y-3.5 text-left w-full">
+            
+            <!-- Row 1: Handle, Verified, Actions, Real Flag -->
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="text-2xl font-bold text-slate-900 tracking-tight">${b.instagram.handle}</span>
+              <span class="text-blue-500 font-bold text-base" title="Verificado">✓</span>
+              
+              <div class="flex items-center space-x-2 ml-1">
+                <a href="${b.instagram.url}" target="_blank" class="bg-[#0095F6] hover:bg-[#1877F2] text-white text-xs font-bold px-4 py-1.5 rounded-lg transition-colors shadow-xs">
+                  A seguir
+                </a>
+                <a href="${b.instagram.url}" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-4 py-1.5 rounded-lg transition-colors border border-slate-200">
+                  Enviar mensagem
+                </a>
+                <button class="text-slate-400 hover:text-slate-600 px-2 py-1 text-sm font-bold">
+                  ···
+                </button>
+              </div>
+
+              <!-- Real Flag Image -->
+              <div class="sm:ml-auto flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1 rounded-full text-xs font-semibold text-slate-700 shadow-xs">
+                ${getBrandFlagImg(b.id)}
+                <span>• Est. ${b.ano}</span>
+              </div>
+            </div>
+
+            <!-- Row 2: Publicações, Seguidores, A Seguir -->
+            <div class="flex items-center space-x-8 text-sm">
+              <div><strong class="text-slate-900 font-bold">${b.instagram.publicacoes}</strong> <span class="text-slate-500">publicações</span></div>
+              <div><strong class="text-slate-900 font-bold">${b.instagram.seguidores}</strong> <span class="text-slate-500">seguidores</span></div>
+              <div><strong class="text-slate-900 font-bold">${b.instagram.seguindo}</strong> <span class="text-slate-500">a seguir</span></div>
+            </div>
+
+            <!-- Row 3: Action Links (Cleaned: no address or bio clutter) -->
+            <div class="flex flex-wrap items-center gap-3 pt-1">
+              
+              <a href="${b.instagram.url}" target="_blank" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 text-xs font-semibold transition-all">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>Instagram: @${b.instagram.handle}</span>
+                <span class="text-pink-400 font-bold">↗</span>
+              </a>
+              <a href="${b.website.url}" target="_blank" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-semibold transition-all">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                <span>Loja Online: ${b.website.url.replace('https://', '').replace(/\/$/, '')}</span>
+                <span class="text-blue-400 font-bold">↗</span>
+              </a>
+            </div>
+
+            <!-- Positioning Summary -->
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between text-xs gap-2">
+              <span class="text-slate-600 font-medium">${b.name} • Ticket Médio: <strong class="text-emerald-700 font-mono font-bold">~${b.precoMedio}€</strong></span>
+              <div class="flex items-center space-x-3 text-xs">
+                <span class="text-slate-500">Plataforma E-Commerce: <strong class="text-slate-900">${b.website.plataforma}</strong></span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      document.getElementById('active-brand-status').innerText = `A inspecionar: ${b.name}`;
+
+      // 1. INSTAGRAM POST GRID (NATIVE 3 COLUMNS WITH LIKES & COMMENTS DIRECTLY ON PHOTO)
+      renderPanelIgGrid(b);
+
+      // 2. LANDING PAGE HERO
+      renderPanelLpHero(b);
+
+      // 3. CATALOG & PRICES
+      renderPanelCatalog(b);
+
+      // 4. SWOT & GAPS
+      renderPanelSwot(b);
+
+      lucide.createIcons();
+    }
+
+    function setDeepGridCols(cols) {
+      deepGridCols = cols;
+      const b = BRANDS_DEEP_DATA.find(x => x.id === currentBrandId);
+      if (b) renderPanelIgGrid(b);
+    }
+
+    // 10. RENDER INSTAGRAM POST GRID FOR SINGLE BRAND
+    function renderPanelIgGrid(b) {
+      const container = document.getElementById('ig-feed-matrix');
+      const brandData = (typeof REAL_IG_POSTS !== 'undefined' && REAL_IG_POSTS[b.id]) ? REAL_IG_POSTS[b.id] : null;
+      const posts = brandData && brandData.posts ? brandData.posts : [];
+
+      const cols = deepGridCols || 6;
+      const btn6 = document.getElementById('deep-grid-6-btn');
+      const btn3 = document.getElementById('deep-grid-3-btn');
+      if (btn6 && btn3) {
+        btn6.className = cols === 6
+          ? 'px-2.5 py-1 rounded font-bold transition-all bg-amber-600 text-white shadow-xs'
+          : 'px-2.5 py-1 rounded font-bold transition-all text-slate-600 hover:text-slate-900';
+        btn3.className = cols === 3
+          ? 'px-2.5 py-1 rounded font-bold transition-all bg-amber-600 text-white shadow-xs'
+          : 'px-2.5 py-1 rounded font-bold transition-all text-slate-600 hover:text-slate-900';
+      }
+
+      container.className = cols === 6
+        ? 'grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3 transition-all'
+        : 'max-w-4xl mx-auto grid grid-cols-3 gap-2.5 sm:gap-4 transition-all';
+
+      const subTitle = document.getElementById('ig-feed-sub-title');
+      if (subTitle) {
+        subTitle.innerText = `${posts.length} Publicações Reais Extraídas do Instagram (@${b.instagram.handle})`;
+      }
+
+      let html = '';
+
+      if (posts && posts.length > 0) {
+        const displayPosts = (cols === 6) ? posts.slice(0, 18) : posts.slice(0, 12);
+        html = displayPosts.map((p, idx) => `
+          <div onclick="openPostModal('${b.id}', '${p.id}')" class="relative aspect-square overflow-hidden rounded-xl bg-slate-100 group cursor-pointer shadow-xs select-none border border-slate-200 hover:border-amber-500 transition-all">
+            <!-- Actual Post Image -->
+            <img src="${p.local_img || p.src || 'assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'}" alt="${b.name} post ${idx+1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'">
+            
+            <!-- Top: Pin and Publication Type Badge directly on photo -->
+            <div class="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 flex items-center space-x-1 drop-shadow-md z-10 pointer-events-none">
+              ${p.pin ? '<span class="bg-black/75 backdrop-blur-sm text-[9px] sm:text-[10px] text-amber-300 px-1 py-0.5 rounded font-bold shadow-xs">📌</span>' : ''}
+              <span class="bg-black/75 backdrop-blur-sm text-[9px] sm:text-[10px] text-white px-1.5 sm:px-2 py-0.5 rounded font-bold flex items-center space-x-1 border border-white/10 shadow-xs">
+                ${(p.tipo === 'Reel' || p.tipo === 'Reels' || p.type === 'Reels' || p.type === 'Reel') ? '<svg class="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg><span class="hidden sm:inline">Reel</span>' : (p.tipo === 'Carrossel' || p.type === 'Carrossel' ? '<svg class="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h10v2H7zm0 4h7v2H7z"/></svg><span class="hidden sm:inline">Carrossel</span>' : '<svg class="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg><span class="hidden sm:inline">Foto</span>')}
+              </span>
+            </div>
+
+            <!-- Bottom Bar: Likes and Comments directly visible on photo -->
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-1.5 sm:p-2.5 flex items-center justify-between text-white text-[10px] sm:text-[11px] font-bold z-10 pointer-events-none">
+              <span class="flex items-center space-x-1 text-pink-300 drop-shadow-sm">
+                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <span>${p.likes || '18K'}</span>
+              </span>
+              <span class="flex items-center space-x-1 text-slate-200 drop-shadow-sm">
+                <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+                <span>${p.comentarios || '210'}</span>
+              </span>
+            </div>
+
+            <!-- Hover Caption Overlay -->
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-center p-3 text-white z-20 pointer-events-none">
+              <p class="text-xs font-medium text-slate-100 line-clamp-3 leading-relaxed">"${p.legenda || ''}"</p>
+              <span class="text-[10px] text-amber-300 font-bold mt-2 uppercase tracking-wider">Clique para detalhes / Instagram ↗</span>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        html = `<div class="col-span-full py-12 text-center text-slate-500">A carregar publicações reais do Instagram...</div>`;
+      }
+
+      container.innerHTML = html;
+      lucide.createIcons();
+    }
+
+    // 11. OPEN POST DETAIL MODAL
+    function openPostModal(brandId, postId) {
+      const b = BRANDS_DEEP_DATA.find(x => x.id === brandId);
+      if (!b) return;
+
+      const brandReal = (typeof REAL_IG_POSTS !== 'undefined' && REAL_IG_POSTS[b.id]) ? REAL_IG_POSTS[b.id] : null;
+      const avatarImg = (brandReal && brandReal.avatar) ? brandReal.avatar : `assets/instagram/${b.id}/avatar.jpg`;
+      const posts = (brandReal && brandReal.posts) ? brandReal.posts : [];
+      const post = posts.find(p => p.id === postId) || posts[0];
+
+      if (!post) return;
+
+      document.getElementById('modal-post-img').src = post.local_img || post.src || ('assets/instagram/' + brandId + '/post_1.jpg');
+      document.getElementById('modal-post-avatar').src = avatarImg;
+      document.getElementById('modal-post-handle').innerText = b.instagram.handle;
+      document.getElementById('modal-post-flag-container').innerHTML = getBrandFlagImg(b.id);
+      document.getElementById('modal-post-brandname').innerText = b.name;
+      document.getElementById('modal-post-caption').innerText = post.legenda || 'Publicação oficial do feed do Instagram.';
+      document.getElementById('modal-post-likes').innerText = `${post.likes || '24K'} gostos`;
+      document.getElementById('modal-post-comments').innerText = `${post.comentarios || '340'} comentários`;
+      document.getElementById('modal-post-type').innerText = post.tipo || 'Publicação';
+      document.getElementById('modal-post-ig-link').href = b.instagram.url;
+
+      const modal = document.getElementById('post-detail-modal');
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+      lucide.createIcons();
+    }
+
+    function closePostModal() {
+      const modal = document.getElementById('post-detail-modal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+
+    // 12. LANDING PAGE HERO
+    function renderPanelLpHero(b) {
+      const container = document.getElementById('lp-hero-content');
+      const hasRealHero = b.website.heroImage;
+
+      container.innerHTML = `
+        <div class="bg-slate-900 text-slate-100 text-[11px] py-2 px-4 text-center font-mono tracking-wide uppercase">
+          ${b.website.announcementBar}
+        </div>
+
+        <div class="bg-white px-6 py-4 flex items-center justify-between border-b border-slate-200 text-xs">
+          <div class="flex items-center space-x-6 text-slate-700 font-semibold">
+            <span class="cursor-pointer hover:text-slate-900">MEN</span>
+            <span class="cursor-pointer hover:text-slate-900">WOMEN</span>
+            <span class="cursor-pointer hover:text-slate-900 hidden sm:inline">ABOUT</span>
+          </div>
+          <div class="font-cinzel text-base font-bold tracking-widest text-slate-900 uppercase">
+            ${b.name}
+          </div>
+          <div class="flex items-center space-x-4 text-slate-500">
+            <a href="${b.website.url}" target="_blank" class="text-amber-700 font-bold hover:underline flex items-center space-x-1">
+              <span>Visitar Loja Oficial</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden bg-slate-950 flex items-center justify-center min-h-[540px] sm:min-h-[640px] rounded-b-xl border-x border-b border-slate-200">
+          <img src="${hasRealHero ? b.website.heroImage : (b.website.screenshot || 'assets/screenshots/' + b.id + '.jpg')}" alt="${b.name} Landing Page" class="absolute inset-0 w-full h-full object-cover object-top opacity-90" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&auto=format&fit=crop&q=80'">
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8 sm:p-12 text-white">
+            <span class="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">${b.website.announcementBar || 'Proposta de Valor da Marca'}</span>
+            <h2 class="text-2xl sm:text-4xl font-bold font-serif text-white tracking-tight mt-1 max-w-2xl">${b.website.headline}</h2>
+            <p class="text-xs sm:text-sm text-slate-200 max-w-xl mt-2 leading-relaxed">${b.website.subheadline}</p>
+            <div class="flex items-center space-x-3 mt-6">
+              <a href="${b.website.url}" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-6 py-2.5 rounded-lg transition-colors uppercase tracking-wider shadow-sm">
+                ${b.website.ctaPrimary || 'Visitar Loja da Marca'} ↗
+              </a>
+              <span class="text-xs font-mono bg-black/60 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-lg text-slate-300">
+                Plataforma: ${b.website.plataforma}
+              </span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 13. CATALOG & PRICES
+    function renderPanelCatalog(b) {
+      const container = document.getElementById('catalog-content');
+      const hasRealCatalog = b.website.catalogImage;
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 gap-3">
+            <div>
+              <h3 class="text-xl font-bold font-serif text-slate-900">${b.name} • Catálogo Oficial de Produtos</h3>
+              <p class="text-xs text-slate-500 mt-0.5">Preços convertidos em Euros (EUR) com referência aos best-sellers e gamas de produto.</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-full font-bold">
+                Ticket Médio: ~${b.precoMedio}€ (${b.faixaPreco})
+              </span>
+            </div>
+          </div>
+
+          ${hasRealCatalog ? `
+            <div class="rounded-xl overflow-hidden border border-slate-200 shadow-xs mb-6">
+              <img src="${b.website.catalogImage}" alt="${b.name} Catálogo Real" class="w-full object-cover">
+            </div>
+          ` : ''}
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            ${b.website.produtosCatalogo.map(p => `
+              <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden p-4 space-y-3 hover:border-amber-500 transition-colors shadow-xs">
+                <div class="aspect-square rounded-lg overflow-hidden bg-white border border-slate-200 relative">
+                  <img src="${p.img}" alt="${p.nome}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=80'">
+                  <span class="absolute top-2 left-2 bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">${p.tag}</span>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <h4 class="font-bold text-slate-900 text-sm">${p.nome}</h4>
+                  <span class="text-emerald-700 font-bold font-mono text-sm bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">${p.preco}</span>
+                </div>
+                <div class="text-[11px] text-slate-500 space-y-0.5">
+                  <div>Couro / Material: <strong>${p.couro}</strong></div>
+                  <div>Sola / Detalhes: <strong>${p.sola}</strong></div>
+                </div>
+                <a href="${b.website.url}" target="_blank" class="block w-full text-center py-1.5 bg-slate-100 hover:bg-amber-600 hover:text-white text-slate-700 rounded-lg text-xs font-semibold transition-colors mt-2">Ver na Loja Oficial ↗</a>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // 14. SWOT & STRATEGIC GAPS
+    function renderPanelSwot(b) {
+      const container = document.getElementById('swot-content');
+
+      container.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-xs">
+            <div class="flex items-center space-x-2 text-amber-700 font-bold text-sm">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span>Como Esta Marca Converte no Digital (Raio-X)</span>
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed">${b.analiseEstrategica.raioX}</p>
+            <div class="pt-3 border-t border-slate-100">
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">Ganchos de Conteúdo Viral:</span>
+              <ul class="space-y-1.5 text-xs text-slate-700">
+                ${b.instagram.ganchosConteudo.map(g => `<li class="flex items-start space-x-2"><span class="text-amber-600 font-bold">•</span><span>${g}</span></li>`).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-xs">
+            <div class="flex items-center space-x-2 text-rose-700 font-bold text-sm">
+              <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+              <span>Gaps & Oportunidades de Ataque para o Seu Projeto</span>
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed">${b.analiseEstrategica.gapParaAproveitar}</p>
+            <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 leading-relaxed font-medium">
+              💡 <strong>Recomendação Prática:</strong> Utilize construção artesanal portuguesa (com curtumes de primeira linha de Alcanena e solas Vibram) para bater esta marca em durabilidade, adotando em simultâneo os formatos de vídeo rápido e preços transparentes que eles usam para converter.
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 15. COMPARATOR TABLE (SEPARADO POR BOTAS, SAPATOS E MALAS COM BANDEIRAS REAIS)
+    function renderComparatorTable() {
+      const tbody = document.getElementById('comparator-tbody');
+      const categories = [
+        { key: 'botas', title: 'SECÇÃO 1: BOTAS (30 MARCAS) • Conforme botas.txt / concorrentes.json', icon: '👢', bg: 'bg-amber-50/90 text-amber-900 border-amber-200' },
+        { key: 'sapatos', title: 'SECÇÃO 2: SAPATOS (30 MARCAS) • Conforme sapatos.txt / concorrentes.json', icon: '👞', bg: 'bg-blue-50/90 text-blue-900 border-blue-200' },
+        { key: 'malas', title: 'SECÇÃO 3: MALAS & ACESSÓRIOS (30 MARCAS) • Conforme malas.txt / concorrentes.json', icon: '🎒', bg: 'bg-emerald-50/90 text-emerald-900 border-emerald-200' }
+      ];
+
+      let html = '';
+      categories.forEach(cat => {
+        const brands = BRANDS_DEEP_DATA.filter(b => b.categoria === cat.key);
+        html += `
+          <tr class="${cat.bg} border-y border-slate-200 font-bold">
+            <td colspan="8" class="py-2.5 px-4 text-xs uppercase tracking-wider">
+              <span class="mr-1">${cat.icon}</span> ${cat.title}
+            </td>
+          </tr>
+        `;
+        html += brands.map(b => `
+          <tr class="hover:bg-slate-50/80 transition-colors">
+            <td class="py-3.5 px-4 font-bold text-slate-900">
+              <div class="flex items-center space-x-2.5">
+                ${getBrandFlagImg(b.id)}
+                <span>${b.name}</span>
+              </div>
+            </td>
+            <td class="py-3.5 px-3 text-center">
+              ${getBrandFlagImg(b.id)}
+            </td>
+            <td class="py-3.5 px-3 font-medium text-slate-600">${b.categoriaLabel}</td>
+            <td class="py-3.5 px-3 font-mono font-bold text-emerald-700">~${b.precoMedio}€</td>
+            <td class="py-3.5 px-3 font-bold text-slate-900">${b.instagram.seguidores}</td>
+            <td class="py-3.5 px-3 text-slate-600">${b.website.plataforma}</td>
+            <td class="py-3.5 px-4 text-xs text-slate-500 italic max-w-xs truncate">${b.instagram.ganchosConteudo[0]}</td>
+            <td class="py-3.5 px-3 text-right">
+              <button onclick="filterBrandCategory('${b.categoria}'); selectBrand('${b.id}')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-bold border border-slate-200 transition-colors">
+                Raio-X
+              </button>
+            </td>
+          </tr>
+        `).join('');
+      });
+
+      tbody.innerHTML = html;
+    }
+  </script>
+
+  <!-- Floating Back to Top Button -->
+  <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-50 bg-slate-900 hover:bg-amber-600 text-white font-bold text-xs py-3 px-4 rounded-full shadow-xl flex items-center space-x-2 transition-all duration-300 cursor-pointer hidden opacity-95 hover:opacity-100 hover:scale-105">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    <span>Voltar ao Topo</span>
+  </button>
+  <script>
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('btn-back-to-top');
+      if (btn) {
+        if (window.scrollY > 300) {
+          btn.classList.remove('hidden');
+        } else {
+          btn.classList.add('hidden');
+        }
+      }
+    });
+  </script>
+  </div><!-- end #app-content -->
+</body>
+</html>

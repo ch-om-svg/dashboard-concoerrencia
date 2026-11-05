@@ -1,0 +1,95 @@
+{
+  "brandId": "diplomatic",
+  "handle": "diplomaticbrand",
+  "profileInfo": {
+    "avatar": "https://scontent.cdninstagram.com/v/t51.2885-19/490757054_1383978482540600_8366253349321592647_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=104&ig_cache_key=GL5bQB04INSZuOoEAEdPPEsY5xp0bkULAAAB1501500j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=Epvmz9wsRZkQ7kNvwGy9uC5&_nc_oc=Adopme9tKwhpRrV42lmff_M5cwZL-YP00AXw7fqHg1QFKYGeXzcMwgP_sPXrCFtx8RK92qj_LLRteLHnXYdjcOAs&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7860f&oh=00_AQSP1TdB7iBExmBEgl0PHnOZ7XTDzDTkIo9JFct_Iee66g&oe=6AF23ACA",
+    "metaDesc": "52K Followers, 18 Following, 759 Posts - DIPLOMATIC (@diplomaticbrand) on Instagram: \"Handcrafted shoes made in Spain. \nDesigned in Madrid. Shipping worldwide.\"",
+    "headerText": "diplomaticbrand\n52.4K followers\n1 following\nDIPLOMATIC\nHandcrafted shoes made in Spain.\nDesigned in Madrid. Shipping worldwide.\nwww.diplomaticbrand.com"
+  },
+  "posts": [
+    {
+      "index": 1,
+      "url": "https://www.instagram.com/diplomaticbrand/p/DfUg6FvCKH1/",
+      "alt": "Photo by DIPLOMATIC on November 04, 2026. May be an image of text.",
+      "isReel": false,
+      "src": "assets/instagram/diplomatic/post_1.jpg"
+    },
+    {
+      "index": 2,
+      "url": "https://www.instagram.com/diplomaticbrand/reel/DfNfOIQhOmD/",
+      "alt": "Video by DIPLOMATIC on November 01, 2026. May be an image of one or more people, blonde hair, top, cardigan, fleece and text.",
+      "isReel": true,
+      "src": "assets/instagram/diplomatic/post_2.jpg"
+    },
+    {
+      "index": 3,
+      "url": "https://www.instagram.com/diplomaticbrand/p/De1kpm7Iuxk/",
+      "alt": "Photo by DIPLOMATIC on October 25, 2026. May be an image of leather, wingtip shoes, loafer, toecap shoes and text.",
+      "isReel": false,
+      "src": "assets/instagram/diplomatic/post_3.jpg"
+    },
+    {
+      "index": 4,
+      "url": "https://www.instagram.com/diplomaticbrand/reel/DerM8cMorKZ/",
+      "alt": "Video by DIPLOMATIC on October 19, 2026. May be an image of one or more people, people kissing and text.",
+      "isReel": true,
+      "src": "assets/instagram/diplomatic/post_4.jpg"
+    },
+    {
+      "index": 5,
+      "url": "https://www.instagram.com/diplomaticbrand/p/DeeNWnVIMDg/",
+      "alt": "Photo by DIPLOMATIC on October 14, 2026. May be an image of wingtip shoes, leather, espadrilles, loafer and text.",
+      "isReel": false,
+      "src": "assets/instagram/diplomatic/post_5.jpg"
+    },
+    {
+      "index": 6,
+      "url": "https://www.instagram.com/diplomaticbrand/reel/DeXTk4uhG9Q/",
+      "alt": "Video by DIPLOMATIC on October 11, 2026. May be an image of wingtip shoes, sandals, toecap shoes, slingback shoes, loafer and text.",
+      "isReel": true,
+      "src": "assets/instagram/diplomatic/post_6.jpg"
+    },
+    {
+      "index": 7,
+      "url": "https://www.instagram.com/diplomaticbrand/p/DeO5bUlobrb/",
+      "alt": "Photo by DIPLOMATIC on October 08, 2026. May be an image of ship, yacht, videogame controller, houseboat and text.",
+      "isReel": true,
+      "src": "assets/instagram/diplomatic/post_7.jpg"
+    },
+    {
+      "index": 8,
+      "url": "https://www.instagram.com/diplomaticbrand/p/DeMUITqCFQ-/",
+      "alt": "Photo by DIPLOMATIC on October 07, 2026.",
+      "isReel": false,
+      "src": "assets/instagram/diplomatic/post_8.jpg"
+    },
+    {
+      "index": 9,
+      "url": "https://www.instagram.com/diplomaticbrand/p/Dd_lWoWIU-I/",
+      "alt": "Photo by DIPLOMATIC on October 04, 2026. May be an image of can opener, screwdriver and text.",
+      "isReel": false,
+      "src": "assets/instagram/diplomatic/post_9.jpg"
+    },
+    {
+      "index": 10,
+      "url": "https://www.instagram.com/diplomaticbrand/reel/Dd6Ub_mor8_/",
+      "alt": "Video by DIPLOMATIC on September 30, 2026. May be an image of one or more people, people playing tennis, sportswear, racket and text.",
+      "isReel": true,
+      "src": "assets/instagram/diplomatic/post_10.jpg"
+    },
+    {
+      "index": 11,
+      "url": "https://www.instagram.com/diplomaticbrand/p/Dd3gwZSInaK/",
+      "alt": "Photo by DIPLOMATIC on September 29, 2026. May be an image of leather, wingtip shoes, espadrilles, loafer, toecap shoes and text.",
+      "isReel": false,
+      "src": "assets/instagram/diplomatic/post_11.jpg"
+    },
+    {
+      "index": 12,
+      "url": "https://www.instagram.com/diplomaticbrand/p/DdzQdrYCOw4/",
+      "alt": "Photo by DIPLOMATIC on September 27, 2026.",
+      "isReel": false,
+      "src": "assets/instagram/diplomatic/post_12.jpg"
+    }
+  ]
+}
