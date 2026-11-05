@@ -519,9 +519,9 @@
   </div>
 
   <!-- DATA & APP SCRIPT -->
-  <script src="data/sync_status.js?v=20261105_2230"></script>
-  <script src="data/real_ig_posts.js?v=20261105_2230"></script>
-  <script src="data/brands_deep_data.js?v=20261105_2230"></script>
+  <script src="data/sync_status.js?v=20261105_2235"></script>
+  <script src="data/real_ig_posts.js?v=20261105_2235"></script>
+  <script src="data/brands_deep_data.js?v=20261105_2235"></script>
   <script>
     // Flag Mapping: Real Country Flags saved locally in assets/flags/
     const BRAND_COUNTRY_MAP = {
@@ -565,13 +565,19 @@
 
     
     // ==========================================
-    // PASSWORD PROTECTION & ACCESS GATE
+    // PASSWORD PROTECTION & 20-MIN RATE LIMITING
     // ==========================================
-    // Palavra-passe predefinida: 'concorrencia2026'
-    // Para alterar a palavra-passe, altere o DASHBOARD_PASSWORD ou o hash SHA-256 correspondente
+    // Palavra-passe definida: 'CHAZE'
     const DASHBOARD_PASSWORD = 'CHAZE';
     const DASHBOARD_AUTH_HASH = 'fa4f6a2f731c8cd840dbf30ccfd600f158ddcb41897a6ce42cec652ae58b9903';
     const AUTH_STORAGE_KEY = 'concorrencia_auth_session';
+
+    const MAX_LOGIN_ATTEMPTS = 4;
+    const LOCKOUT_DURATION_MS = 20 * 60 * 1000; // 20 minutos de bloqueio
+    const ATTEMPTS_STORAGE_KEY = 'concorrencia_auth_attempts';
+    const LOCKOUT_STORAGE_KEY = 'concorrencia_auth_lockout_until';
+
+    let lockoutTimerInterval = null;
 
     async function sha256(str) {
       if (window.crypto && crypto.subtle) {
@@ -581,20 +587,132 @@
       return str;
     }
 
+    function getFailedAttempts() {
+      const val = parseInt(localStorage.getItem(ATTEMPTS_STORAGE_KEY), 10);
+      return isNaN(val) ? 0 : val;
+    }
+
+    function getLockoutUntil() {
+      const val = parseInt(localStorage.getItem(LOCKOUT_STORAGE_KEY), 10);
+      return isNaN(val) ? 0 : val;
+    }
+
+    function checkLockoutStatus() {
+      const lockoutUntil = getLockoutUntil();
+      const now = Date.now();
+
+      if (lockoutUntil && now < lockoutUntil) {
+        applyLockoutState(lockoutUntil);
+        return true;
+      } else if (lockoutUntil && now >= lockoutUntil) {
+        clearLockoutState();
+        return false;
+      }
+      return false;
+    }
+
+    function applyLockoutState(lockoutUntil) {
+      const pwdInput = document.getElementById('gate-password');
+      const submitBtn = document.getElementById('gate-submit-btn');
+
+      if (pwdInput) {
+        pwdInput.disabled = true;
+        pwdInput.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+      }
+
+      updateLockoutTimerDisplay(lockoutUntil);
+
+      if (!lockoutTimerInterval) {
+        lockoutTimerInterval = setInterval(() => {
+          const remainingMs = lockoutUntil - Date.now();
+          if (remainingMs <= 0) {
+            clearInterval(lockoutTimerInterval);
+            lockoutTimerInterval = null;
+            clearLockoutState();
+          } else {
+            updateLockoutTimerDisplay(lockoutUntil);
+          }
+        }, 1000);
+      }
+    }
+
+    function updateLockoutTimerDisplay(lockoutUntil) {
+      const errDiv = document.getElementById('gate-error');
+      if (!errDiv) return;
+
+      const remainingMs = Math.max(0, lockoutUntil - Date.now());
+      const minutes = Math.floor(remainingMs / 60000);
+      const seconds = Math.floor((remainingMs % 60000) / 1000);
+      const timeFormatted = minutes + 'm ' + (seconds < 10 ? '0' : '') + seconds + 's';
+
+      errDiv.className = 'p-3.5 rounded-xl bg-red-950/90 border border-red-700 text-red-200 text-xs text-center font-medium space-y-1 block shadow-lg';
+      errDiv.innerHTML = `
+        <div class="font-bold flex items-center justify-center space-x-1.5 text-red-300">
+          <span>⛔</span>
+          <span>Acesso Bloqueado (4 tentativas falhadas)</span>
+        </div>
+        <div class="text-slate-300">É necessário aguardar 20 minutos por segurança.</div>
+        <div class="font-mono font-bold text-amber-400 text-sm pt-0.5">Tempo restante: ${timeFormatted}</div>
+      `;
+    }
+
+    function clearLockoutState() {
+      localStorage.removeItem(LOCKOUT_STORAGE_KEY);
+      localStorage.removeItem(ATTEMPTS_STORAGE_KEY);
+
+      const pwdInput = document.getElementById('gate-password');
+      const submitBtn = document.getElementById('gate-submit-btn');
+      const errDiv = document.getElementById('gate-error');
+
+      if (pwdInput) {
+        pwdInput.disabled = false;
+        pwdInput.classList.remove('opacity-50', 'cursor-not-allowed');
+        pwdInput.value = '';
+        pwdInput.focus();
+      }
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+      }
+      if (errDiv) {
+        errDiv.className = 'p-2.5 rounded-lg bg-emerald-950/80 border border-emerald-700 text-emerald-300 text-xs text-center font-medium block';
+        errDiv.innerHTML = '✓ Bloqueio de 20 minutos terminado. Pode tentar novamente.';
+      }
+    }
+
     async function checkAuthOnLoad() {
       const saved = localStorage.getItem(AUTH_STORAGE_KEY) || sessionStorage.getItem(AUTH_STORAGE_KEY);
       if (saved === DASHBOARD_AUTH_HASH) {
         unlockDashboard();
         return true;
       }
-      // If not authenticated, show login gate and focus password input
+      
       const gate = document.getElementById('login-gate');
       const app = document.getElementById('app-content');
       if (gate) gate.classList.remove('hidden');
       if (app) app.classList.add('hidden');
+
+      if (checkLockoutStatus()) {
+        return false;
+      }
+
+      const attempts = getFailedAttempts();
+      if (attempts > 0 && attempts < MAX_LOGIN_ATTEMPTS) {
+        const errDiv = document.getElementById('gate-error');
+        const remaining = MAX_LOGIN_ATTEMPTS - attempts;
+        if (errDiv) {
+          errDiv.className = 'p-2.5 rounded-lg bg-amber-950/80 border border-amber-800 text-amber-200 text-xs text-center font-medium block';
+          errDiv.innerHTML = 'Aviso: ' + attempts + ' de ' + MAX_LOGIN_ATTEMPTS + ' tentativas falhadas anteriores (restam ' + remaining + ').';
+        }
+      }
+
       setTimeout(() => {
         const pwdInput = document.getElementById('gate-password');
-        if (pwdInput) pwdInput.focus();
+        if (pwdInput && !pwdInput.disabled) pwdInput.focus();
       }, 100);
       return false;
     }
@@ -614,23 +732,34 @@
       const app = document.getElementById('app-content');
       if (gate) gate.classList.remove('hidden');
       if (app) app.classList.add('hidden');
-      const pwdInput = document.getElementById('gate-password');
-      if (pwdInput) {
-        pwdInput.value = '';
-        pwdInput.focus();
+      
+      if (!checkLockoutStatus()) {
+        const pwdInput = document.getElementById('gate-password');
+        if (pwdInput) {
+          pwdInput.value = '';
+          pwdInput.focus();
+        }
       }
     }
 
     async function handleLoginSubmit(e) {
       if (e) e.preventDefault();
+      
+      if (checkLockoutStatus()) {
+        return;
+      }
+
       const pwdInput = document.getElementById('gate-password');
       const errDiv = document.getElementById('gate-error');
       const remember = document.getElementById('gate-remember').checked;
       
-      const entered = pwdInput ? pwdInput.value : '';
+      const entered = pwdInput ? pwdInput.value.trim() : '';
       const hash = await sha256(entered);
 
       if (hash === DASHBOARD_AUTH_HASH || entered.toUpperCase() === 'CHAZE') {
+        localStorage.removeItem(ATTEMPTS_STORAGE_KEY);
+        localStorage.removeItem(LOCKOUT_STORAGE_KEY);
+
         if (remember) {
           localStorage.setItem(AUTH_STORAGE_KEY, DASHBOARD_AUTH_HASH);
         } else {
@@ -639,9 +768,25 @@
         if (errDiv) errDiv.classList.add('hidden');
         unlockDashboard();
       } else {
-        if (errDiv) errDiv.classList.remove('hidden');
-        if (pwdInput) {
-          pwdInput.select();
+        let attempts = getFailedAttempts() + 1;
+        localStorage.setItem(ATTEMPTS_STORAGE_KEY, attempts.toString());
+
+        if (attempts >= MAX_LOGIN_ATTEMPTS) {
+          const lockoutUntil = Date.now() + LOCKOUT_DURATION_MS;
+          localStorage.setItem(LOCKOUT_STORAGE_KEY, lockoutUntil.toString());
+          applyLockoutState(lockoutUntil);
+        } else {
+          const remaining = MAX_LOGIN_ATTEMPTS - attempts;
+          if (errDiv) {
+            errDiv.className = 'p-2.5 rounded-lg bg-red-950/60 border border-red-800 text-red-300 text-xs text-center font-medium block';
+            errDiv.innerHTML = `
+              <span>Palavra-passe incorreta.</span>
+              <span class="font-bold text-amber-300 block mt-0.5">Tentativa ${attempts} de ${MAX_LOGIN_ATTEMPTS} (restam ${remaining} ${remaining === 1 ? 'tentativa' : 'tentativas'}).</span>
+            `;
+          }
+          if (pwdInput) {
+            pwdInput.select();
+          }
         }
       }
     }
