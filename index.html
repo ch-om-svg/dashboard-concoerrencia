@@ -359,29 +359,96 @@
   <!-- ============================================================== -->
   <!-- MODE 2: COMPARATOR TABLE (SEPARADO POR BOTAS, SAPATOS E MALAS) -->
   <!-- ============================================================== -->
+  <!-- COMPARATOR MODE CONTAINER (MATRIZ COMPETITIVA ORDENÁVEL: SAPATOS, BOTAS E MALAS) -->
+  <!-- ============================================================== -->
   <section id="comparator-mode-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 hidden">
-    <div>
-      <h2 class="text-2xl font-bold font-serif text-slate-900">Matriz Comparativa das 15 Marcas</h2>
-      <p class="text-xs text-slate-500 mt-1">Comparação detalhada organizada por Botas, Sapatos e Malas.</p>
+    
+    <!-- Title & Category Selector Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+      <div>
+        <h2 class="text-2xl font-bold font-serif text-slate-900 tracking-tight">Matriz Competitiva & Benchmark</h2>
+        <p class="text-xs text-slate-500 mt-1">Comparação detalhada de 91 concorrentes em Calçado & Acessórios de Luxo.</p>
+      </div>
+
+      <!-- Category Filter Tabs: Sapatos -> Botas -> Malas -> Todas -->
+      <div class="flex flex-wrap items-center gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200 text-xs">
+        <span class="text-slate-500 font-bold px-1 text-[11px]">Secção:</span>
+        <button onclick="setCompCategoryFilter('sapatos')" id="comp-cat-sapatos" class="comp-cat-btn px-3 py-1.5 rounded-lg font-bold transition-all bg-slate-900 text-white shadow-xs cursor-pointer">👞 1. Sapatos (31)</button>
+        <button onclick="setCompCategoryFilter('botas')" id="comp-cat-botas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">👢 2. Botas (30)</button>
+        <button onclick="setCompCategoryFilter('malas')" id="comp-cat-malas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">🎒 3. Malas (30)</button>
+        <button onclick="setCompCategoryFilter('todas')" id="comp-cat-todas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">📑 Todas as Secções (91)</button>
+      </div>
     </div>
 
-    <div class="glass-card rounded-2xl overflow-hidden border border-slate-200 bg-white">
+    <!-- Sorting Toolbar Bar -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 bg-white rounded-xl border border-slate-200 shadow-2xs text-xs">
+      <div class="flex items-center space-x-2">
+        <i data-lucide="arrow-down-up" class="w-4 h-4 text-amber-600"></i>
+        <span class="font-bold text-slate-700">Ordenar Dados:</span>
+        <span id="comp-active-sort-label" class="text-slate-400 font-mono text-[11px]">(Ordem Padrão)</span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-1.5">
+        <button onclick="setCompSort('default')" id="comp-sort-default" class="comp-sort-btn px-2.5 py-1 rounded-lg font-bold border transition-all bg-amber-600 text-white border-amber-600 shadow-2xs cursor-pointer">
+          Padrão
+        </button>
+        
+        <!-- Price Sorting -->
+        <button onclick="setCompSort('price-asc')" id="comp-sort-price-asc" class="comp-sort-btn px-2.5 py-1 rounded-lg font-medium border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all flex items-center space-x-1 cursor-pointer" title="Preço: Do mais barato ao mais caro">
+          <span>🏷️ Preço ↑ (Menor)</span>
+        </button>
+        <button onclick="setCompSort('price-desc')" id="comp-sort-price-desc" class="comp-sort-btn px-2.5 py-1 rounded-lg font-medium border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all flex items-center space-x-1 cursor-pointer" title="Preço: Do mais caro ao mais barato">
+          <span>🏷️ Preço ↓ (Maior)</span>
+        </button>
+
+        <!-- Followers Sorting -->
+        <button onclick="setCompSort('followers-desc')" id="comp-sort-followers-desc" class="comp-sort-btn px-2.5 py-1 rounded-lg font-medium border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all flex items-center space-x-1 cursor-pointer" title="Seguidores: Mais populares primeiro">
+          <span>👥 Mais Seguidores</span>
+        </button>
+        <button onclick="setCompSort('followers-asc')" id="comp-sort-followers-asc" class="comp-sort-btn px-2.5 py-1 rounded-lg font-medium border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all flex items-center space-x-1 cursor-pointer" title="Seguidores: Menos populares primeiro">
+          <span>👥 Menos Seguidores</span>
+        </button>
+
+        <!-- Name Sorting -->
+        <button onclick="setCompSort('name-asc')" id="comp-sort-name-asc" class="comp-sort-btn px-2.5 py-1 rounded-lg font-medium border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all flex items-center space-x-1 cursor-pointer" title="Ordem Alfabética (A-Z)">
+          <span>🔤 Nome (A-Z)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Comparative Table -->
+    <div class="glass-card rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xs">
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs">
-          <thead class="bg-slate-50 text-slate-700 uppercase tracking-wider text-[11px] border-b border-slate-200">
+          <thead class="bg-slate-50 text-slate-700 uppercase tracking-wider text-[11px] border-b border-slate-200 select-none">
             <tr>
-              <th class="py-4 px-4 font-semibold">Marca</th>
-              <th class="py-4 px-3 font-semibold text-center">País</th>
-              <th class="py-4 px-3 font-semibold">Categoria</th>
-              <th class="py-4 px-3 font-semibold">Preço Médio</th>
-              <th class="py-4 px-3 font-semibold">Seguidores IG</th>
-              <th class="py-4 px-3 font-semibold">Plataforma E-commerce</th>
-              <th class="py-4 px-4 font-semibold">Ganchos / Conteúdo Viral</th>
-              <th class="py-4 px-3 text-right font-semibold">Raio-X</th>
+              <th onclick="toggleCompHeaderSort('name')" class="py-4 px-4 font-bold cursor-pointer hover:bg-slate-100 transition-colors" title="Clique para ordenar por nome">
+                <div class="flex items-center space-x-1">
+                  <span>Marca</span>
+                  <span id="col-sort-name" class="text-slate-400 text-[10px]">↕</span>
+                </div>
+              </th>
+              <th class="py-4 px-3 font-bold text-center">País</th>
+              <th class="py-4 px-3 font-bold">Categoria</th>
+              <th onclick="toggleCompHeaderSort('price')" class="py-4 px-3 font-bold cursor-pointer hover:bg-slate-100 transition-colors" title="Clique para ordenar por preço">
+                <div class="flex items-center space-x-1">
+                  <span>Preço Médio</span>
+                  <span id="col-sort-price" class="text-slate-400 text-[10px]">↕</span>
+                </div>
+              </th>
+              <th onclick="toggleCompHeaderSort('followers')" class="py-4 px-3 font-bold cursor-pointer hover:bg-slate-100 transition-colors" title="Clique para ordenar por seguidores">
+                <div class="flex items-center space-x-1">
+                  <span>Seguidores IG</span>
+                  <span id="col-sort-followers" class="text-slate-400 text-[10px]">↕</span>
+                </div>
+              </th>
+              <th class="py-4 px-3 font-bold">Plataforma</th>
+              <th class="py-4 px-4 font-bold">Ganchos / Conteúdo Viral</th>
+              <th class="py-4 px-3 text-right font-bold">Ação</th>
             </tr>
           </thead>
           <tbody id="comparator-tbody" class="divide-y divide-slate-100 text-slate-700">
-            <!-- Rendered via JS with Group Headers -->
+            <!-- Rendered via JS -->
           </tbody>
         </table>
       </div>
@@ -519,9 +586,9 @@
   </div>
 
   <!-- DATA & APP SCRIPT -->
-  <script src="data/sync_status.js?v=20261105_225048"></script>
-  <script src="data/real_ig_posts.js?v=20261105_225048"></script>
-  <script src="data/brands_deep_data.js?v=20261105_225048"></script>
+  <script src="data/sync_status.js?v=20261105_2305"></script>
+  <script src="data/real_ig_posts.js?v=20261105_2305"></script>
+  <script src="data/brands_deep_data.js?v=20261105_2305"></script>
   <script>
     // Flag Mapping: Real Country Flags saved locally in assets/flags/
     const BRAND_COUNTRY_MAP = {
@@ -1847,43 +1914,149 @@
       `;
     }
 
-    // 15. COMPARATOR TABLE (SEPARADO POR BOTAS, SAPATOS E MALAS COM BANDEIRAS REAIS)
+    // 15. COMPARATOR TABLE (ORDENÁVEL: SAPATOS, BOTAS E MALAS)
+    let compCurrentCategory = 'sapatos'; // 'sapatos' (default), 'botas', 'malas', 'todas'
+    let compCurrentSort = 'default';     // 'default', 'price-asc', 'price-desc', 'followers-desc', 'followers-asc', 'name-asc', 'name-desc'
+
+    function parseFollowerNumber(b) {
+      if (b.instagram && typeof b.instagram.seguidoresNum === 'number') {
+        return b.instagram.seguidoresNum;
+      }
+      const str = b.instagram ? b.instagram.seguidores : '';
+      if (!str) return 0;
+      const clean = str.toString().trim().toUpperCase().replace(/\./g, '').replace(/,/g, '.');
+      if (clean.includes('M')) return parseFloat(clean.replace('M', '')) * 1000000;
+      if (clean.includes('K')) return parseFloat(clean.replace('K', '')) * 1000;
+      return parseFloat(clean) || 0;
+    }
+
+    function parsePrice(b) {
+      return typeof b.precoMedio === 'number' ? b.precoMedio : (parseFloat(b.precoMedio) || 0);
+    }
+
+    function setCompCategoryFilter(cat) {
+      compCurrentCategory = cat;
+
+      // Update button styles
+      ['sapatos', 'botas', 'malas', 'todas'].forEach(c => {
+        const btn = document.getElementById('comp-cat-' + c);
+        if (!btn) return;
+        if (c === cat) {
+          btn.className = 'comp-cat-btn px-3 py-1.5 rounded-lg font-bold transition-all bg-slate-900 text-white shadow-xs cursor-pointer';
+        } else {
+          btn.className = 'comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer';
+        }
+      });
+
+      renderComparatorTable();
+    }
+
+    function setCompSort(sortType) {
+      compCurrentSort = sortType;
+
+      // Update button active styles
+      const sortBtns = ['default', 'price-asc', 'price-desc', 'followers-desc', 'followers-asc', 'name-asc'];
+      sortBtns.forEach(st => {
+        const btn = document.getElementById('comp-sort-' + st);
+        if (!btn) return;
+        if (st === sortType) {
+          btn.className = 'comp-sort-btn px-2.5 py-1 rounded-lg font-bold border transition-all bg-amber-600 text-white border-amber-600 shadow-xs cursor-pointer';
+        } else {
+          btn.className = 'comp-sort-btn px-2.5 py-1 rounded-lg font-medium border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-all flex items-center space-x-1 cursor-pointer';
+        }
+      });
+
+      // Update active sort label
+      const label = document.getElementById('comp-active-sort-label');
+      if (label) {
+        const labelsMap = {
+          'default': '(Ordem Padrão)',
+          'price-asc': '(Preço: Mais Barato Primeiro)',
+          'price-desc': '(Preço: Mais Caro Primeiro)',
+          'followers-desc': '(Seguidores: Mais Populares)',
+          'followers-asc': '(Seguidores: Menos Populares)',
+          'name-asc': '(Nome: A - Z)'
+        };
+        label.textContent = labelsMap[sortType] || '';
+      }
+
+      renderComparatorTable();
+    }
+
+    function toggleCompHeaderSort(col) {
+      if (col === 'price') {
+        setCompSort(compCurrentSort === 'price-asc' ? 'price-desc' : 'price-asc');
+      } else if (col === 'followers') {
+        setCompSort(compCurrentSort === 'followers-desc' ? 'followers-asc' : 'followers-desc');
+      } else if (col === 'name') {
+        setCompSort(compCurrentSort === 'name-asc' ? 'default' : 'name-asc');
+      }
+    }
+
     function renderComparatorTable() {
       const tbody = document.getElementById('comparator-tbody');
-      const categories = [
-        { key: 'botas', title: 'SECÇÃO 1: BOTAS (30 MARCAS) • Conforme botas.txt / concorrentes.json', icon: '👢', bg: 'bg-amber-50/90 text-amber-900 border-amber-200' },
-        { key: 'sapatos', title: 'SECÇÃO 2: SAPATOS (30 MARCAS) • Conforme sapatos.txt / concorrentes.json', icon: '👞', bg: 'bg-blue-50/90 text-blue-900 border-blue-200' },
-        { key: 'malas', title: 'SECÇÃO 3: MALAS & ACESSÓRIOS (30 MARCAS) • Conforme malas.txt / concorrentes.json', icon: '🎒', bg: 'bg-emerald-50/90 text-emerald-900 border-emerald-200' }
+      if (!tbody) return;
+
+      // Categories strictly ordered: 1. Sapatos, 2. Botas, 3. Malas
+      const allCategories = [
+        { key: 'sapatos', title: 'SECÇÃO 1: SAPATOS (31 MARCAS)', icon: '👞', bg: 'bg-blue-50/90 text-blue-900 border-blue-200' },
+        { key: 'botas', title: 'SECÇÃO 2: BOTAS (30 MARCAS)', icon: '👢', bg: 'bg-amber-50/90 text-amber-900 border-amber-200' },
+        { key: 'malas', title: 'SECÇÃO 3: MALAS & ACESSÓRIOS (30 MARCAS)', icon: '🎒', bg: 'bg-emerald-50/90 text-emerald-900 border-emerald-200' }
       ];
 
+      const activeCategories = (compCurrentCategory === 'todas') 
+        ? allCategories 
+        : allCategories.filter(c => c.key === compCurrentCategory);
+
       let html = '';
-      categories.forEach(cat => {
-        const brands = BRANDS_DEEP_DATA.filter(b => b.categoria === cat.key);
+
+      activeCategories.forEach(cat => {
+        let brands = BRANDS_DEEP_DATA.filter(b => b.categoria === cat.key);
+
+        // Apply sorting
+        if (compCurrentSort === 'price-asc') {
+          brands.sort((a, b) => parsePrice(a) - parsePrice(b));
+        } else if (compCurrentSort === 'price-desc') {
+          brands.sort((a, b) => parsePrice(b) - parsePrice(a));
+        } else if (compCurrentSort === 'followers-desc') {
+          brands.sort((a, b) => parseFollowerNumber(b) - parseFollowerNumber(a));
+        } else if (compCurrentSort === 'followers-asc') {
+          brands.sort((a, b) => parseFollowerNumber(a) - parseFollowerNumber(b));
+        } else if (compCurrentSort === 'name-asc') {
+          brands.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
         html += `
           <tr class="${cat.bg} border-y border-slate-200 font-bold">
-            <td colspan="8" class="py-2.5 px-4 text-xs uppercase tracking-wider">
-              <span class="mr-1">${cat.icon}</span> ${cat.title}
+            <td colspan="8" class="py-2.5 px-4 text-xs uppercase tracking-wider flex-1">
+              <div class="flex items-center justify-between">
+                <span>${cat.icon} ${cat.title}</span>
+                <span class="font-mono text-[11px] font-semibold opacity-80">${brands.length} marcas</span>
+              </div>
             </td>
           </tr>
         `;
-        html += brands.map(b => `
-          <tr class="hover:bg-slate-50/80 transition-colors">
-            <td class="py-3.5 px-4 font-bold text-slate-900">
+
+        html += brands.map((b, idx) => `
+          <tr class="hover:bg-slate-50/80 transition-colors border-b border-slate-100">
+            <td class="py-3 px-4 font-bold text-slate-900">
               <div class="flex items-center space-x-2.5">
-                ${getBrandFlagImg(b.id)}
-                <span>${b.name}</span>
+                <span class="text-[10px] font-mono text-slate-400 font-bold w-5">#${idx + 1}</span>
+                ${getBrandFlagImg(b.id, 'w-4 h-3 rounded-2xs shadow-2xs')}
+                <span class="font-bold tracking-tight hover:text-amber-700 cursor-pointer" onclick="filterBrandCategory('${b.categoria}'); selectBrand('${b.id}')">${b.name}</span>
+                <span class="text-xs text-slate-400 font-normal font-mono">@${b.instagram.handle}</span>
               </div>
             </td>
-            <td class="py-3.5 px-3 text-center">
-              ${getBrandFlagImg(b.id)}
+            <td class="py-3 px-3 text-center">
+              ${getBrandFlagImg(b.id, 'w-4 h-3 inline-block rounded-2xs shadow-2xs')}
             </td>
-            <td class="py-3.5 px-3 font-medium text-slate-600">${b.categoriaLabel}</td>
-            <td class="py-3.5 px-3 font-mono font-bold text-emerald-700">~${b.precoMedio}€</td>
-            <td class="py-3.5 px-3 font-bold text-slate-900">${b.instagram.seguidores}</td>
-            <td class="py-3.5 px-3 text-slate-600">${b.website.plataforma}</td>
-            <td class="py-3.5 px-4 text-xs text-slate-500 italic max-w-xs truncate">${b.instagram.ganchosConteudo[0]}</td>
-            <td class="py-3.5 px-3 text-right">
-              <button onclick="filterBrandCategory('${b.categoria}'); selectBrand('${b.id}')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-bold border border-slate-200 transition-colors">
+            <td class="py-3 px-3 text-slate-600 font-medium text-[11px]">${b.categoriaLabel}</td>
+            <td class="py-3 px-3 font-mono font-bold text-emerald-700">~${b.precoMedio}€</td>
+            <td class="py-3 px-3 font-bold text-slate-900 font-mono">${b.instagram.seguidores}</td>
+            <td class="py-3 px-3 text-slate-600">${b.website.plataforma}</td>
+            <td class="py-3 px-4 text-xs text-slate-500 italic max-w-xs truncate" title="${b.instagram.ganchosConteudo[0]}">${b.instagram.ganchosConteudo[0]}</td>
+            <td class="py-3 px-3 text-right">
+              <button onclick="filterBrandCategory('${b.categoria}'); selectBrand('${b.id}')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-amber-600 hover:text-white text-slate-800 text-[11px] font-bold border border-slate-200 transition-all shadow-2xs cursor-pointer">
                 Raio-X
               </button>
             </td>
@@ -1892,6 +2065,7 @@
       });
 
       tbody.innerHTML = html;
+      lucide.createIcons();
     }
   </script>
 

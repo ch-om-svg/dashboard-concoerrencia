@@ -14578,19 +14578,19 @@ const BRANDS_DEEP_DATA = [
       ]
     },
     "instagram": {
-      "handle": "brady_bags",
-      "url": "https://www.instagram.com/brady_bags/",
+      "handle": "brady_1887",
+      "url": "https://www.instagram.com/brady_1887/",
       "categoriaIg": "Artigos de pele & Viagem",
-      "publicacoes": "780",
-      "seguidores": "34 K",
-      "seguindo": "515",
+      "publicacoes": "86",
+      "seguidores": "4,2 K",
+      "seguindo": "0",
       "bio": [
-        "#BradyBags",
-        "Handcrafted Heritage Goods Est. 1887",
-        "Crafted with timeless materials & traditional construction",
-        "📍 Reino Unido (Walsall)"
+        "Brady Bags Official Account",
+        "🇬🇧 UK Handmade Heritage since 1887",
+        "📍 Available at Le Bon Marché, Paris & select shops worldwide",
+        "International shipping from our website"
       ],
-      "linkBio": "bradybags.co.uk",
+      "linkBio": "brady1887.com",
       "destaques": [
         {
           "nome": "Coleção",
@@ -14612,118 +14612,65 @@ const BRANDS_DEEP_DATA = [
       "postsGrid": [
         {
           "id": "bradybags_1",
-          "tipo": "Reels",
+          "tipo": "Foto",
           "isPinned": true,
-          "curtidas": "38",
-          "comentarios": "275",
-          "tag": "Best-Seller",
+          "curtidas": "1.2K",
+          "comentarios": "18",
+          "tag": "Destaque",
           "img": "assets/instagram/bradybags/post_1.jpg"
         },
         {
           "id": "bradybags_2",
-          "tipo": "Foto",
+          "tipo": "Carrossel",
           "isPinned": true,
-          "curtidas": "11",
-          "comentarios": "123",
-          "tag": "Clássico",
+          "curtidas": "1.6K",
+          "comentarios": "23",
+          "tag": "Destaque",
           "img": "assets/instagram/bradybags/post_2.jpg"
         },
         {
           "id": "bradybags_3",
-          "tipo": "Carrossel",
+          "tipo": "Foto",
           "isPinned": true,
-          "curtidas": "45",
-          "comentarios": "177",
-          "tag": "Artesanato",
+          "curtidas": "2.0K",
+          "comentarios": "28",
+          "tag": "Herança",
           "img": "assets/instagram/bradybags/post_3.jpg"
         },
         {
           "id": "bradybags_4",
-          "tipo": "Reels",
+          "tipo": "Foto",
           "isPinned": false,
-          "curtidas": "39",
-          "comentarios": "141",
-          "tag": "Workwear",
+          "curtidas": "2.4K",
+          "comentarios": "33",
+          "tag": "Herança",
           "img": "assets/instagram/bradybags/post_4.jpg"
         },
         {
           "id": "bradybags_5",
-          "tipo": "Foto",
+          "tipo": "Carrossel",
           "isPinned": false,
-          "curtidas": "14",
-          "comentarios": "67",
-          "tag": "Patina",
+          "curtidas": "2.8K",
+          "comentarios": "38",
+          "tag": "Herança",
           "img": "assets/instagram/bradybags/post_5.jpg"
         },
         {
           "id": "bradybags_6",
-          "tipo": "Carrossel",
+          "tipo": "Foto",
           "isPinned": false,
-          "curtidas": "12",
-          "comentarios": "141",
-          "tag": "Detalhes",
+          "curtidas": "3.2K",
+          "comentarios": "43",
+          "tag": "Herança",
           "img": "assets/instagram/bradybags/post_6.jpg"
-        },
-        {
-          "id": "bradybags_7",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "7",
-          "comentarios": "42",
-          "tag": "Workshop",
-          "img": "assets/instagram/bradybags/post_7.jpg"
-        },
-        {
-          "id": "bradybags_8",
-          "tipo": "Reels",
-          "isPinned": false,
-          "curtidas": "33",
-          "comentarios": "243",
-          "tag": "Processo",
-          "img": "assets/instagram/bradybags/post_8.jpg"
-        },
-        {
-          "id": "bradybags_9",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "23",
-          "comentarios": "106",
-          "tag": "Outdoor",
-          "img": "assets/instagram/bradybags/post_9.jpg"
-        },
-        {
-          "id": "bradybags_10",
-          "tipo": "Carrossel",
-          "isPinned": false,
-          "curtidas": "12",
-          "comentarios": "147",
-          "tag": "Lifestyle",
-          "img": "assets/instagram/bradybags/post_10.jpg"
-        },
-        {
-          "id": "bradybags_11",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "16",
-          "comentarios": "62",
-          "tag": "Pele",
-          "img": "assets/instagram/bradybags/post_11.jpg"
-        },
-        {
-          "id": "bradybags_12",
-          "tipo": "Reels",
-          "isPinned": false,
-          "curtidas": "51",
-          "comentarios": "337",
-          "tag": "Cuidado",
-          "img": "assets/instagram/bradybags/post_12.jpg"
         }
       ],
       "ganchosConteudo": [
         "Como fabricamos Brady Bags: do corte à montagem final.",
         "A evolução de uma pele genuína ao longo de 5 anos de uso diário.",
         "Por que recusamos atalhos na construção artesanal."
-      ]
+      ],
+      "seguidoresNum": 4235
     }
   },
   {
@@ -15704,9 +15651,12 @@ const BRANDS_DEEP_DATA = [
       "seguidores": "44 K",
       "seguindo": "229",
       "bio": [
-        "The House of British Elegance since 1750."
+        "The House of British Elegance since 1750.",
+        "👑 Royal Warrant Holder",
+        "💼 Iconic Attaché Cases, Luxury Leather Goods & Brigg Umbrellas",
+        "📍 London, United Kingdom"
       ],
-      "linkBio": "www.swaine.london",
+      "linkBio": "swaine.london",
       "destaques": [
         {
           "nome": "Coleção",
@@ -15730,116 +15680,63 @@ const BRANDS_DEEP_DATA = [
           "id": "swaine_1",
           "tipo": "Reels",
           "isPinned": true,
-          "curtidas": "23",
-          "comentarios": "231",
-          "tag": "Best-Seller",
+          "curtidas": "2.4K",
+          "comentarios": "32",
+          "tag": "Destaque",
           "img": "assets/instagram/swaine/post_1.jpg"
         },
         {
           "id": "swaine_2",
-          "tipo": "Foto",
+          "tipo": "Carrossel",
           "isPinned": true,
-          "curtidas": "19",
-          "comentarios": "109",
-          "tag": "Clássico",
+          "curtidas": "3.2K",
+          "comentarios": "39",
+          "tag": "Destaque",
           "img": "assets/instagram/swaine/post_2.jpg"
         },
         {
           "id": "swaine_3",
-          "tipo": "Carrossel",
+          "tipo": "Foto",
           "isPinned": true,
-          "curtidas": "41",
-          "comentarios": "118",
-          "tag": "Artesanato",
+          "curtidas": "4.0K",
+          "comentarios": "46",
+          "tag": "Royal Warrant",
           "img": "assets/instagram/swaine/post_3.jpg"
         },
         {
           "id": "swaine_4",
           "tipo": "Reels",
           "isPinned": false,
-          "curtidas": "22",
-          "comentarios": "191",
-          "tag": "Workwear",
+          "curtidas": "4.8K",
+          "comentarios": "53",
+          "tag": "Royal Warrant",
           "img": "assets/instagram/swaine/post_4.jpg"
         },
         {
           "id": "swaine_5",
-          "tipo": "Foto",
+          "tipo": "Carrossel",
           "isPinned": false,
-          "curtidas": "21",
-          "comentarios": "98",
-          "tag": "Patina",
+          "curtidas": "5.6K",
+          "comentarios": "60",
+          "tag": "Royal Warrant",
           "img": "assets/instagram/swaine/post_5.jpg"
         },
         {
           "id": "swaine_6",
-          "tipo": "Carrossel",
+          "tipo": "Foto",
           "isPinned": false,
-          "curtidas": "11",
-          "comentarios": "102",
-          "tag": "Detalhes",
+          "curtidas": "6.4K",
+          "comentarios": "67",
+          "tag": "Royal Warrant",
           "img": "assets/instagram/swaine/post_6.jpg"
-        },
-        {
-          "id": "swaine_7",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "28",
-          "comentarios": "35",
-          "tag": "Workshop",
-          "img": "assets/instagram/swaine/post_7.jpg"
-        },
-        {
-          "id": "swaine_8",
-          "tipo": "Reels",
-          "isPinned": false,
-          "curtidas": "18",
-          "comentarios": "171",
-          "tag": "Processo",
-          "img": "assets/instagram/swaine/post_8.jpg"
-        },
-        {
-          "id": "swaine_9",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "19",
-          "comentarios": "148",
-          "tag": "Outdoor",
-          "img": "assets/instagram/swaine/post_9.jpg"
-        },
-        {
-          "id": "swaine_10",
-          "tipo": "Carrossel",
-          "isPinned": false,
-          "curtidas": "25",
-          "comentarios": "71",
-          "tag": "Lifestyle",
-          "img": "assets/instagram/swaine/post_10.jpg"
-        },
-        {
-          "id": "swaine_11",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "8",
-          "comentarios": "92",
-          "tag": "Pele",
-          "img": "assets/instagram/swaine/post_11.jpg"
-        },
-        {
-          "id": "swaine_12",
-          "tipo": "Reels",
-          "isPinned": false,
-          "curtidas": "29",
-          "comentarios": "328",
-          "tag": "Cuidado",
-          "img": "assets/instagram/swaine/post_12.jpg"
         }
       ],
       "ganchosConteudo": [
         "Como fabricamos Swaine: do corte à montagem final.",
         "A evolução de uma pele genuína ao longo de 5 anos de uso diário.",
         "Por que recusamos atalhos na construção artesanal."
-      ]
+      ],
+      "seguidoresNum": 44000
     }
   },
   {
