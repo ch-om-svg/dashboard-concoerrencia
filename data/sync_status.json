@@ -1,17 +1,6 @@
 {
-  "last_sync": "05/11/2026 às 09:45:10",
-  "total_brands_updated": 1,
-  "brands": [
-    {
-      "id": "thursday",
-      "name": "Thursday Boot Company",
-      "updated_at": "2026-11-05 09:44:55",
-      "hero_screenshot": "assets/screenshots/thursday_hero.jpg",
-      "catalog_screenshot": "assets/screenshots/thursday_catalog.jpg",
-      "ig_followers": "1M",
-      "ig_posts": "2,873",
-      "ig_following": "229",
-      "ig_screenshot": "assets/screenshots/thursday_ig.jpg"
-    }
-  ]
+  "last_sync": "05/11/2026 às 22:44:03",
+  "total_brands_updated": 91,
+  "summary": "91 Concorrentes Sincronizados (31 Sapatos, 30 Botas, 30 Malas)",
+  "timestamp": "2026-11-05T22:44:03.540Z"
 }

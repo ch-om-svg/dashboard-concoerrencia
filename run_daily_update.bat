@@ -1,5 +1,9 @@
 @echo off
-cd /d "C:\Antigravity\Dashboard Concorrencia"
-echo [RUNNING COMPETITOR DAILY SYNC...]
-python update_competitors.py
-echo [SYNC FINISHED]
+title Atualizacao Diaria e Auditoria - Dashboard Concorrencia
+echo ========================================================
+echo A INICIAR ROTINA DE AUDITORIA E ATUALIZACAO AUTOMATIZADA
+echo ========================================================
+cd /d "%~dp0"
+node scripts\sync_all_pipeline.js
+echo.
+pause
