@@ -163,7 +163,7 @@
             </div>
             <div>
               <h1 class="font-cinzel text-lg sm:text-xl tracking-widest text-slate-900 font-bold uppercase leading-tight">CONCORRÊNCIA</h1>
-              <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Inteligência Competitiva • 91 Marcas (Sapatos, Botas e Malas)</p>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Inteligência Competitiva • 88 Marcas (Sapatos, Botas e Malas)</p>
             </div>
           </div>
 
@@ -243,7 +243,7 @@
               ↺ Repor Ordem
             </button>
             <span class="text-slate-800 bg-slate-100 px-3 py-1 rounded-lg border border-slate-200 font-mono text-xs font-bold" id="brand-count-badge">
-              31 Marcas Empilhadas
+              30 Marcas Empilhadas
             </span>
           </div>
         </div>
@@ -377,16 +377,16 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-200">
       <div>
         <h2 class="text-2xl font-bold font-serif text-slate-900 tracking-tight">Matriz Competitiva & Benchmark</h2>
-        <p class="text-xs text-slate-500 mt-1">Comparação detalhada de 91 concorrentes em Calçado & Acessórios de Luxo.</p>
+        <p class="text-xs text-slate-500 mt-1">Comparação detalhada de 88 concorrentes em Calçado & Acessórios de Luxo.</p>
       </div>
 
       <!-- Category Filter Tabs: Sapatos -> Botas -> Malas -> Todas -->
       <div class="flex flex-wrap items-center gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200 text-xs">
         <span class="text-slate-500 font-bold px-1 text-[11px]">Secção:</span>
-        <button onclick="setCompCategoryFilter('sapatos')" id="comp-cat-sapatos" class="comp-cat-btn px-3 py-1.5 rounded-lg font-bold transition-all bg-slate-900 text-white shadow-xs cursor-pointer">👞 1. Sapatos (31)</button>
+        <button onclick="setCompCategoryFilter('sapatos')" id="comp-cat-sapatos" class="comp-cat-btn px-3 py-1.5 rounded-lg font-bold transition-all bg-slate-900 text-white shadow-xs cursor-pointer">👞 1. Sapatos (30)</button>
         <button onclick="setCompCategoryFilter('botas')" id="comp-cat-botas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">👢 2. Botas (30)</button>
-        <button onclick="setCompCategoryFilter('malas')" id="comp-cat-malas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">🎒 3. Malas (30)</button>
-        <button onclick="setCompCategoryFilter('todas')" id="comp-cat-todas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">📑 Todas as Secções (91)</button>
+        <button onclick="setCompCategoryFilter('malas')" id="comp-cat-malas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">🎒 3. Malas (28)</button>
+        <button onclick="setCompCategoryFilter('todas')" id="comp-cat-todas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">📑 Todas as Secções (88)</button>
       </div>
     </div>
 
@@ -954,7 +954,7 @@
       if (cat === 'todas') return 'Todas as Botas (30)';
       if (cat === 'botas') return 'Todas as Botas (30)';
       if (cat === 'sapatos') return 'Todos os Sapatos (30)';
-      if (cat === 'malas') return 'Todas as Malas (30)';
+      if (cat === 'malas') return 'Todas as Malas (28)';
       return 'Todas as 15 Marcas';
     }
 
@@ -2009,7 +2009,7 @@
 
       // Categories strictly ordered: 1. Sapatos, 2. Botas, 3. Malas
       const allCategories = [
-        { key: 'sapatos', title: 'SECÇÃO 1: SAPATOS (31 MARCAS)', icon: '👞', bg: 'bg-blue-50/90 text-blue-900 border-blue-200' },
+        { key: 'sapatos', title: 'SECÇÃO 1: SAPATOS (30 MARCAS)', icon: '👞', bg: 'bg-blue-50/90 text-blue-900 border-blue-200' },
         { key: 'botas', title: 'SECÇÃO 2: BOTAS (30 MARCAS)', icon: '👢', bg: 'bg-amber-50/90 text-amber-900 border-amber-200' },
         { key: 'malas', title: 'SECÇÃO 3: MALAS & ACESSÓRIOS (30 MARCAS)', icon: '🎒', bg: 'bg-emerald-50/90 text-emerald-900 border-emerald-200' }
       ];
