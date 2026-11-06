@@ -169,11 +169,11 @@
 
           <!-- Mobile Quick Actions (shown only on mobile) -->
           <div class="flex lg:hidden items-center space-x-2">
-            <button onclick="openAddBrandModal()" class="px-2.5 py-1.5 text-xs font-bold text-white bg-amber-600 hover:bg-amber-700 rounded-lg flex items-center space-x-1 shadow-xs cursor-pointer" title="Inserir Marca">
-              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-              <span>Marca</span>
+            <button onclick="openAddBrandModal()" class="px-3 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 rounded-xl flex items-center space-x-1.5 shadow-sm cursor-pointer" title="Inserir Nova Marca">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i>
+              <span>+ Nova Marca</span>
             </button>
-            <button onclick="lockDashboard()" class="p-2 text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors cursor-pointer" title="Bloquear acesso">
+            <button onclick="lockDashboard()" class="p-2 text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer" title="Bloquear acesso">
               <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
             </button>
           </div>
@@ -188,6 +188,10 @@
           <button onclick="setMainMode('comparator')" id="nav-comp-btn" class="flex-1 lg:flex-initial px-3 sm:px-4 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 text-slate-600 hover:text-slate-900 transition-all whitespace-nowrap cursor-pointer">
             <i data-lucide="table" class="w-3.5 h-3.5"></i>
             <span>Matriz Comparativa</span>
+          </button>
+          <button onclick="openAddBrandModal()" class="flex-1 lg:flex-initial px-3 sm:px-4 py-1.5 rounded-lg text-xs font-bold flex items-center justify-center space-x-1.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white shadow-xs transition-all whitespace-nowrap cursor-pointer" title="Inserir nova marca concorrente no benchmark">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+            <span>+ Inserir Marca</span>
           </button>
           <button onclick="lockDashboard()" class="hidden lg:flex text-slate-500 hover:text-slate-800 bg-white hover:bg-slate-100 border border-slate-200 px-2.5 py-1.5 rounded-lg items-center space-x-1.5 font-semibold transition-colors shadow-xs text-xs cursor-pointer" title="Bloquear acesso e terminar sessão">
             <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
@@ -738,9 +742,9 @@
   </div>
 
   <!-- DATA & APP SCRIPT -->
-  <script src="data/sync_status.js?v=20261105_2305"></script>
-  <script src="data/real_ig_posts.js?v=20261105_2305"></script>
-  <script src="data/brands_deep_data.js?v=20261105_2305"></script>
+  <script src="data/sync_status.js?v=20261106_1115"></script>
+  <script src="data/real_ig_posts.js?v=20261106_1115"></script>
+  <script src="data/brands_deep_data.js?v=20261106_1115"></script>
   <script>
     // Flag Mapping: Real Country Flags saved locally in assets/flags/
     const BRAND_COUNTRY_MAP = {
@@ -1074,7 +1078,7 @@
       if (!toast) {
         toast = document.createElement('div');
         toast.id = 'global-toast-alert';
-        toast.className = 'fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-amber-600/30 flex items-center space-x-2 text-xs font-bold transition-all duration-300 opacity-0 translate-y-4 pointer-events-none';
+        toast.className = 'fixed bottom-22 right-6 z-40 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-amber-600/30 flex items-center space-x-2 text-xs font-bold transition-all duration-300 opacity-0 translate-y-4 pointer-events-none';
         document.body.appendChild(toast);
       }
       toast.innerHTML = '<span class="text-amber-500 text-sm">✦</span><span>' + msg + '</span>';
@@ -2484,8 +2488,16 @@
     }
   </script>
 
+  <!-- Floating Action Button: Inserir Marca -->
+  <button id="fab-add-brand" onclick="openAddBrandModal()" class="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl shadow-2xl border-2 border-white/40 hover:scale-105 active:scale-95 transition-all flex items-center space-x-2.5 cursor-pointer group" title="Inserir Nova Marca Concorrente">
+    <div class="w-7 h-7 rounded-xl bg-white/20 flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
+      <i data-lucide="plus" class="w-5 h-5 text-white"></i>
+    </div>
+    <span class="text-xs sm:text-sm tracking-wide font-cinzel font-bold uppercase">+ Inserir Marca</span>
+  </button>
+
   <!-- Floating Back to Top Button -->
-  <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-50 bg-slate-900 hover:bg-amber-600 text-white font-bold text-xs py-3 px-4 rounded-full shadow-xl flex items-center space-x-2 transition-all duration-300 cursor-pointer hidden opacity-95 hover:opacity-100 hover:scale-105">
+  <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-22 right-6 z-40 bg-slate-900 hover:bg-amber-600 text-white font-bold text-xs py-3 px-4 rounded-full shadow-xl flex items-center space-x-2 transition-all duration-300 cursor-pointer hidden opacity-95 hover:opacity-100 hover:scale-105">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
     <span>Voltar ao Topo</span>
   </button>
