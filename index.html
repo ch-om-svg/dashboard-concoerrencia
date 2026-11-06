@@ -167,8 +167,12 @@
             </div>
           </div>
 
-          <!-- Mobile Quick Lock Trigger (shown only on mobile) -->
-          <div class="flex lg:hidden items-center space-x-1.5">
+          <!-- Mobile Quick Actions (shown only on mobile) -->
+          <div class="flex lg:hidden items-center space-x-2">
+            <button onclick="openAddBrandModal()" class="px-2.5 py-1.5 text-xs font-bold text-white bg-amber-600 hover:bg-amber-700 rounded-lg flex items-center space-x-1 shadow-xs cursor-pointer" title="Inserir Marca">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              <span>Marca</span>
+            </button>
             <button onclick="lockDashboard()" class="p-2 text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors cursor-pointer" title="Bloquear acesso">
               <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
             </button>
@@ -197,7 +201,11 @@
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span id="sync-status-badge">Atualizado há 5h</span>
           </div>
-          <button onclick="openSyncModal()" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg flex items-center space-x-1.5 font-semibold transition-colors shadow-xs" title="Configurar Automação Diária / Executar Agora">
+          <button onclick="openAddBrandModal()" class="bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded-lg flex items-center space-x-1.5 font-bold transition-all shadow-xs cursor-pointer" title="Inserir nova marca concorrente">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Inserir Marca</span>
+          </button>
+          <button onclick="openSyncModal()" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg flex items-center space-x-1.5 font-semibold transition-colors shadow-xs cursor-pointer" title="Configurar Automação Diária / Executar Agora">
             <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-amber-600"></i>
             <span>Sincronizar</span>
           </button>
@@ -220,12 +228,16 @@
           <i data-lucide="crosshair" class="w-4 h-4 text-amber-600"></i>
           <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Selecione o Nicho & Marca:</span>
         </div>
-        <!-- Category selector (Todas (15) | Botas | Sapatos | Malas) -->
-        <div class="flex items-center space-x-2 text-xs">
+        <!-- Category selector (Sapatos | Botas | Malas + Inserir Marca) -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
           <span class="text-slate-500 font-medium">Secções:</span>
           <button onclick="filterBrandCategory('sapatos')" id="cat-pill-sapatos" class="cat-pill active px-4 py-2 rounded-xl bg-slate-900 text-white font-bold transition-all shadow-xs cursor-pointer">👞 1. Sapatos</button>
           <button onclick="filterBrandCategory('botas')" id="cat-pill-botas" class="cat-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 font-bold transition-all cursor-pointer">👢 2. Botas</button>
           <button onclick="filterBrandCategory('malas')" id="cat-pill-malas" class="cat-pill px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-900 font-bold transition-all cursor-pointer">🎒 3. Malas</button>
+          <button onclick="openAddBrandModal()" class="px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-bold transition-all shadow-xs flex items-center space-x-1.5 cursor-pointer sm:ml-auto" title="Inserir nova marca neste nicho">
+            <i data-lucide="plus" class="w-3.5 h-3.5 text-amber-600"></i>
+            <span>+ Inserir Marca</span>
+          </button>
         </div>
       </div>
 
@@ -387,6 +399,10 @@
         <button onclick="setCompCategoryFilter('botas')" id="comp-cat-botas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">👢 2. Botas (30)</button>
         <button onclick="setCompCategoryFilter('malas')" id="comp-cat-malas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">🎒 3. Malas (28)</button>
         <button onclick="setCompCategoryFilter('todas')" id="comp-cat-todas" class="comp-cat-btn px-3 py-1.5 rounded-lg font-semibold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">📑 Todas as Secções (88)</button>
+        <button onclick="openAddBrandModal()" class="px-3 py-1.5 rounded-lg font-bold transition-all bg-amber-600 hover:bg-amber-700 text-white shadow-xs flex items-center space-x-1.5 cursor-pointer sm:ml-auto text-xs" title="Inserir nova marca na matriz">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          <span>+ Inserir Marca</span>
+        </button>
       </div>
     </div>
 
@@ -526,6 +542,132 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+
+  <!-- ADD BRAND MODAL (INSERIR MARCA COM SAPATOS, BOTAS OU MALAS, INSTA E SITE) -->
+  <div id="add-brand-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close button -->
+      <button onclick="closeAddBrandModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer" title="Fechar">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="flex items-center space-x-3.5 pb-4 border-b border-slate-100">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-white shadow-md shadow-amber-600/20 shrink-0">
+          <i data-lucide="plus" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold font-serif text-slate-900">Inserir Nova Marca Concorrente</h3>
+          <p class="text-xs text-slate-500">Cadastre uma nova marca de luxo no benchmark para monitorizar</p>
+        </div>
+      </div>
+
+      <!-- Add Brand Form -->
+      <form id="add-brand-form" onsubmit="handleAddNewBrand(event)" class="space-y-4 text-left">
+        
+        <!-- 1. Nome da Marca -->
+        <div class="space-y-1.5">
+          <label for="new-brand-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+            Nome da Marca <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="new-brand-name" placeholder="Ex: Edward Green, Vass Shoes, Métier..." required
+            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-amber-600 focus:bg-white focus:ring-1 focus:ring-amber-600 transition-all font-medium">
+        </div>
+
+        <!-- 2. Escolha da Secção / Categoria -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+            Escolher Secção / Categoria <span class="text-red-500">*</span>
+          </label>
+          <input type="hidden" id="new-brand-cat" value="sapatos">
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" onclick="selectNewBrandCategory('sapatos')" id="new-cat-btn-sapatos"
+              class="cat-select-btn px-3 py-2.5 rounded-xl border border-slate-900 bg-slate-900 text-white font-bold text-xs flex items-center justify-center space-x-1.5 shadow-xs transition-all cursor-pointer">
+              <span>👞 1. Sapatos</span>
+            </button>
+            <button type="button" onclick="selectNewBrandCategory('botas')" id="new-cat-btn-botas"
+              class="cat-select-btn px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 font-semibold text-xs flex items-center justify-center space-x-1.5 transition-all cursor-pointer">
+              <span>👢 2. Botas</span>
+            </button>
+            <button type="button" onclick="selectNewBrandCategory('malas')" id="new-cat-btn-malas"
+              class="cat-select-btn px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 font-semibold text-xs flex items-center justify-center space-x-1.5 transition-all cursor-pointer">
+              <span>🎒 3. Malas</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Instagram -->
+        <div class="space-y-1.5">
+          <label for="new-brand-ig" class="block text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center justify-between">
+            <span>Perfil de Instagram <span class="text-red-500">*</span></span>
+            <span class="text-[10px] text-slate-400 font-normal">@handle ou URL</span>
+          </label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-pink-600">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <input type="text" id="new-brand-ig" placeholder="@nome_da_marca ou https://www.instagram.com/marca" required
+              class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-amber-600 focus:bg-white focus:ring-1 focus:ring-amber-600 transition-all font-mono">
+          </div>
+        </div>
+
+        <!-- 4. Website Oficial -->
+        <div class="space-y-1.5">
+          <label for="new-brand-website" class="block text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center justify-between">
+            <span>Website Oficial <span class="text-red-500">*</span></span>
+            <span class="text-[10px] text-slate-400 font-normal">URL da loja ou marca</span>
+          </label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </div>
+            <input type="text" id="new-brand-website" placeholder="https://www.marca.com" required
+              class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-amber-600 focus:bg-white focus:ring-1 focus:ring-amber-600 transition-all font-mono">
+          </div>
+        </div>
+
+        <!-- 5. Detalhes Adicionais (País & Preço) -->
+        <div class="grid grid-cols-2 gap-3 pt-1">
+          <div class="space-y-1.5">
+            <label for="new-brand-country" class="block text-xs font-bold text-slate-700 uppercase tracking-wider">País de Origem</label>
+            <select id="new-brand-country" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 font-medium focus:outline-hidden focus:border-amber-600">
+              <option value="pt">🇵🇹 Portugal</option>
+              <option value="uk" selected>🇬🇧 Reino Unido</option>
+              <option value="it">🇮🇹 Itália</option>
+              <option value="us">🇺🇸 Estados Unidos</option>
+              <option value="es">🇪🇸 Espanha</option>
+              <option value="fr">🇫🇷 França</option>
+              <option value="jp">🇯🇵 Japão</option>
+              <option value="de">🇩🇪 Alemanha</option>
+              <option value="ca">🇨🇦 Canadá</option>
+            </select>
+          </div>
+          <div class="space-y-1.5">
+            <label for="new-brand-price" class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Ticket Médio (€)</label>
+            <input type="text" id="new-brand-price" placeholder="Ex: ~350 €"
+              class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-amber-600 font-medium">
+          </div>
+        </div>
+
+        <!-- Form Error Notice -->
+        <div id="add-brand-error" class="hidden p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl font-medium"></div>
+
+        <!-- Submit Buttons -->
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
+          <button type="button" onclick="closeAddBrandModal()" class="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 font-semibold text-xs transition-colors cursor-pointer">
+            Cancelar
+          </button>
+          <button type="submit" id="add-brand-submit-btn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold text-xs shadow-md shadow-amber-600/20 transition-all flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Inserir Marca no Dashboard</span>
+          </button>
+        </div>
+
+      </form>
     </div>
   </div>
 
@@ -874,7 +1016,269 @@
       input.type = (input.type === 'password') ? 'text' : 'password';
     }
 
+
+    // ==========================================
+    // CUSTOM BRAND INSERTER & PERSISTENCE
+    // ==========================================
+    const CUSTOM_BRANDS_STORAGE_KEY = 'concorrencia_custom_brands_v3';
+    let newBrandSelectedCategory = 'sapatos';
+
+    function openAddBrandModal(presetCategory) {
+      if (presetCategory && ['sapatos', 'botas', 'malas'].includes(presetCategory)) {
+        newBrandSelectedCategory = presetCategory;
+      }
+      const err = document.getElementById('add-brand-error');
+      if (err) err.classList.add('hidden');
+      const form = document.getElementById('add-brand-form');
+      if (form) form.reset();
+      selectNewBrandCategory(newBrandSelectedCategory || 'sapatos');
+
+      const modal = document.getElementById('add-brand-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+          const nameInput = document.getElementById('new-brand-name');
+          if (nameInput) nameInput.focus();
+        }, 10);
+      }
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    function closeAddBrandModal() {
+      const modal = document.getElementById('add-brand-modal');
+      if (modal) {
+        modal.classList.add('opacity-0');
+        setTimeout(() => modal.classList.add('hidden'), 200);
+      }
+    }
+
+    function selectNewBrandCategory(cat) {
+      newBrandSelectedCategory = cat;
+      const hiddenInput = document.getElementById('new-brand-cat');
+      if (hiddenInput) hiddenInput.value = cat;
+
+      ['sapatos', 'botas', 'malas'].forEach(c => {
+        const btn = document.getElementById('new-cat-btn-' + c);
+        if (!btn) return;
+        if (c === cat) {
+          btn.className = 'cat-select-btn px-3 py-2.5 rounded-xl border border-slate-900 bg-slate-900 text-white font-bold text-xs flex items-center justify-center space-x-1.5 shadow-xs transition-all cursor-pointer';
+        } else {
+          btn.className = 'cat-select-btn px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 font-semibold text-xs flex items-center justify-center space-x-1.5 transition-all cursor-pointer';
+        }
+      });
+    }
+
+    function showToastAlert(msg) {
+      let toast = document.getElementById('global-toast-alert');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'global-toast-alert';
+        toast.className = 'fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-amber-600/30 flex items-center space-x-2 text-xs font-bold transition-all duration-300 opacity-0 translate-y-4 pointer-events-none';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = '<span class="text-amber-500 text-sm">✦</span><span>' + msg + '</span>';
+      toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      }, 4000);
+    }
+
+    function handleAddNewBrand(e) {
+      if (e) e.preventDefault();
+      const name = document.getElementById('new-brand-name').value.trim();
+      const cat = newBrandSelectedCategory || document.getElementById('new-brand-cat').value || 'sapatos';
+      let igInput = document.getElementById('new-brand-ig').value.trim();
+      let webInput = document.getElementById('new-brand-website').value.trim();
+      const country = document.getElementById('new-brand-country').value || 'uk';
+      let price = document.getElementById('new-brand-price').value.trim();
+
+      if (!name || !igInput || !webInput) {
+        const err = document.getElementById('add-brand-error');
+        if (err) {
+          err.innerText = 'Por favor, preencha todos os campos obrigatórios.';
+          err.classList.remove('hidden');
+        }
+        return;
+      }
+
+      // Format Instagram handle and URL
+      let handle = igInput.replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/\/.*$/, '').replace(/^@/, '').trim();
+      let igUrl = 'https://www.instagram.com/' + handle + '/';
+      let cleanHandle = handle;
+
+      // Format website URL
+      if (!webInput.startsWith('http://') && !webInput.startsWith('https://')) {
+        webInput = 'https://' + webInput;
+      }
+
+      // Format price default if empty
+      const numPrice = parseInt(price.replace(/[^0-9]/g, '')) || (cat === 'sapatos' ? 320 : cat === 'botas' ? 380 : 450);
+
+      // Generate unique slug ID
+      const baseSlug = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+      let id = baseSlug;
+      let counter = 1;
+      while (BRANDS_DEEP_DATA.some(b => b.id === id)) {
+        id = baseSlug + '_' + (counter++);
+      }
+
+      // Sample photography according to category
+      const photoId = (cat === 'malas') ? '1548036328-c9fa89d128fa' : (cat === 'botas' ? '1520639888713-7851133b1ed0' : '1549298916-b41d501d3772');
+      const avatarUrl = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=0F172A&color=D97706&bold=true&size=256';
+      
+      const samplePosts = [];
+      for (let i = 1; i <= 12; i++) {
+        samplePosts.push({
+          id: id + '_post_' + i,
+          tipo: (i % 3 === 0) ? 'reel' : 'foto',
+          pin: (i <= 3),
+          overlay: name + ' • Coleção Oficial ' + cat.toUpperCase(),
+          views: (i % 2 === 0 ? '145K' : '88K'),
+          likes: '' + (Math.floor(Math.random() * 800) + 120),
+          comments: '' + (Math.floor(Math.random() * 40) + 5),
+          date: 'Recente',
+          thumb: 'https://images.unsplash.com/photo-' + photoId + '?w=600&auto=format&fit=crop&q=80',
+          img: 'https://images.unsplash.com/photo-' + photoId + '?w=600&auto=format&fit=crop&q=80',
+          caption: name + ' • Coleção Oficial.\nExcelência e tradição artesanal em ' + cat + '.\n\n#' + id + ' #' + cat + ' #luxury #handmade'
+        });
+      }
+
+      // Build full brand object
+      const newBrandObj = {
+        id: id,
+        name: name,
+        categoria: cat,
+        categoriaLabel: (cat === 'sapatos') ? 'Calçado Artesanal Clássico' : (cat === 'botas') ? 'Botas de Alta Gama' : 'Marroquinaria & Malas',
+        pais: (country === 'pt' ? 'Portugal' : country === 'uk' ? 'Reino Unido' : country === 'it' ? 'Itália' : country === 'es' ? 'Espanha' : country === 'fr' ? 'França' : 'EUA'),
+        bandeira: (country === 'pt' ? '🇵🇹' : country === 'uk' ? '🇬🇧' : country === 'it' ? '🇮🇹' : country === 'es' ? '🇪🇸' : country === 'fr' ? '🇫🇷' : '🇺🇸'),
+        cc: country,
+        ano: new Date().getFullYear(),
+        precoMedio: numPrice,
+        faixaPreco: (numPrice - 40) + '€ - ' + (numPrice + 80) + '€',
+        posicionamento: 'Marca concorrente adicionada para monitorização de e-commerce e Instagram.',
+        seguidoresNum: 0,
+        seguidores: 'A sincronizar',
+        website: {
+          url: webInput,
+          plataforma: 'Loja Oficial',
+          screenshot: samplePosts[0].img,
+          heroImage: samplePosts[0].img,
+          announcementBar: 'LOJA ONLINE OFICIAL',
+          headline: name,
+          subheadline: 'Artesanato de luxo em ' + cat + '.',
+          ctaPrimary: 'VER PRODUTOS',
+          ctaSecondary: 'SOBRE A MARCA',
+          produtosCatalogo: [
+            { nome: 'Modelo Ícone ' + name, preco: '€' + numPrice, img: samplePosts[1].img },
+            { nome: 'Clássico Artesanal ' + name, preco: '€' + (numPrice + 25), img: samplePosts[2].img },
+            { nome: 'Edição Especial ' + name, preco: '€' + (numPrice + 60), img: samplePosts[3].img }
+          ]
+        },
+        instagram: {
+          handle: cleanHandle,
+          verified: false,
+          url: igUrl,
+          publicacoes: '12',
+          seguidores: 'A sincronizar',
+          seguidoresNum: 0,
+          seguindo: '0',
+          categoriaIg: (cat === 'malas') ? 'Bags & Luggage' : 'Footwear',
+          bio: [
+            'Perfil oficial da marca ' + name + ' no Instagram.',
+            'Especialistas em ' + cat + ' de luxo.',
+            'Website oficial: ' + webInput.replace(/^https?:\/\//, '')
+          ],
+          linkBio: webInput.replace(/^https?:\/\//, ''),
+          avatar: avatarUrl,
+          destaques: [
+            { nome: 'Coleção', icon: '✨' },
+            { nome: 'Atelier', icon: '🛠' },
+            { nome: 'Novidades', icon: '⭐' }
+          ],
+          ganchosConteudo: [
+            '"Nova coleção artesanal ' + name + '"',
+            '"Detalhes do corte e costura manual"',
+            '"Cuidados e manutenção da pele"'
+          ],
+          postsGrid: samplePosts
+        },
+        analiseEstrategica: {
+          raioX: 'Marca adicionada ao dashboard de concorrência.',
+          gapParaAproveitar: 'Monitorização contínua de preços e lançamentos.'
+        },
+        isCustom: true
+      };
+
+      // Add to REAL_IG_POSTS in memory
+      if (typeof REAL_IG_POSTS !== 'undefined') {
+        REAL_IG_POSTS[id] = {
+          avatar: avatarUrl,
+          posts: samplePosts
+        };
+      }
+
+      // Add to BRANDS_DEEP_DATA in memory
+      BRANDS_DEEP_DATA.unshift(newBrandObj);
+
+      // Persist in localStorage
+      try {
+        const raw = localStorage.getItem(CUSTOM_BRANDS_STORAGE_KEY);
+        const list = raw ? JSON.parse(raw) : [];
+        list.unshift(newBrandObj);
+        localStorage.setItem(CUSTOM_BRANDS_STORAGE_KEY, JSON.stringify(list));
+      } catch (err) {
+        console.warn('Erro ao guardar marca no localStorage:', err);
+      }
+
+      // Close modal
+      closeAddBrandModal();
+
+      // Switch to the new brand's category
+      filterBrandCategory(cat);
+      if (typeof renderComparatorTable === 'function') {
+        renderComparatorTable();
+      }
+
+      // Toast notification
+      showToastAlert('✓ Marca "' + name + '" adicionada com sucesso!');
+
+      // Scroll to the new brand card
+      setTimeout(() => {
+        const el = document.getElementById('card-' + id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('ring-4', 'ring-amber-500/50', 'transition-all', 'duration-500');
+          setTimeout(() => el.classList.remove('ring-4', 'ring-amber-500/50'), 3000);
+        }
+      }, 350);
+    }
+
+    function loadCustomBrandsFromStorage() {
+      try {
+        const raw = localStorage.getItem(CUSTOM_BRANDS_STORAGE_KEY);
+        if (!raw) return;
+        const list = JSON.parse(raw);
+        if (Array.isArray(list)) {
+          list.forEach(cb => {
+            if (!BRANDS_DEEP_DATA.some(b => b.id === cb.id)) {
+              BRANDS_DEEP_DATA.unshift(cb);
+              if (typeof REAL_IG_POSTS !== 'undefined' && !REAL_IG_POSTS[cb.id] && cb.instagram) {
+                REAL_IG_POSTS[cb.id] = {
+                  avatar: cb.instagram.avatar,
+                  posts: cb.instagram.postsGrid
+                };
+              }
+            }
+          });
+        }
+      } catch (err) {
+        console.warn('Erro ao carregar marcas personalizadas:', err);
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      loadCustomBrandsFromStorage();
       checkAuthOnLoad();
       loadSyncStatus();
       filterBrandCategory('sapatos'); // Start with all 15 brands loaded!
@@ -886,6 +1290,7 @@
         if (e.key === 'Escape') {
           closePostModal();
           closeSyncModal();
+          closeAddBrandModal();
         }
       });
     });
@@ -1302,7 +1707,7 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 mb-3 gap-2">
               <span class="font-bold text-slate-700 uppercase tracking-wider text-[11px] flex items-center space-x-1.5">
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zm0 11h7v7h-7zM3 14h7v7H3z"/></svg>
-                <span>Publicações Oficiais (@${b.instagram.handle})</span>
+                <span>Publicações Oficiais (@${(b.instagram && b.instagram.handle) ? b.instagram.handle.replace(/^@/, '') : ''})</span>
               </span>
 
               <div class="flex items-center space-x-2">
@@ -1319,7 +1724,7 @@
               ${displayPosts.map((p, idx) => `
                 <div onclick="openPostModal('${b.id}', '${p.id}')" class="relative aspect-square overflow-hidden rounded-xl bg-slate-100 group cursor-pointer shadow-xs border border-slate-200 hover:border-amber-500 transition-all select-none">
                   <!-- Post Image -->
-                  <img src="${p.local_img || p.src || 'assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'}" alt="${b.name} post ${idx+1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'">
+                  <img src="${p.local_img || p.src || p.thumb || p.img || 'assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'}" alt="${b.name} post ${idx+1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80'">
                   
                   <!-- Top Badge: Publication Type & Pin directly on photo -->
                   <div class="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 flex items-center space-x-1 drop-shadow-md z-10 pointer-events-none">
@@ -1367,7 +1772,7 @@
                 </span>
               </div>
               <div class="flex items-center space-x-3">
-                <span class="text-[11px] bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-600 font-mono font-medium">Plataforma: <strong>${b.website.plataforma}</strong></span>
+                <span class="text-[11px] bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-600 font-mono font-medium">Plataforma: <strong>${(b.website && b.website.plataforma) ? b.website.plataforma : 'Loja Oficial'}</strong></span>
                 <a href="${b.website.url}" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs px-3.5 py-1 rounded-md transition-colors flex items-center space-x-1 shadow-2xs">
                   <span>Abrir Loja Oficial</span>
                   <i data-lucide="external-link" class="w-3 h-3"></i>
@@ -1723,7 +2128,7 @@
         html = displayPosts.map((p, idx) => `
           <div onclick="openPostModal('${b.id}', '${p.id}')" class="relative aspect-square overflow-hidden rounded-xl bg-slate-100 group cursor-pointer shadow-xs select-none border border-slate-200 hover:border-amber-500 transition-all">
             <!-- Actual Post Image -->
-            <img src="${p.local_img || p.src || 'assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'}" alt="${b.name} post ${idx+1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'">
+            <img src="${p.local_img || p.src || p.thumb || p.img || 'assets/instagram/' + b.id + '/post_' + (idx+1) + '.jpg'}" alt="${b.name} post ${idx+1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=80'">
             
             <!-- Top: Pin and Publication Type Badge directly on photo -->
             <div class="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 flex items-center space-x-1 drop-shadow-md z-10 pointer-events-none">
@@ -2064,7 +2469,7 @@
             <td class="py-3 px-3 font-mono font-bold text-emerald-700">~${b.precoMedio}€</td>
             <td class="py-3 px-3 font-bold text-slate-900 font-mono">${b.instagram.seguidores}</td>
             <td class="py-3 px-3 text-slate-600">${b.website.plataforma}</td>
-            <td class="py-3 px-4 text-xs text-slate-500 italic max-w-xs truncate" title="${b.instagram.ganchosConteudo[0]}">${b.instagram.ganchosConteudo[0]}</td>
+            <td class="py-3 px-4 text-xs text-slate-500 italic max-w-xs truncate" title="${(b.instagram && b.instagram.ganchosConteudo && b.instagram.ganchosConteudo[0]) ? b.instagram.ganchosConteudo[0] : 'Presença oficial e e-commerce'}">${(b.instagram && b.instagram.ganchosConteudo && b.instagram.ganchosConteudo[0]) ? b.instagram.ganchosConteudo[0] : 'Presença oficial e e-commerce'}</td>
             <td class="py-3 px-3 text-right">
               <button onclick="filterBrandCategory('${b.categoria}'); selectBrand('${b.id}')" class="px-2.5 py-1 rounded-lg bg-white hover:bg-amber-600 hover:text-white text-slate-800 text-[11px] font-bold border border-slate-200 transition-all shadow-2xs cursor-pointer">
                 Raio-X
