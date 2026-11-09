@@ -871,6 +871,231 @@ const BRANDS_DEEP_DATA = [
     }
   },
   {
+    "id": "trickers",
+    "name": "Tricker's",
+    "categoria": "botas",
+    "categoriaLabel": "Botas Heritage & Workwear",
+    "pais": "Reino Unido (Northampton)",
+    "cc": "gb",
+    "ano": 1829,
+    "precoMedio": 690,
+    "faixaPreco": "552€ - 931€",
+    "posicionamento": "Country boots e brogue boots",
+    "tipoDocumento": "Country boots e brogue boots",
+    "website": {
+      "url": "https://trickers.com/",
+      "plataforma": "Shopify Plus",
+      "heroImage": "assets/screenshots/trickers.jpg",
+      "screenshot": "assets/screenshots/trickers.jpg",
+      "announcementBar": "ENVIOS PARA PORTUGAL E UNIÃO EUROPEIA • PREÇOS EM EUR COM TAXAS INCLUÍDAS",
+      "headline": "Crafted Without Compromise. Authentic Heritage.",
+      "subheadline": "Country boots e brogue boots. Produzido artesanalmente com as melhores peles selecionadas.",
+      "ctaPrimary": "VER COLEÇÃO",
+      "ctaSecondary": "SOBRE A MARCA",
+      "filtrosSidebar": [
+        {
+          "grupo": "Coleção",
+          "itens": [
+            "Todos os Modelos",
+            "Novidades",
+            "Best-Sellers",
+            "Edições Limitadas"
+          ]
+        },
+        {
+          "grupo": "Materiais",
+          "itens": [
+            "Full-Grain Leather",
+            "Couro Curtido Vegetal",
+            "Camurça Impermeável"
+          ]
+        }
+      ],
+      "produtosCatalogo": [
+        {
+          "nome": "Modelo Clássico Tricker's",
+          "preco": "€690",
+          "couro": "Pele Full-Grain Premium",
+          "sola": "Goodyear Welted",
+          "tag": "Best-Seller",
+          "img": "assets/instagram/trickers/post_1.jpg"
+        },
+        {
+          "nome": "Edição Heritage Tricker's",
+          "preco": "€793",
+          "couro": "Curtume Vegetal",
+          "sola": "Vibram Commando",
+          "tag": "Clássico",
+          "img": "assets/instagram/trickers/post_2.jpg"
+        },
+        {
+          "nome": "Modelo Especial Tricker's",
+          "preco": "€655",
+          "couro": "Camurça Encerada",
+          "sola": "Dainite Rubber",
+          "tag": "Novo",
+          "img": "assets/instagram/trickers/post_3.jpg"
+        },
+        {
+          "nome": "Edição Limitada Tricker's",
+          "preco": "€897",
+          "couro": "Chromexcel / Horween",
+          "sola": "Dupla Costura",
+          "tag": "Limitado",
+          "img": "assets/instagram/trickers/post_4.jpg"
+        }
+      ]
+    },
+    "instagram": {
+      "handle": "trickers_shoes",
+      "url": "https://www.instagram.com/trickers_shoes/",
+      "categoriaIg": "Loja de calçado e artigos de pele",
+      "publicacoes": "1.980",
+      "seguidores": "218 K",
+      "seguindo": "478",
+      "bio": [
+        "#Tricker's",
+        "Handcrafted Heritage Goods Est. 1829",
+        "Crafted with timeless materials & traditional construction",
+        "📍 Reino Unido (Northampton)"
+      ],
+      "linkBio": "trickers.com",
+      "destaques": [
+        {
+          "nome": "Coleção",
+          "icon": "✨"
+        },
+        {
+          "nome": "Oficina",
+          "icon": "🔨"
+        },
+        {
+          "nome": "Peles",
+          "icon": "👞"
+        },
+        {
+          "nome": "História",
+          "icon": "🏛️"
+        }
+      ],
+      "postsGrid": [
+        {
+          "id": "trickers_1",
+          "tipo": "Reels",
+          "isPinned": true,
+          "curtidas": "55",
+          "comentarios": "320",
+          "tag": "Best-Seller",
+          "img": "assets/instagram/trickers/post_1.jpg"
+        },
+        {
+          "id": "trickers_2",
+          "tipo": "Foto",
+          "isPinned": true,
+          "curtidas": "13",
+          "comentarios": "131",
+          "tag": "Clássico",
+          "img": "assets/instagram/trickers/post_2.jpg"
+        },
+        {
+          "id": "trickers_3",
+          "tipo": "Carrossel",
+          "isPinned": true,
+          "curtidas": "21",
+          "comentarios": "187",
+          "tag": "Artesanato",
+          "img": "assets/instagram/trickers/post_3.jpg"
+        },
+        {
+          "id": "trickers_4",
+          "tipo": "Reels",
+          "isPinned": false,
+          "curtidas": "36",
+          "comentarios": "186",
+          "tag": "Workwear",
+          "img": "assets/instagram/trickers/post_4.jpg"
+        },
+        {
+          "id": "trickers_5",
+          "tipo": "Foto",
+          "isPinned": false,
+          "curtidas": "23",
+          "comentarios": "44",
+          "tag": "Patina",
+          "img": "assets/instagram/trickers/post_5.jpg"
+        },
+        {
+          "id": "trickers_6",
+          "tipo": "Carrossel",
+          "isPinned": false,
+          "curtidas": "21",
+          "comentarios": "183",
+          "tag": "Detalhes",
+          "img": "assets/instagram/trickers/post_6.jpg"
+        },
+        {
+          "id": "trickers_7",
+          "tipo": "Foto",
+          "isPinned": false,
+          "curtidas": "17",
+          "comentarios": "42",
+          "tag": "Workshop",
+          "img": "assets/instagram/trickers/post_7.jpg"
+        },
+        {
+          "id": "trickers_8",
+          "tipo": "Reels",
+          "isPinned": false,
+          "curtidas": "15",
+          "comentarios": "90",
+          "tag": "Processo",
+          "img": "assets/instagram/trickers/post_8.jpg"
+        },
+        {
+          "id": "trickers_9",
+          "tipo": "Foto",
+          "isPinned": false,
+          "curtidas": "29",
+          "comentarios": "54",
+          "tag": "Outdoor",
+          "img": "assets/instagram/trickers/post_9.jpg"
+        },
+        {
+          "id": "trickers_10",
+          "tipo": "Carrossel",
+          "isPinned": false,
+          "curtidas": "38",
+          "comentarios": "200",
+          "tag": "Lifestyle",
+          "img": "assets/instagram/trickers/post_10.jpg"
+        },
+        {
+          "id": "trickers_11",
+          "tipo": "Foto",
+          "isPinned": false,
+          "curtidas": "11",
+          "comentarios": "26",
+          "tag": "Pele",
+          "img": "assets/instagram/trickers/post_11.jpg"
+        },
+        {
+          "id": "trickers_12",
+          "tipo": "Reels",
+          "isPinned": false,
+          "curtidas": "50",
+          "comentarios": "220",
+          "tag": "Cuidado",
+          "img": "assets/instagram/trickers/post_12.jpg"
+        }
+      ],
+      "ganchosConteudo": [
+        "Como fabricamos Tricker's: do corte à montagem final.",
+        "A evolução de uma pele genuína ao longo de 5 anos de uso diário.",
+        "Por que recusamos atalhos na construção artesanal."
+      ]
+    }
+  },
+  {
     "id": "whitesboots",
     "name": "White's Boots",
     "categoria": "botas",
@@ -4669,231 +4894,6 @@ const BRANDS_DEEP_DATA = [
         "Por que recusamos atalhos na construção artesanal."
       ],
       "avatar": "assets/instagram/williamlennon_boots/avatar.jpg"
-    }
-  },
-  {
-    "id": "trickers",
-    "name": "Tricker's",
-    "categoria": "botas",
-    "categoriaLabel": "Botas Heritage & Workwear",
-    "pais": "Reino Unido (Northampton)",
-    "cc": "gb",
-    "ano": 1829,
-    "precoMedio": 690,
-    "faixaPreco": "552€ - 931€",
-    "posicionamento": "Country boots e brogue boots",
-    "tipoDocumento": "Country boots e brogue boots",
-    "website": {
-      "url": "https://trickers.com/",
-      "plataforma": "Shopify Plus",
-      "heroImage": "assets/screenshots/trickers.jpg",
-      "screenshot": "assets/screenshots/trickers.jpg",
-      "announcementBar": "ENVIOS PARA PORTUGAL E UNIÃO EUROPEIA • PREÇOS EM EUR COM TAXAS INCLUÍDAS",
-      "headline": "Crafted Without Compromise. Authentic Heritage.",
-      "subheadline": "Country boots e brogue boots. Produzido artesanalmente com as melhores peles selecionadas.",
-      "ctaPrimary": "VER COLEÇÃO",
-      "ctaSecondary": "SOBRE A MARCA",
-      "filtrosSidebar": [
-        {
-          "grupo": "Coleção",
-          "itens": [
-            "Todos os Modelos",
-            "Novidades",
-            "Best-Sellers",
-            "Edições Limitadas"
-          ]
-        },
-        {
-          "grupo": "Materiais",
-          "itens": [
-            "Full-Grain Leather",
-            "Couro Curtido Vegetal",
-            "Camurça Impermeável"
-          ]
-        }
-      ],
-      "produtosCatalogo": [
-        {
-          "nome": "Modelo Clássico Tricker's",
-          "preco": "€690",
-          "couro": "Pele Full-Grain Premium",
-          "sola": "Goodyear Welted",
-          "tag": "Best-Seller",
-          "img": "assets/instagram/trickers/post_1.jpg"
-        },
-        {
-          "nome": "Edição Heritage Tricker's",
-          "preco": "€793",
-          "couro": "Curtume Vegetal",
-          "sola": "Vibram Commando",
-          "tag": "Clássico",
-          "img": "assets/instagram/trickers/post_2.jpg"
-        },
-        {
-          "nome": "Modelo Especial Tricker's",
-          "preco": "€655",
-          "couro": "Camurça Encerada",
-          "sola": "Dainite Rubber",
-          "tag": "Novo",
-          "img": "assets/instagram/trickers/post_3.jpg"
-        },
-        {
-          "nome": "Edição Limitada Tricker's",
-          "preco": "€897",
-          "couro": "Chromexcel / Horween",
-          "sola": "Dupla Costura",
-          "tag": "Limitado",
-          "img": "assets/instagram/trickers/post_4.jpg"
-        }
-      ]
-    },
-    "instagram": {
-      "handle": "trickers_shoes",
-      "url": "https://www.instagram.com/trickers_shoes/",
-      "categoriaIg": "Loja de calçado e artigos de pele",
-      "publicacoes": "1.980",
-      "seguidores": "218 K",
-      "seguindo": "478",
-      "bio": [
-        "#Tricker's",
-        "Handcrafted Heritage Goods Est. 1829",
-        "Crafted with timeless materials & traditional construction",
-        "📍 Reino Unido (Northampton)"
-      ],
-      "linkBio": "trickers.com",
-      "destaques": [
-        {
-          "nome": "Coleção",
-          "icon": "✨"
-        },
-        {
-          "nome": "Oficina",
-          "icon": "🔨"
-        },
-        {
-          "nome": "Peles",
-          "icon": "👞"
-        },
-        {
-          "nome": "História",
-          "icon": "🏛️"
-        }
-      ],
-      "postsGrid": [
-        {
-          "id": "trickers_1",
-          "tipo": "Reels",
-          "isPinned": true,
-          "curtidas": "55",
-          "comentarios": "320",
-          "tag": "Best-Seller",
-          "img": "assets/instagram/trickers/post_1.jpg"
-        },
-        {
-          "id": "trickers_2",
-          "tipo": "Foto",
-          "isPinned": true,
-          "curtidas": "13",
-          "comentarios": "131",
-          "tag": "Clássico",
-          "img": "assets/instagram/trickers/post_2.jpg"
-        },
-        {
-          "id": "trickers_3",
-          "tipo": "Carrossel",
-          "isPinned": true,
-          "curtidas": "21",
-          "comentarios": "187",
-          "tag": "Artesanato",
-          "img": "assets/instagram/trickers/post_3.jpg"
-        },
-        {
-          "id": "trickers_4",
-          "tipo": "Reels",
-          "isPinned": false,
-          "curtidas": "36",
-          "comentarios": "186",
-          "tag": "Workwear",
-          "img": "assets/instagram/trickers/post_4.jpg"
-        },
-        {
-          "id": "trickers_5",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "23",
-          "comentarios": "44",
-          "tag": "Patina",
-          "img": "assets/instagram/trickers/post_5.jpg"
-        },
-        {
-          "id": "trickers_6",
-          "tipo": "Carrossel",
-          "isPinned": false,
-          "curtidas": "21",
-          "comentarios": "183",
-          "tag": "Detalhes",
-          "img": "assets/instagram/trickers/post_6.jpg"
-        },
-        {
-          "id": "trickers_7",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "17",
-          "comentarios": "42",
-          "tag": "Workshop",
-          "img": "assets/instagram/trickers/post_7.jpg"
-        },
-        {
-          "id": "trickers_8",
-          "tipo": "Reels",
-          "isPinned": false,
-          "curtidas": "15",
-          "comentarios": "90",
-          "tag": "Processo",
-          "img": "assets/instagram/trickers/post_8.jpg"
-        },
-        {
-          "id": "trickers_9",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "29",
-          "comentarios": "54",
-          "tag": "Outdoor",
-          "img": "assets/instagram/trickers/post_9.jpg"
-        },
-        {
-          "id": "trickers_10",
-          "tipo": "Carrossel",
-          "isPinned": false,
-          "curtidas": "38",
-          "comentarios": "200",
-          "tag": "Lifestyle",
-          "img": "assets/instagram/trickers/post_10.jpg"
-        },
-        {
-          "id": "trickers_11",
-          "tipo": "Foto",
-          "isPinned": false,
-          "curtidas": "11",
-          "comentarios": "26",
-          "tag": "Pele",
-          "img": "assets/instagram/trickers/post_11.jpg"
-        },
-        {
-          "id": "trickers_12",
-          "tipo": "Reels",
-          "isPinned": false,
-          "curtidas": "50",
-          "comentarios": "220",
-          "tag": "Cuidado",
-          "img": "assets/instagram/trickers/post_12.jpg"
-        }
-      ],
-      "ganchosConteudo": [
-        "Como fabricamos Tricker's: do corte à montagem final.",
-        "A evolução de uma pele genuína ao longo de 5 anos de uso diário.",
-        "Por que recusamos atalhos na construção artesanal."
-      ]
     }
   },
   {
@@ -18672,7 +18672,3 @@ const BRANDS_DEEP_DATA = [
     }
   }
 ];
-
-if (typeof window !== "undefined") {
-  window.BRANDS_DEEP_DATA = BRANDS_DEEP_DATA;
-}

@@ -253,8 +253,9 @@
             <span>Lojas & Marcas da Secção (Camadas completas):</span>
           </span>
           <div class="flex flex-wrap items-center gap-2">
-            
-            </span>
+            <div class="relative w-full sm:w-52">
+              <input type="text" id="brand-search-input" oninput="handleBrandSearch(this.value)" placeholder="🔍 Filtrar marca..." class="w-full bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-hidden focus:border-amber-500 focus:ring-1 focus:ring-amber-500 shadow-2xs font-medium">
+            </div>
             <button id="btn-reset-order" onclick="resetCustomCategoryOrder()" class="hidden text-xs text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 font-bold px-3 py-1 rounded-lg transition-colors cursor-pointer" title="Restaurar a ordem inicial das marcas">
               ↺ Repor Ordem
             </button>
@@ -742,9 +743,9 @@
   </div>
 
   <!-- DATA & APP SCRIPT -->
-  <script src="data/sync_status.js?v=20261109_093249"></script>
-  <script src="data/real_ig_posts.js?v=20261109_093249"></script>
-  <script src="data/brands_deep_data.js?v=20261109_093249"></script>
+  <script src="data/sync_status.js?v=20261109_094209"></script>
+  <script src="data/real_ig_posts.js?v=20261109_094209"></script>
+  <script src="data/brands_deep_data.js?v=20261109_094209"></script>
   <script>
     // Flag Mapping: Real Country Flags saved locally in assets/flags/
     const BRAND_COUNTRY_MAP = {
@@ -1342,6 +1343,8 @@
 
     // 2. NICHE FILTER: TODAS (15) | BOTAS (5) | SAPATOS (5) | MALAS (5)
     function filterBrandCategory(cat) {
+      const searchInp = document.getElementById('brand-search-input');
+      if (searchInp) searchInp.value = '';
       currentBrandCatFilter = cat;
       ['sapatos', 'botas', 'malas'].forEach(c => {
         const btn = document.getElementById(`cat-pill-${c}`);
@@ -1564,6 +1567,41 @@
         toast.style.opacity = '0';
         toast.style.transform = 'translate(-50%, 10px)';
       }, 2500);
+    }
+
+    function handleBrandSearch(query) {
+      const q = (query || '').toLowerCase().trim();
+      const list = document.getElementById('brand-selector-list');
+      const cards = document.querySelectorAll('.brand-stream-card');
+
+      if (list) {
+        Array.from(list.children).forEach(pill => {
+          if (pill.id === 'btn-brand-todas') return;
+          const brandId = pill.getAttribute('data-brand-id');
+          const b = BRANDS_DEEP_DATA.find(x => x.id === brandId);
+          const nameMatch = b && b.name.toLowerCase().includes(q);
+          const handleMatch = b && b.instagram && b.instagram.handle.toLowerCase().includes(q);
+          if (!q || nameMatch || handleMatch) {
+            pill.classList.remove('hidden');
+          } else {
+            pill.classList.add('hidden');
+          }
+        });
+      }
+
+      if (cards) {
+        cards.forEach(card => {
+          const brandId = card.getAttribute('data-brand-id');
+          const b = BRANDS_DEEP_DATA.find(x => x.id === brandId);
+          const nameMatch = b && b.name.toLowerCase().includes(q);
+          const handleMatch = b && b.instagram && b.instagram.handle.toLowerCase().includes(q);
+          if (!q || nameMatch || handleMatch) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      }
     }
 
     function renderBrandSelectorList() {
