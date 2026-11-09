@@ -742,9 +742,9 @@
   </div>
 
   <!-- DATA & APP SCRIPT -->
-  <script src="data/sync_status.js?v=20261109_093019"></script>
-  <script src="data/real_ig_posts.js?v=20261109_093019"></script>
-  <script src="data/brands_deep_data.js?v=20261109_093019"></script>
+  <script src="data/sync_status.js?v=20261109_093249"></script>
+  <script src="data/real_ig_posts.js?v=20261109_093249"></script>
+  <script src="data/brands_deep_data.js?v=20261109_093249"></script>
   <script>
     // Flag Mapping: Real Country Flags saved locally in assets/flags/
     const BRAND_COUNTRY_MAP = {
@@ -1301,9 +1301,14 @@
 
     function loadSyncStatus() {
       const badge = document.getElementById('sync-status-badge');
-      if (badge) badge.innerText = 'Atualizado há 5h';
       const modalSync = document.getElementById('modal-last-sync');
-      if (modalSync) modalSync.innerText = 'Hoje (Atualizado há 5h)';
+      if (typeof SYNC_STATUS !== 'undefined' && SYNC_STATUS.last_sync) {
+        if (badge) badge.innerText = 'Sincronizado (' + (SYNC_STATUS.last_sync.split(' às ')[1] || SYNC_STATUS.last_sync) + ')';
+        if (modalSync) modalSync.innerText = SYNC_STATUS.last_sync + ' • ' + (SYNC_STATUS.summary || '88 Marcas');
+      } else {
+        if (badge) badge.innerText = 'Sincronizado';
+        if (modalSync) modalSync.innerText = 'Hoje (Totalmente sincronizado)';
+      }
     }
 
     function openSyncModal() {
