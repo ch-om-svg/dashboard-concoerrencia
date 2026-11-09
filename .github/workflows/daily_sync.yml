@@ -1,0 +1,45 @@
+name: "Sincronização Diária de Benchmark e Feeds"
+
+on:
+  schedule:
+    # Corre todos os dias às 08:00 UTC (manhã)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Permite correr manualmente com 1 clique no GitHub
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  sync-feeds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repositório
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Dependências e Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Executar Pipeline de Auditoria e Sincronização
+        run: |
+          node scripts/sync_all_pipeline.js
+
+      - name: Gravar e Fazer Commit das Atualizações
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sync_status.js data/sync_status.json index.html
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore(sync): sincronização diária automática dos feeds [skip ci]"
+          git push origin main
