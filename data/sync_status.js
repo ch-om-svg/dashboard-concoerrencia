@@ -1,6 +1,6 @@
 const SYNC_STATUS = {
-  "last_sync": "05/11/2026 às 22:50:48",
-  "total_brands_updated": 91,
-  "summary": "91 Marcas Benchmark Sincronizados (31 Sapatos, 30 Botas, 30 Malas)",
-  "timestamp": "2026-11-05T22:50:48.967Z"
+  "last_sync": "09/11/2026 às 09:30:19",
+  "total_brands_updated": 88,
+  "summary": "88 Marcas Benchmark Sincronizadas (30 Sapatos, 30 Botas, 28 Malas)",
+  "timestamp": "2026-11-09T09:30:19.755Z"
 };

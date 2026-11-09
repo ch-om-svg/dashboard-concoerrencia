@@ -62,10 +62,15 @@ const dateStr = now.toLocaleDateString('pt-PT');
 const timeStr = now.toLocaleTimeString('pt-PT');
 const formattedTimestamp = `${dateStr} às ${timeStr}`;
 
+const catCounts = { sapatos: 0, botas: 0, malas: 0 };
+brands.forEach(b => {
+  if (catCounts[b.categoria] !== undefined) catCounts[b.categoria]++;
+});
+
 const syncStatusObj = {
   last_sync: formattedTimestamp,
   total_brands_updated: brands.length,
-  summary: `${brands.length} Concorrentes Sincronizados (31 Sapatos, 30 Botas, 30 Malas)`,
+  summary: `${brands.length} Marcas Benchmark Sincronizadas (${catCounts.sapatos} Sapatos, ${catCounts.botas} Botas, ${catCounts.malas} Malas)`,
   timestamp: now.toISOString()
 };
 
