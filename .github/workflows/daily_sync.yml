@@ -1,10 +1,10 @@
-name: "Sincronização Diária de Benchmark e Feeds"
+name: "Sincronização Semanal de Benchmark e Feeds"
 
 on:
   schedule:
-    # Corre todos os dias às 08:00 UTC (manhã)
-    - cron: '0 8 * * *'
-  workflow_dispatch: # Permite correr manualmente com 1 clique no GitHub
+    # Corre 1 vez por semana: todas as segundas-feiras às 08:00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch: # Permite correr manualmente em qualquer altura com 1 clique no GitHub
 
 permissions:
   contents: write
@@ -41,5 +41,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/sync_status.js data/sync_status.json index.html
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore(sync): sincronização diária automática dos feeds [skip ci]"
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore(sync): sincronização semanal automática dos feeds [skip ci]"
           git push origin main
